@@ -1,4 +1,4 @@
-from Packets import create_ARP,create_IP
+from Packets import *
 from scapy.all import *
 
 
@@ -16,22 +16,24 @@ def send_generated_packet (packet, number_of_packets):
 # Creates a packet based on type and data.
 def create_packet (packet_info):
     switcher = {
-        ("ARP-who-has",): lambda: create_ARP(0, packet_info["hwsrc"], packet_info["pdst"], packet_info["hwdst"], packet_info["psrc"]),
-        ("IP",): lambda: create_IP(packet_info["srcIP"], packet_info["dstIP"], packet_info["payload"])
+        "ARP-who-has": handle_create_ARP_packet,
+        "IP": handle_create_IP_packet
     }
 
-    generate_packet = switcher.get((packet_info["type"],))
+    type = packet_info.get("type", "")
+    generate_packet = switcher.get(type)
 
     if generate_packet: 
-        new_packet = generate_packet()
+        new_packet = generate_packet(packet_info)
     else:
         new_packet = None
+
     return new_packet
     
 # Handles creating and sending of packets. Packet Generation based on packet info.
 def generate_packets (packet_info):
     new_packet = create_packet(packet_info)
-    send_generated_packet(new_packet, packet_info["number"])
+    send_generated_packet(new_packet, packet_info.get("number", 1))
 
 
 # Packet Info.
