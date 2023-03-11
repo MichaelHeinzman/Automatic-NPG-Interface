@@ -8,7 +8,6 @@ https://github.com/MichaelHeinzman/Automatic-NPG-Interface/blob/master/Documents
 
 ## **Details**   
   Language : **Python**     
-  Libraries : **PyQt, Scapy, Qtest**      
-  Database : **Firestore**     
+  Libraries : **PyQt, Scapy, Qtest**          
   Design Tool : **Figma**   
 
