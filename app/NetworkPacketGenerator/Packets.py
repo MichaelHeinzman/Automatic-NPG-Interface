@@ -12,28 +12,18 @@ def handle_create_IP_packet (packet_info):
 
 # Creates an ARP response and request packet.
 def create_ARP (ARP_type, hwsrc, psrc, hwdst, pdst):
-    if ARP_type == 0:
-        arp_packet = ARP(op=ARP.who_has, pdst = pdst)
-    if ARP_type == 1:
-        arp_packet = ARP(op=ARP.is_at, hwsrc = hwsrc, psrc = psrc, hwdst = hwdst, pdst = pdst)
-        
+    arp_packet = ARP(op=ARP.who_has, pdst = pdst) if ARP_type == 0 else ARP(op=ARP.is_at, hwsrc = hwsrc, psrc = psrc, hwdst = hwdst, pdst = pdst)
+
     ARP.show(arp_packet)
-    if arp_packet:
-        return arp_packet
-    else:
-        return None
+
+    return arp_packet or None
     
 # Creates an IP packet.
 def create_IP (srcIP, dstIP, payload):
     ip_packet = IP(src=srcIP, dst=dstIP)
         
-    if payload:
-        packet = ip_packet/payload
-    else:
-        packet = ip_packet
+    packet = ip_packet/payload if payload else ip_packet
 
     IP.show(packet)
-    if packet:
-        return packet
-    else:
-        return None
+
+    return packet or None

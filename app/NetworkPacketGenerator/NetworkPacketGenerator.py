@@ -4,14 +4,10 @@ from scapy.all import *
 
 # Sends multiple of the same packet. 
 def send_generated_packet (packet, number_of_packets):
-    if number_of_packets == None:
-        return None
-    
-    if packet == None:
-        return None
+    if number_of_packets == None: return None
+    if packet == None: return None
     
     sendp(packet * number_of_packets)
-
 
 # Creates a packet based on type and data.
 def create_packet (packet_info):
@@ -23,10 +19,7 @@ def create_packet (packet_info):
     type = packet_info.get("type", "")
     generate_packet = switcher.get(type)
 
-    if generate_packet: 
-        new_packet = generate_packet(packet_info)
-    else:
-        new_packet = None
+    new_packet = generate_packet(packet_info) or None
 
     return new_packet
     
@@ -34,7 +27,6 @@ def create_packet (packet_info):
 def generate_packets (packet_info):
     new_packet = create_packet(packet_info)
     send_generated_packet(new_packet, packet_info.get("number", 1))
-
 
 # Packet Info.
 IP_packet_info = {"type":"IP", "srcIP":"192.168.1.236", "dstIP":"192.168.1.236", "payload":"", "number": 5}
