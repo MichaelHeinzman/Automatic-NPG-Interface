@@ -3,7 +3,7 @@ from scapy.layers.inet import IP, ICMP
 from scapy.layers.l2 import ARP
 
 
-# Handle calling create_Packets with packet_info
+# Handle calling create_Packets with packet_info.
 def handle_create_ARP_packet (packet_info):
     return create_ARP(0, packet_info.get("hwsrc",""), packet_info.get("pdst",""), packet_info.get("hwdst",""), packet_info.get("psrc",""))
 
@@ -23,13 +23,17 @@ def create_ARP (ARP_type, hwsrc, psrc, hwdst, pdst):
     else:
         return None
     
-
+# Creates an IP packet.
 def create_IP (srcIP, dstIP, payload):
-    ip = IP(src=srcIP, dst=dstIP)
-
+    ip_packet = IP(src=srcIP, dst=dstIP)
+        
     if payload:
-        packet = ip/payload
+        packet = ip_packet/payload
     else:
-        packet = ip
+        packet = ip_packet
 
-    return packet
+    IP.show(packet)
+    if packet:
+        return packet
+    else:
+        return None
