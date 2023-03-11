@@ -14,3 +14,14 @@ def create_ARP (ARP_type, hwsrc, psrc, hwdst, pdst):
         return arp_packet
     else:
         return None
+    
+
+def create_IP (srcIP, dstIP, payload):
+    ip = IP(src=srcIP, dst=dstIP)
+    
+    if payload:
+        packet = ip/payload
+    else:
+        packet = ip
+
+    return packet
