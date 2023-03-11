@@ -3,7 +3,7 @@ This is my 2023 Spring Project. It's a python application that allows for someon
 
 
 You can view the full documentation / report by clicking the link below.
-https://github.com/MichaelHeinzman/FT/blob/main/FT%20Capstone%20Project%20(Final%20Draft).docx%20(1).pdf
+https://github.com/MichaelHeinzman/Automatic-NPG-Interface/blob/master/Documents/Project%20Proposal.pdf
 
 
 ## **Details**   
