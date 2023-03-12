@@ -1,4 +1,5 @@
-# Automatic Network Packet Generator
+# Automatic Network Packet Generator 
+**Not finished, will be done by May 2023**
 
 ## **Introduction**
 This is my 2023 Spring Project. Automatic Network Packet Generator is a tool to generate and send different types of network packets. This tool is useful for network administrators, penetration testers and security professionals who want to generate and send packets for testing purposes.     
