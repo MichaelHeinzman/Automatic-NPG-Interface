@@ -10,7 +10,7 @@ def send_packet (packet, packet_info):
     if packet is None or packet_info is None:
         return None
 
-    number_of_packets = packet_info.get("number")
+    number_of_packets = packet_info.get("number", 1)
 
     if number_of_packets is None: return None
 
@@ -27,7 +27,8 @@ def check_packet_type_assign_send_method(packet, packet_info):
 
     send_method_dict = {
         "IP": sr,
-        "ARP-who-has": srp
+        "ARP-who-has": srp,
+        "DNS": sr,
     }
 
     send_method = send_method_dict.get(packet_type, sr)
