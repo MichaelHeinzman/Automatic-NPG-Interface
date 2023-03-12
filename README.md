@@ -41,7 +41,7 @@ Example 1: Generate and send multiple ARP packets
 ```python
 from packet_generator import generate_packets
 
-ARP_packet_info = {"type": "ARP-who-has", "pdst":"192.168.1.1", "hwdst":"ff:ff:ff:ff:ff:ff", "hwsrc": "00-05-1B-33-F7-46", "psrc": "192.168.1.236", "number": 10}
+ARP_packet_info = {"type": "ARP-who-has", "pdst":"Target IP ADDRESS", "hwdst":"ff:ff:ff:ff:ff:ff", "hwsrc": "Host MAC Address", "psrc": "Host IP Address", "number": 10}
 generate_packets(ARP_packet_info)
 ```
 
@@ -49,7 +49,7 @@ Example 2: Generate and send multiple IP packets
 ```python
 from packet_generator import generate_packets
 
-IP_packet_info = {"type":"IP", "srcIP":"192.168.1.236", "dstIP":"192.168.1.236", "payload":"Hello", "number": 5}
+IP_packet_info = {"type":"IP", "srcIP":"Host IP Address", "dstIP":"Destination IP Address", "payload":"Hello", "number": 5}
 generate_packets(IP_packet_info)
 
 ```
