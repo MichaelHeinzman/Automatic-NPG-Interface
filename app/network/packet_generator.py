@@ -1,4 +1,4 @@
-from packets import handle_create_ARP_packet, handle_create_IP_packet
+from packet_creator import handle_create_ARP_packet, handle_create_IP_packet
 from packet_sending import send_generated_packet
 
 # Creates a packet based on type and data.
