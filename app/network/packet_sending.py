@@ -1,6 +1,8 @@
-from scapy.all import *
 
 __all__ = ['send_created_packets']
+
+from scapy.all import *
+
 
 # Sends multiple of the same packet. 
 def send_created_packets (packet, packet_info):
