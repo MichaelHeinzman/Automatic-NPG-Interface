@@ -1,9 +1,9 @@
 from scapy.all import *
 
-__all__ = ['send_generated_packet']
+__all__ = ['send_created_packets']
 
 # Sends multiple of the same packet. 
-def send_generated_packet (packet, packet_info):
+def send_created_packets (packet, packet_info):
     if packet is None or packet_info is None:
         return None
 
@@ -13,22 +13,29 @@ def send_generated_packet (packet, packet_info):
 
     send_method = check_packet_type_assign_send_method(packet, packet_info)
     ans, unans = send_method(packet * number_of_packets, timeout = 10)
-    print(ans.summary())
-
-    print("Unanswered Packets: ")
-    print(unans.summary())
+    print_packet_summary(ans, unans)
 
 
-def check_packet_type_assign_send_method (packet, packet_info):
+def check_packet_type_assign_send_method(packet, packet_info):
     if packet is None or packet_info is None:
         return None
-    
-    type = packet_info.get("type")
 
-    if type == "IP": 
-        return sr
-    if type == "ARP-who-has":
-        return srp
-    else:
-        return sr
+    packet_type = packet_info.get("type")
+
+    send_method_dict = {
+        "IP": sr,
+        "ARP-who-has": srp
+    }
+
+    send_method = send_method_dict.get(packet_type, sr)
+
+    return send_method
     
+
+def print_packet_summary(ans, unans):
+    if ans:
+        print("Answered Packets: ")
+        print(ans.summary())
+    if unans:
+        print("Unanswered Packets: ")
+        print(unans.summary())
