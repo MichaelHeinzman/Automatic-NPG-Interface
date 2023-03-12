@@ -53,6 +53,25 @@ IP_packet_info = {"type":"IP", "srcIP":"Host IP Address", "dstIP":"Destination I
 generate_packets(IP_packet_info)
 
 ```
+Example 3: Generate and send multiple DNS packets      
+```python
+from packet_generator import generate_packets
+
+dns_packet_info = {
+    "type": "DNS",
+    "id": 0xAAA,
+    "qr": 0,
+    "qdcount": 1,
+    "ancount": 0,
+    "nscount": 0,
+    "arcount": 0,
+    "qname": "www.google.com",
+}
+
+generate_packets(dns_packet_info)
+
+```
+
 
 ## **Details**     
   Language : **Python**     
