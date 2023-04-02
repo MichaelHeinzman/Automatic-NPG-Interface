@@ -1,7 +1,7 @@
 __all__ = ['create_packet']
 
-from packets import create_ARP_who_has, create_IP,create_DNS
-from error_handling import handle_error
+from .packets import create_ARP_who_has, create_IP,create_DNS
+from .error_handling import handle_error
 
 # Creates a packet based on type and data.
 @handle_error

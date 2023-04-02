@@ -5,7 +5,7 @@ from scapy.all import *
 from scapy.layers.inet import IP
 from scapy.layers.l2 import *
 from scapy.layers.dns import DNS, DNSQR
-from error_handling import handle_error
+from .error_handling import handle_error
 
 
 # Creates an ARP response and request packet.
