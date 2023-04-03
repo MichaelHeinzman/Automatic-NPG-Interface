@@ -15,8 +15,8 @@ def send_packet (packet, packet_info):
     if number_of_packets is None: return None
 
     send_method = check_packet_type_assign_send_method(packet, packet_info)
-    ans, unans = send_method(packet * number_of_packets, timeout = 10)
-    return ans, unans
+    result = send_method(packet * number_of_packets, timeout = 10)
+    return result
 
 @handle_error
 def check_packet_type_assign_send_method(packet, packet_info):

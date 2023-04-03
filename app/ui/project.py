@@ -4,12 +4,14 @@ import sys
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
-from PyQt6.QtWidgets import QApplication,QStackedWidget,QDialog, QComboBox, QGroupBox, QLineEdit, QPushButton
+from PyQt6.QtWidgets import QApplication,QStackedWidget,QDialog, QComboBox,  QLineEdit, QPushButton, QVBoxLayout,QListWidgetItem
 from PyQt6.uic import loadUi
 from PyQt6 import QtGui, QtCore
+from PyQt6.QtCore import Qt
 from network.packet_info import IP_PACKET_INFO, ARP_PACKET_INFO, DNS_PACKET_INFO
-
+import network.packet_processing as packet_processing
 from packet_generator_thread import PacketGeneratorThread
+from packet_item import PacketItemWidget
 
 
 # Screen 1, packet creation.
@@ -22,6 +24,7 @@ class PacketCreationScreen (QDialog):
         # Important Variables
         self.packet = {}
         self.packet_thread = None
+        self.packet_result = None
 
         # Store Important UI Elements in variables.
         self.current_packet_type_select = self.findChild(QComboBox, "ProtocolSelectionInput")
@@ -57,8 +60,15 @@ class PacketCreationScreen (QDialog):
         self.send_packet_button.setDisabled(False)
         self.send_packet_button.setText("Send Packet")
 
-    def on_packet_generated(self, packet_result):
-        print(packet_result)
+    def on_packet_generated(self, result):
+        self.packet_result = result
+        processed_packets = packet_processing.process_packets(result)
+        self.packets_list = self.findChild(QVBoxLayout, "packets_list")
+
+        # Add items to the model
+        for packet in processed_packets:
+            item_widget = PacketItemWidget(packet)
+            self.packets_list.addWidget(item_widget)
 
 
     # Validate and Format inputs.
@@ -85,12 +95,27 @@ class PacketCreationScreen (QDialog):
     # On Protocol Change present different packet details forms.
     def on_selection_changed(self, value):
             if value == "IP":
+                # Set the current page to IP Details.
                 self.protocol_details_stacked.setCurrentIndex(0)
+
+                # Set the packet to default IP Packet Info.
                 self.packet = IP_PACKET_INFO
+
                 # Get IP Inputs
                 self.source_mac_IP = self.findChild(QLineEdit, "SourceMacAddressInput_8")
+                self.destination_mac_IP = self.findChild(QLineEdit, "SourceMacAddressInput_9")
+                self.payload_IP = self.findChild(QLineEdit, "PayloadInput_5")
+
+                # Set IP Values
                 self.source_mac_IP.setText(IP_PACKET_INFO["srcIP"])
+                self.destination_mac_IP.setText(IP_PACKET_INFO["dstIP"])
+                self.payload_IP.setText(IP_PACKET_INFO["payload"])
+
+                # Update packet values with changed IP values.
                 self.source_mac_IP.textChanged.connect(lambda value: self.update_packet("srcIP", value))
+                self.destination_mac_IP.textChanged.connect(lambda value: self.update_packet("dstIP", value))
+                self.payload_IP.textChanged.connect(lambda value: self.update_packet("payload", value))
+                
                 return 
             elif value == "DNS":
                 self.protocol_details_stacked.setCurrentIndex(1)

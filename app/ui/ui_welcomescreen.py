@@ -17,13 +17,14 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QComboBox, QDialog, QGroupBox,
     QHBoxLayout, QLabel, QLayout, QLineEdit,
-    QPushButton, QSizePolicy, QStackedWidget, QWidget)
+    QPushButton, QScrollArea, QSizePolicy, QStackedWidget,
+    QVBoxLayout, QWidget)
 
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
         if not Dialog.objectName():
             Dialog.setObjectName(u"Dialog")
-        Dialog.resize(1073, 741)
+        Dialog.resize(1074, 741)
         self.appContainer = QWidget(Dialog)
         self.appContainer.setObjectName(u"appContainer")
         self.appContainer.setGeometry(QRect(-10, 0, 1200, 800))
@@ -281,10 +282,35 @@ class Ui_Dialog(object):
         self.SendPacketButton = QPushButton(self.appContainer)
         self.SendPacketButton.setObjectName(u"SendPacketButton")
         self.SendPacketButton.setGeometry(QRect(20, 630, 491, 81))
+        self.PacketResults = QStackedWidget(self.appContainer)
+        self.PacketResults.setObjectName(u"PacketResults")
+        self.PacketResults.setGeometry(QRect(570, 10, 491, 701))
+        self.packet_results_page_1 = QWidget()
+        self.packet_results_page_1.setObjectName(u"packet_results_page_1")
+        self.packets_sent_container = QGroupBox(self.packet_results_page_1)
+        self.packets_sent_container.setObjectName(u"packets_sent_container")
+        self.packets_sent_container.setGeometry(QRect(0, 0, 491, 621))
+        self.scrollArea = QScrollArea(self.packets_sent_container)
+        self.scrollArea.setObjectName(u"scrollArea")
+        self.scrollArea.setGeometry(QRect(0, 30, 491, 591))
+        self.scrollArea.setWidgetResizable(True)
+        self.scrollAreaWidgetContents = QWidget()
+        self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 489, 589))
+        self.verticalLayoutWidget = QWidget(self.scrollAreaWidgetContents)
+        self.verticalLayoutWidget.setObjectName(u"verticalLayoutWidget")
+        self.verticalLayoutWidget.setGeometry(QRect(-1, -1, 491, 591))
+        self.packets_list = QVBoxLayout(self.verticalLayoutWidget)
+        self.packets_list.setObjectName(u"packets_list")
+        self.packets_list.setSizeConstraint(QLayout.SetMinAndMaxSize)
+        self.packets_list.setContentsMargins(0, 0, 0, 0)
+        self.scrollArea.setWidget(self.scrollAreaWidgetContents)
+        self.PacketResults.addWidget(self.packet_results_page_1)
 
         self.retranslateUi(Dialog)
 
         self.ProtocolsContainer.setCurrentIndex(0)
+        self.PacketResults.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(Dialog)
@@ -323,5 +349,6 @@ class Ui_Dialog(object):
         self.SourceMacAddressInput_13.setText("")
         self.SourceMacAddressInput_13.setPlaceholderText(QCoreApplication.translate("Dialog", u"00:11:22:33:44:55", None))
         self.SendPacketButton.setText(QCoreApplication.translate("Dialog", u"Send Packet", None))
+        self.packets_sent_container.setTitle(QCoreApplication.translate("Dialog", u"Packets Sent and Received", None))
     # retranslateUi
 
