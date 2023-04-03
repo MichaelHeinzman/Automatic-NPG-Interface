@@ -4,7 +4,7 @@ import sys
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
-from PyQt6.QtWidgets import QApplication,QStackedWidget,QDialog, QComboBox,  QLineEdit, QPushButton, QVBoxLayout,QListWidgetItem
+from PyQt6.QtWidgets import QApplication,QStackedWidget,QDialog, QComboBox,  QLineEdit, QPushButton, QVBoxLayout
 from PyQt6.uic import loadUi
 from PyQt6 import QtGui, QtCore
 from PyQt6.QtCore import Qt
@@ -63,8 +63,7 @@ class PacketCreationScreen (QDialog):
     def on_packet_generated(self, result):
         self.packet_result = result
         processed_packets = packet_processing.process_packets(result)
-        self.packets_list = self.findChild(QVBoxLayout, "packets_list")
-
+        self.packets_list = self.findChild(QVBoxLayout, "packet_list")
         # Add items to the model
         for packet in processed_packets:
             item_widget = PacketItemWidget(packet)
