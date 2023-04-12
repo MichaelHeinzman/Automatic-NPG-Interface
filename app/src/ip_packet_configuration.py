@@ -31,6 +31,7 @@ class IPConfigurationWidget(QWidget):
     # Add current packet to list of packets to send.
     def add_packet_signal(self, parent):
         self.to_send_packets_list = parent.findChild(QVBoxLayout, "to_send_packets_list")
-        item_widget = IPPacketWidget(packet=self.packet)
+        item_widget = IPPacketWidget(packet=self.packet, packet_number=parent.packet_number)
         self.send_packets_signal.connect(item_widget.send_packets_signal)
         self.to_send_packets_list.addWidget(item_widget)
+        parent.packet_number = parent.packet_number + 1

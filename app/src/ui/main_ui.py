@@ -51,12 +51,10 @@ class Ui_MainWindow(object):
 "}")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
-        self.horizontalLayout_8 = QHBoxLayout(self.centralwidget)
-        self.horizontalLayout_8.setObjectName(u"horizontalLayout_8")
-        self.horizontalSpacer_3 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.horizontalLayout_8.addItem(self.horizontalSpacer_3)
-
+        self.verticalLayout_2 = QVBoxLayout(self.centralwidget)
+        self.verticalLayout_2.setObjectName(u"verticalLayout_2")
+        self.horizontalLayout_2 = QHBoxLayout()
+        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
         self.left_side = QVBoxLayout()
         self.left_side.setObjectName(u"left_side")
         self.left_side.setContentsMargins(-1, -1, -1, 0)
@@ -215,35 +213,17 @@ class Ui_MainWindow(object):
 
         self.protocol_details_container.addWidget(self.protocol_types_configuration_pages)
 
+        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.protocol_details_container.addItem(self.verticalSpacer)
+
 
         self.left_side.addLayout(self.protocol_details_container)
 
-        self.second_spacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
-
-        self.left_side.addItem(self.second_spacer)
-
-        self.add_packet_button = QPushButton(self.centralwidget)
-        self.add_packet_button.setObjectName(u"add_packet_button")
-        sizePolicy1 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Preferred)
-        sizePolicy1.setHorizontalStretch(0)
-        sizePolicy1.setVerticalStretch(0)
-        sizePolicy1.setHeightForWidth(self.add_packet_button.sizePolicy().hasHeightForWidth())
-        self.add_packet_button.setSizePolicy(sizePolicy1)
-        self.add_packet_button.setMaximumSize(QSize(16777215, 100))
-        self.add_packet_button.setFont(font2)
-
-        self.left_side.addWidget(self.add_packet_button)
-
         self.left_side.setStretch(0, 1)
         self.left_side.setStretch(2, 5)
-        self.left_side.setStretch(3, 1)
-        self.left_side.setStretch(4, 1)
 
-        self.horizontalLayout_8.addLayout(self.left_side)
-
-        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.horizontalLayout_8.addItem(self.horizontalSpacer)
+        self.horizontalLayout_2.addLayout(self.left_side)
 
         self.right_side = QVBoxLayout()
         self.right_side.setSpacing(0)
@@ -263,7 +243,7 @@ class Ui_MainWindow(object):
         self.packets_to_send_scroll_container.setWidgetResizable(True)
         self.scroll_area_contents = QWidget()
         self.scroll_area_contents.setObjectName(u"scroll_area_contents")
-        self.scroll_area_contents.setGeometry(QRect(0, 0, 430, 551))
+        self.scroll_area_contents.setGeometry(QRect(0, 0, 475, 584))
         self.verticalLayout_11 = QVBoxLayout(self.scroll_area_contents)
         self.verticalLayout_11.setSpacing(0)
         self.verticalLayout_11.setObjectName(u"verticalLayout_11")
@@ -279,9 +259,33 @@ class Ui_MainWindow(object):
 
         self.right_side.addWidget(self.packets_to_send_scroll_container)
 
-        self.first_spacer_right = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.right_side.setStretch(0, 1)
+        self.right_side.setStretch(1, 6)
 
-        self.right_side.addItem(self.first_spacer_right)
+        self.horizontalLayout_2.addLayout(self.right_side)
+
+        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_2.addItem(self.horizontalSpacer)
+
+        self.horizontalLayout_2.setStretch(0, 5)
+        self.horizontalLayout_2.setStretch(1, 5)
+
+        self.verticalLayout_2.addLayout(self.horizontalLayout_2)
+
+        self.horizontalLayout_3 = QHBoxLayout()
+        self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
+        self.add_packet_button = QPushButton(self.centralwidget)
+        self.add_packet_button.setObjectName(u"add_packet_button")
+        sizePolicy1 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Preferred)
+        sizePolicy1.setHorizontalStretch(0)
+        sizePolicy1.setVerticalStretch(0)
+        sizePolicy1.setHeightForWidth(self.add_packet_button.sizePolicy().hasHeightForWidth())
+        self.add_packet_button.setSizePolicy(sizePolicy1)
+        self.add_packet_button.setMaximumSize(QSize(16777215, 100))
+        self.add_packet_button.setFont(font2)
+
+        self.horizontalLayout_3.addWidget(self.add_packet_button)
 
         self.send_packets_button = QPushButton(self.centralwidget)
         self.send_packets_button.setObjectName(u"send_packets_button")
@@ -290,21 +294,19 @@ class Ui_MainWindow(object):
         self.send_packets_button.setMaximumSize(QSize(16777215, 100))
         self.send_packets_button.setFont(font2)
 
-        self.right_side.addWidget(self.send_packets_button)
+        self.horizontalLayout_3.addWidget(self.send_packets_button)
 
-        self.right_side.setStretch(0, 1)
-        self.right_side.setStretch(1, 6)
-        self.right_side.setStretch(2, 1)
-        self.right_side.setStretch(3, 1)
+        self.horizontalSpacer_3 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        self.horizontalLayout_8.addLayout(self.right_side)
+        self.horizontalLayout_3.addItem(self.horizontalSpacer_3)
 
-        self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.horizontalLayout_3.setStretch(0, 1)
+        self.horizontalLayout_3.setStretch(1, 1)
 
-        self.horizontalLayout_8.addItem(self.horizontalSpacer_2)
+        self.verticalLayout_2.addLayout(self.horizontalLayout_3)
 
-        self.horizontalLayout_8.setStretch(1, 1)
-        self.horizontalLayout_8.setStretch(3, 1)
+        self.verticalLayout_2.setStretch(0, 5)
+        self.verticalLayout_2.setStretch(1, 1)
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QStatusBar(MainWindow)
         self.statusbar.setObjectName(u"statusbar")
@@ -349,8 +351,8 @@ class Ui_MainWindow(object):
         self.ip_payload_label.setText(QCoreApplication.translate("MainWindow", u"Payload", None))
         self.destination_ip_address_label.setText(QCoreApplication.translate("MainWindow", u"Destination IP Address", None))
         self.number_of_ip_packets_label.setText(QCoreApplication.translate("MainWindow", u"How many of this packet?", None))
-        self.add_packet_button.setText(QCoreApplication.translate("MainWindow", u"Add Packets", None))
         self.packets_to_send_title.setText(QCoreApplication.translate("MainWindow", u"Packets To Send", None))
+        self.add_packet_button.setText(QCoreApplication.translate("MainWindow", u"Add Packets", None))
         self.send_packets_button.setText(QCoreApplication.translate("MainWindow", u"Send packets", None))
         self.menuPacket_Generation.setTitle(QCoreApplication.translate("MainWindow", u"Packet Generation", None))
         self.menuSend_Summary.setTitle(QCoreApplication.translate("MainWindow", u"Send Summary", None))

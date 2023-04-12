@@ -23,8 +23,12 @@ class PacketCreationScreen (QMainWindow):
         self.packet = {}
         self.packet_thread = None
         self.packet_result = None
+        self.packet_number = 1
 
         # Store Important UI Elements in variables.
+        self.ip_page = self.findChild(IPConfigurationWidget, "ip_page")
+        self.ip_page.setup_inputs(self)
+        self.add_packet_signal.connect(lambda: self.ip_page.add_packet_signal(self))
         self.current_packet_type_select = self.findChild(QComboBox, "protocol_input")
         self.current_packet_type_select.currentTextChanged.connect(self.on_selection_changed)
         self.protocol_details_stacked = self.findChild(QStackedWidget, "protocol_types_configuration_pages")
@@ -46,9 +50,6 @@ class PacketCreationScreen (QMainWindow):
             if value == "IP":
                 # Set the current page to IP Details.
                 self.protocol_details_stacked.setCurrentIndex(0)
-                self.ip_page = self.findChild(IPConfigurationWidget, "ip_page")
-                self.ip_page.setup_inputs(self)
-                self.add_packet_signal.connect(lambda: self.ip_page.add_packet_signal(self))
                 self.ip_page.send_packets_signal = self.send_packets_signal
                 return 
             elif value == "DNS":
