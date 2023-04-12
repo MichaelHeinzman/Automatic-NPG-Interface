@@ -9,7 +9,7 @@ IP_PACKET_INFO = {
     "flags": 0,
     "frag": 0,
     "ttl": 64,
-    "proto": 0,
+    "proto": 6,
     "chksum": None,
     "srcIP": "192.168.1.236",
     "dstIP": "192.168.1.236",

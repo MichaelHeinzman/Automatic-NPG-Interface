@@ -28,7 +28,7 @@ def create_IP(packet_info):
     dst_IP = packet_info.get("dstIP")
     payload = packet_info.get("payload", '')
 
-    ip_packet = IP(src=src_IP, dst=dst_IP)
+    ip_packet = IP(src=src_IP, dst=dst_IP, options={})
     ip_packet = ip_packet/payload.encode() if payload else ip_packet
 
     return ip_packet

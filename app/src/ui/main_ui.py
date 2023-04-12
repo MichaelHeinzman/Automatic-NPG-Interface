@@ -55,6 +55,10 @@ class Ui_MainWindow(object):
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.horizontalLayout_2 = QHBoxLayout()
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
+        self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_2.addItem(self.horizontalSpacer_2)
+
         self.left_side = QVBoxLayout()
         self.left_side.setObjectName(u"left_side")
         self.left_side.setContentsMargins(-1, -1, -1, 0)
@@ -225,6 +229,10 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_2.addLayout(self.left_side)
 
+        self.horizontalSpacer_4 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_2.addItem(self.horizontalSpacer_4)
+
         self.right_side = QVBoxLayout()
         self.right_side.setSpacing(0)
         self.right_side.setObjectName(u"right_side")
@@ -241,9 +249,11 @@ class Ui_MainWindow(object):
         self.packets_to_send_scroll_container.setMinimumSize(QSize(0, 0))
         self.packets_to_send_scroll_container.setMaximumSize(QSize(16777215, 16777215))
         self.packets_to_send_scroll_container.setWidgetResizable(True)
+        self.packets_to_send_scroll_container.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
         self.scroll_area_contents = QWidget()
         self.scroll_area_contents.setObjectName(u"scroll_area_contents")
-        self.scroll_area_contents.setGeometry(QRect(0, 0, 475, 584))
+        self.scroll_area_contents.setGeometry(QRect(0, 0, 429, 625))
+        self.scroll_area_contents.setStyleSheet(u"background-color: rgba(82, 88, 104, 1)")
         self.verticalLayout_11 = QVBoxLayout(self.scroll_area_contents)
         self.verticalLayout_11.setSpacing(0)
         self.verticalLayout_11.setObjectName(u"verticalLayout_11")
@@ -260,7 +270,7 @@ class Ui_MainWindow(object):
         self.right_side.addWidget(self.packets_to_send_scroll_container)
 
         self.right_side.setStretch(0, 1)
-        self.right_side.setStretch(1, 6)
+        self.right_side.setStretch(1, 11)
 
         self.horizontalLayout_2.addLayout(self.right_side)
 
@@ -268,13 +278,17 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_2.addItem(self.horizontalSpacer)
 
-        self.horizontalLayout_2.setStretch(0, 5)
         self.horizontalLayout_2.setStretch(1, 5)
+        self.horizontalLayout_2.setStretch(3, 5)
 
         self.verticalLayout_2.addLayout(self.horizontalLayout_2)
 
         self.horizontalLayout_3 = QHBoxLayout()
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
+        self.horizontalSpacer_5 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_3.addItem(self.horizontalSpacer_5)
+
         self.add_packet_button = QPushButton(self.centralwidget)
         self.add_packet_button.setObjectName(u"add_packet_button")
         sizePolicy1 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Preferred)
@@ -286,6 +300,10 @@ class Ui_MainWindow(object):
         self.add_packet_button.setFont(font2)
 
         self.horizontalLayout_3.addWidget(self.add_packet_button)
+
+        self.horizontalSpacer_6 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_3.addItem(self.horizontalSpacer_6)
 
         self.send_packets_button = QPushButton(self.centralwidget)
         self.send_packets_button.setObjectName(u"send_packets_button")
@@ -300,8 +318,8 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_3.addItem(self.horizontalSpacer_3)
 
-        self.horizontalLayout_3.setStretch(0, 1)
         self.horizontalLayout_3.setStretch(1, 1)
+        self.horizontalLayout_3.setStretch(3, 1)
 
         self.verticalLayout_2.addLayout(self.horizontalLayout_3)
 

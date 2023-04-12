@@ -41,6 +41,7 @@ class PacketCreationScreen (QMainWindow):
 
     def send_packets_button_clicked(self):
         self.send_packets_signal.emit()
+        self.packet_number = 1
 
     def add_packet_button_clicked(self):
         self.add_packet_signal.emit()
