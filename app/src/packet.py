@@ -1,4 +1,4 @@
-from PyQt6.QtWidgets import QWidget,QVBoxLayout, QHBoxLayout, QLabel, QWidget
+from PyQt6.QtWidgets import QWidget,QVBoxLayout,QWidget
 from PyQt6.QtCore import pyqtSignal, Qt
 import network.packet_generator as packet_generator
 

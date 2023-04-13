@@ -1,7 +1,6 @@
-from PyQt6.QtWidgets import  QLineEdit
 from PyQt6 import QtGui, QtCore
-
-class MacAddressInput(QLineEdit):
+from input import Input
+class MacAddressInput(Input):
     def __init__(self, parent=None):
         super().__init__(parent)
 
