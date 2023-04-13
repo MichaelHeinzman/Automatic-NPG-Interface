@@ -354,7 +354,7 @@ QHBoxLayout {
                      </widget>
                     </item>
                     <item>
-                     <widget class="QLineEdit" name="time_to_live_ip_input">
+                     <widget class="NumberLineEdit" name="time_to_live_ip_input">
                       <property name="sizePolicy">
                        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                         <horstretch>0</horstretch>
@@ -410,7 +410,7 @@ QHBoxLayout {
                      </widget>
                     </item>
                     <item>
-                     <widget class="QLineEdit" name="protocol_ip_input">
+                     <widget class="NumberLineEdit" name="protocol_ip_input">
                       <property name="sizePolicy">
                        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                         <horstretch>0</horstretch>
@@ -466,7 +466,7 @@ QHBoxLayout {
                      </widget>
                     </item>
                     <item>
-                     <widget class="QLineEdit" name="flags_ip_input">
+                     <widget class="NumberLineEdit" name="flags_ip_input">
                       <property name="sizePolicy">
                        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                         <horstretch>0</horstretch>
@@ -522,7 +522,7 @@ QHBoxLayout {
                      </widget>
                     </item>
                     <item>
-                     <widget class="QLineEdit" name="fragmentation_offset_ip_input">
+                     <widget class="NumberLineEdit" name="fragmentation_offset_ip_input">
                       <property name="sizePolicy">
                        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                         <horstretch>0</horstretch>
@@ -578,7 +578,7 @@ QHBoxLayout {
                      </widget>
                     </item>
                     <item>
-                     <widget class="QLineEdit" name="identification_ip_input">
+                     <widget class="NumberLineEdit" name="identification_ip_input">
                       <property name="sizePolicy">
                        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                         <horstretch>0</horstretch>
@@ -690,7 +690,7 @@ QHBoxLayout {
                      </widget>
                     </item>
                     <item>
-                     <widget class="QLineEdit" name="number_ip_input">
+                     <widget class="NumberLineEdit" name="number_ip_input">
                       <property name="sizePolicy">
                        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                         <horstretch>0</horstretch>
@@ -711,6 +711,9 @@ QHBoxLayout {
                       </property>
                       <property name="styleSheet">
                        <string notr="true"/>
+                      </property>
+                      <property name="inputMask">
+                       <string/>
                       </property>
                      </widget>
                     </item>
@@ -1689,13 +1692,18 @@ background-color: rgb(255,255,255);
   <customwidget>
    <class>IPAddressInput</class>
    <extends>QLineEdit</extends>
-   <header>ip_4_address_input.h</header>
+   <header>widgets.ip_4_address_input.h</header>
   </customwidget>
   <customwidget>
    <class>IPConfigurationWidget</class>
    <extends>QWidget</extends>
-   <header location="global">ip_packet_configuration.h</header>
+   <header location="global">widgets.ip_packet_configuration.h</header>
    <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>NumberLineEdit</class>
+   <extends>QLineEdit</extends>
+   <header location="global">widgets.number_line_edit.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

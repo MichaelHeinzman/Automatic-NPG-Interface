@@ -1,5 +1,5 @@
 from PyQt6 import QtGui, QtCore
-from input import Input
+from widgets.input import Input
 class IPAddressInput(Input):
     def __init__(self, parent=None):
         super().__init__(parent)

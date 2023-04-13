@@ -8,8 +8,8 @@ from PyQt6.QtWidgets import QApplication,QStackedWidget,QMainWindow, QComboBox, 
 from PyQt6.uic import loadUi
 from network.packet_info import  ARP_PACKET_INFO, DNS_PACKET_INFO
 from PyQt6.QtCore import pyqtSignal,Qt,QThreadPool
-from ip_packet_configuration import IPConfigurationWidget
-from packet_sender import PacketSender
+from widgets.ip_packet_configuration import IPConfigurationWidget
+from widgets.packet_sender import PacketSender
 
 # Screen 1, packet creation.
 class PacketCreationScreen(QMainWindow):

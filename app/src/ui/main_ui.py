@@ -21,8 +21,9 @@ from PySide6.QtWidgets import (QApplication, QComboBox, QHBoxLayout, QLabel,
     QPushButton, QScrollArea, QSizePolicy, QSpacerItem,
     QStackedWidget, QStatusBar, QVBoxLayout, QWidget)
 
-from ip_4_address_input import IPAddressInput
-from ip_packet_configuration import IPConfigurationWidget
+from widgets.ip_4_address_input import IPAddressInput
+from widgets.ip_packet_configuration import IPConfigurationWidget
+from widgets.number_line_edit import NumberLineEdit
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -224,7 +225,7 @@ class Ui_MainWindow(object):
 
         self.time_to_live_ip_layout.addWidget(self.time_to_live_ip_label)
 
-        self.time_to_live_ip_input = QLineEdit(self.scrollAreaWidgetContents_6)
+        self.time_to_live_ip_input = NumberLineEdit(self.scrollAreaWidgetContents_6)
         self.time_to_live_ip_input.setObjectName(u"time_to_live_ip_input")
         sizePolicy.setHeightForWidth(self.time_to_live_ip_input.sizePolicy().hasHeightForWidth())
         self.time_to_live_ip_input.setSizePolicy(sizePolicy)
@@ -248,7 +249,7 @@ class Ui_MainWindow(object):
 
         self.protocol_ip_layout.addWidget(self.protocol_ip_label)
 
-        self.protocol_ip_input = QLineEdit(self.scrollAreaWidgetContents_6)
+        self.protocol_ip_input = NumberLineEdit(self.scrollAreaWidgetContents_6)
         self.protocol_ip_input.setObjectName(u"protocol_ip_input")
         sizePolicy.setHeightForWidth(self.protocol_ip_input.sizePolicy().hasHeightForWidth())
         self.protocol_ip_input.setSizePolicy(sizePolicy)
@@ -272,7 +273,7 @@ class Ui_MainWindow(object):
 
         self.flags_ip_layout.addWidget(self.flags_ip_label)
 
-        self.flags_ip_input = QLineEdit(self.scrollAreaWidgetContents_6)
+        self.flags_ip_input = NumberLineEdit(self.scrollAreaWidgetContents_6)
         self.flags_ip_input.setObjectName(u"flags_ip_input")
         sizePolicy.setHeightForWidth(self.flags_ip_input.sizePolicy().hasHeightForWidth())
         self.flags_ip_input.setSizePolicy(sizePolicy)
@@ -296,7 +297,7 @@ class Ui_MainWindow(object):
 
         self.fragmentation_offset_ip_layout.addWidget(self.fragmentation_offset_ip_label)
 
-        self.fragmentation_offset_ip_input = QLineEdit(self.scrollAreaWidgetContents_6)
+        self.fragmentation_offset_ip_input = NumberLineEdit(self.scrollAreaWidgetContents_6)
         self.fragmentation_offset_ip_input.setObjectName(u"fragmentation_offset_ip_input")
         sizePolicy.setHeightForWidth(self.fragmentation_offset_ip_input.sizePolicy().hasHeightForWidth())
         self.fragmentation_offset_ip_input.setSizePolicy(sizePolicy)
@@ -320,7 +321,7 @@ class Ui_MainWindow(object):
 
         self.identification_ip_layout.addWidget(self.identification_ip_label)
 
-        self.identification_ip_input = QLineEdit(self.scrollAreaWidgetContents_6)
+        self.identification_ip_input = NumberLineEdit(self.scrollAreaWidgetContents_6)
         self.identification_ip_input.setObjectName(u"identification_ip_input")
         sizePolicy.setHeightForWidth(self.identification_ip_input.sizePolicy().hasHeightForWidth())
         self.identification_ip_input.setSizePolicy(sizePolicy)
@@ -368,7 +369,7 @@ class Ui_MainWindow(object):
 
         self.number_ip_layout.addWidget(self.number_ip_label)
 
-        self.number_ip_input = QLineEdit(self.scrollAreaWidgetContents_6)
+        self.number_ip_input = NumberLineEdit(self.scrollAreaWidgetContents_6)
         self.number_ip_input.setObjectName(u"number_ip_input")
         sizePolicy.setHeightForWidth(self.number_ip_input.sizePolicy().hasHeightForWidth())
         self.number_ip_input.setSizePolicy(sizePolicy)
@@ -879,6 +880,7 @@ class Ui_MainWindow(object):
         self.identification_ip_label.setText(QCoreApplication.translate("MainWindow", u"Identification", None))
         self.ip_payload_label.setText(QCoreApplication.translate("MainWindow", u"Payload", None))
         self.number_ip_label.setText(QCoreApplication.translate("MainWindow", u"How many of this packet?", None))
+        self.number_ip_input.setInputMask("")
         self.source_mac_address_arp_10.setText(QCoreApplication.translate("MainWindow", u"ARP Configuration", None))
         self.source_mac_address_arp_8.setText(QCoreApplication.translate("MainWindow", u"Source MAC Address", None))
         self.hardware_address_type_arp_label.setText(QCoreApplication.translate("MainWindow", u"Hardware Address Type", None))

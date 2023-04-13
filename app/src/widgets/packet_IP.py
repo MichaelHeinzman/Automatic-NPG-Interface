@@ -1,6 +1,6 @@
 from PyQt6.QtWidgets import QHBoxLayout, QLabel,QSpacerItem,QSizePolicy,QWidget
 from PyQt6.QtCore import  Qt,pyqtSignal
-from packet import PacketWidget
+from widgets.packet import PacketWidget
 
 class IPPacketWidget(PacketWidget):
     def __init__(self, parent=None, packet=None, packet_number=0):
