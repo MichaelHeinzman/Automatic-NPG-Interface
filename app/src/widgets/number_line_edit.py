@@ -3,6 +3,10 @@ from PyQt6.QtWidgets import QLineEdit
 from widgets.input import Input
 
 class NumberLineEdit(Input):
+    """
+    A custom widget that extends the Input widget and allows only integer input.
+    """
+
     def __init__(self, parent=None):
         super().__init__(parent)
         self.setValidator(QIntValidator())  # Set validator to only allow integers

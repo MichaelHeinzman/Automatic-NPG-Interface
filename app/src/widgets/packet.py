@@ -1,8 +1,10 @@
-from PyQt6.QtWidgets import QWidget,QVBoxLayout,QWidget
+from PyQt6.QtWidgets import QWidget, QVBoxLayout, QWidget
 from PyQt6.QtCore import pyqtSignal, Qt
 import network.packet_generator as packet_generator
 
+
 class PacketWidget(QWidget):
+    # Define signals that this widget will emit
     packet_clicked = pyqtSignal()
     packet_selected = pyqtSignal()
     remove_packet = pyqtSignal()
@@ -10,9 +12,12 @@ class PacketWidget(QWidget):
     def __init__(self, parent=None):
         super().__init__(parent)
 
+        # Initialize variables to be used later
         self.selected = False
         self.protocol = "undefined"
         self.number_of_packet = 1
+
+        # Define a style string that will be used to style the widget
         self.textStyle = '''
             position: absolute;
             width: 122px;
@@ -29,28 +34,35 @@ class PacketWidget(QWidget):
             color: #363C4B;
             background-color: rgba(217, 217, 217, 1);
         '''
+
+        # Connect the packet_clicked signal to the on_packet_clicked method
         self.packet_clicked.connect(self.on_packet_clicked)
 
-        # Layout.
+        # Set the maximum height of this widget to 300
         self.setMaximumHeight(300)
 
-        # Create the top-level vertical layout
+        # Create a vertical layout for this widget
         self.layout = QVBoxLayout()
         self.setLayout(self.layout)
+
+        # Set the object name and style sheet for this widget
         self.setObjectName("packet_item")
         self.setStyleSheet("#packet_item:hover {background-color: lightgrey;}")
-        
-        # Connect the click signal to show/hide the details label
+
+        # Call adjustSize() to resize the widget based on its contents
         self.adjustSize()
-        
-    # Functions
+
+    # Function that will be called when the widget is clicked
     def on_packet_clicked(self):
         self.selected = not self.selected
+        # Emit the packet_selected signal
         self.packet_selected.emit()
 
+    # Override the mousePressEvent to emit the packet_clicked signal
     def mousePressEvent(self, event):
         self.packet_clicked.emit()
         super().mousePressEvent(event)
-    
+
+    # Function to generate a packet using the packet_generator module
     def generate_packet(self, packet):
         result = packet_generator.generate_packets(packet)
