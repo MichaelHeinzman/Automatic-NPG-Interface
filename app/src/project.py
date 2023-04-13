@@ -29,15 +29,17 @@ class PacketCreationScreen(QMainWindow):
         self.packets_to_send = []
 
         self.setup_configuration_pages()
+        self.setup_protocol_selection()
+
         self.to_send_packets_list = self.findChild(QVBoxLayout, "to_send_packets_list")
         self.to_send_packets_list.setAlignment(Qt.AlignmentFlag.AlignTop)
 
         self.current_packet_type_select = self.findChild(QComboBox, "protocol_input")
-        self.current_packet_type_select.currentTextChanged.connect(self.on_selection_changed)
-        self.protocol_details_stacked = self.findChild(QStackedWidget, "protocol_types_configuration_pages")
+        self.current_packet_type_select.protocol_details_stacked = self.protocol_details_stacked
+
         self.send_packets_button = self.findChild(QPushButton, "send_packets_button")
         self.add_packet_button = self.findChild(QPushButton, "add_packet_button")
-        self.on_selection_changed("IP")
+        
 
         self.add_packet_button.clicked.connect(self.add_packet_clicked)
         self.send_packets_button.clicked.connect(self.send_packets_button_clicked)
@@ -60,11 +62,6 @@ class PacketCreationScreen(QMainWindow):
         self.to_send_packets_list.addWidget(packet)
         self.packet_number += 1
 
-    def setup_configuration_pages(self):
-        # Store Important UI Elements in variables.
-        self.ip_page = self.findChild(IPConfigurationWidget, "ip_page")
-        self.ip_page.setup_inputs(self)
-
     def send_packets_button_clicked(self):
         self.packet_number = 1
         threadpool = QThreadPool.globalInstance()
@@ -76,26 +73,21 @@ class PacketCreationScreen(QMainWindow):
             packet.__del__()
         self.packets_to_send.clear()
 
-    # On Protocol Change present different packet details forms.
-    def on_selection_changed(self, value):
-        if value == "IP":
-            # Set the current page to IP Details.
-            self.protocol_details_stacked.setCurrentIndex(0)
-            return
-        elif value == "DNS":
-            self.protocol_details_stacked.setCurrentIndex(1)
-            self.packet = DNS_PACKET_INFO
-            return
-        elif value == "ARP":
-            self.protocol_details_stacked.setCurrentIndex(2)
-            self.packet = ARP_PACKET_INFO
-            return
-        else:
-            return
-
     # Updates the current packet with changed values.
     def update_packet(self, index, value):
         self.packet[index] = value
+
+    def setup_configuration_pages(self):
+        # Store Important UI Elements in variables.
+        self.ip_page = self.findChild(IPConfigurationWidget, "ip_page")
+        self.ip_page.setup_inputs(self)
+
+    def setup_protocol_selection(self):
+        self.protocol_details_stacked = self.findChild(QStackedWidget, "protocol_types_configuration_pages")
+        self.protocol_selection = self.findChild(QComboBox, "protocol_input")
+        self.protocol_selection.protocol_details_stacked = self.protocol_details_stacked
+        self.protocol_selection.setup()
+
 
 # Launch Application
 app = QApplication(sys.argv)

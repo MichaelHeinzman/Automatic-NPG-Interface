@@ -98,7 +98,7 @@ QLineEdit {
              </widget>
             </item>
             <item>
-             <widget class="QComboBox" name="protocol_input">
+             <widget class="ProtocolSelection" name="protocol_input">
               <property name="sizePolicy">
                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                 <horstretch>0</horstretch>
@@ -1704,6 +1704,11 @@ background-color: rgb(255,255,255);
    <class>NumberLineEdit</class>
    <extends>QLineEdit</extends>
    <header location="global">widgets.number_line_edit.h</header>
+  </customwidget>
+  <customwidget>
+   <class>ProtocolSelection</class>
+   <extends>QComboBox</extends>
+   <header location="global">widgets.protocol_selection.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

@@ -16,14 +16,15 @@ from PySide6.QtGui import (QAction, QBrush, QColor, QConicalGradient,
     QIcon, QImage, QKeySequence, QLinearGradient,
     QPainter, QPalette, QPixmap, QRadialGradient,
     QTransform)
-from PySide6.QtWidgets import (QApplication, QComboBox, QHBoxLayout, QLabel,
-    QLineEdit, QMainWindow, QMenu, QMenuBar,
-    QPushButton, QScrollArea, QSizePolicy, QSpacerItem,
-    QStackedWidget, QStatusBar, QVBoxLayout, QWidget)
+from PySide6.QtWidgets import (QApplication, QHBoxLayout, QLabel, QLineEdit,
+    QMainWindow, QMenu, QMenuBar, QPushButton,
+    QScrollArea, QSizePolicy, QSpacerItem, QStackedWidget,
+    QStatusBar, QVBoxLayout, QWidget)
 
 from widgets.ip_4_address_input import IPAddressInput
 from widgets.ip_packet_configuration import IPConfigurationWidget
 from widgets.number_line_edit import NumberLineEdit
+from widgets.protocol_selection import ProtocolSelection
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -95,7 +96,7 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout.addWidget(self.protocol_label)
 
-        self.protocol_input = QComboBox(self.centralwidget)
+        self.protocol_input = ProtocolSelection(self.centralwidget)
         self.protocol_input.addItem("")
         self.protocol_input.addItem("")
         self.protocol_input.addItem("")
