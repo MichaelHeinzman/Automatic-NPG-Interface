@@ -1,5 +1,5 @@
-from PyQt6.QtWidgets import QWidget, QLineEdit, QVBoxLayout,QHBoxLayout
-from PyQt6.QtCore import  Qt
+from PyQt6.QtWidgets import QWidget, QLineEdit, QVBoxLayout, QHBoxLayout
+from PyQt6.QtCore import Qt
 from network.packet_info import IP_PACKET_INFO
 from packet_IP import IPPacketWidget
 
@@ -9,41 +9,40 @@ class IPConfigurationWidget(QWidget):
         
         self.packet = IP_PACKET_INFO
 
+        # Dictionary to store references to input widgets
+        self.input_widgets = {}
+
+        # Call the setup_inputs method to initialize the input widgets
+        if (parent):
+            self.setup_inputs(parent)
+            self.add_packet_signal.connect(self.add_packet, parent)
+
     # Updates the current packet with changed values.
-    def update_packet (self, index, value):
+    def update_packet(self, value, index):
         self.packet[index] = value
 
-    def setup_inputs (self, parent):
-        # Get IP Inputs
-        self.source_mac_IP = parent.findChild(QLineEdit, "source_ip_address_input")
-        self.destination_mac_IP = parent.findChild(QLineEdit, "destination_ip_address_input")
-        self.payload_IP = parent.findChild(QLineEdit, "ip_payload_input")
+    def setup_inputs(self, parent):
+        # Get IP Inputs and store references in dictionary
+        self.input_widgets["source_mac_IP"] = parent.findChild(QLineEdit, "source_ip_address_input")
+        self.input_widgets["destination_mac_IP"] = parent.findChild(QLineEdit, "destination_ip_address_input")
+        self.input_widgets["time_to_live_IP"] = parent.findChild(QLineEdit, "time_to_live_ip_input")
+        self.input_widgets["protocol_IP"] = parent.findChild(QLineEdit, "protocol_ip_input")
+        self.input_widgets["flags_IP"] = parent.findChild(QLineEdit, "flags_ip_input")
+        self.input_widgets["fragmentation_offset_IP"] = parent.findChild(QLineEdit, "fragmentation_offset_ip_input")
+        self.input_widgets["identification_IP"] = parent.findChild(QLineEdit, "identification_ip_input")
+        self.input_widgets["payload_IP"] = parent.findChild(QLineEdit, "ip_payload_input")
+        
+        input_names = ["srcIP", "dstIP", "ttl", "proto", "flags", "frag", "id", "payload"]
+        input_ids = ["source_ip_address_input", "destination_ip_address_input", "time_to_live_ip_input",
+                    "protocol_ip_input", "flags_ip_input", "fragmentation_offset_ip_input", "identification_ip_input",
+                    "ip_payload_input"]
+        
+        for name, widget_id in zip(input_names, input_ids):
+            widget = self.findChild(QLineEdit, widget_id)
+            widget.setText(str(self.packet[name]))
+            widget.textChanged.connect(lambda value, key=name: self.update_packet(value, key))
+            self.input_widgets[name] = widget
 
-        # Set IP Values
-        self.source_mac_IP.setText(IP_PACKET_INFO["srcIP"])
-        self.destination_mac_IP.setText(IP_PACKET_INFO["dstIP"])
-        self.payload_IP.setText(IP_PACKET_INFO["payload"])
-
-        # Update packet values with changed IP values.
-        self.source_mac_IP.textChanged.connect(lambda value: self.update_packet("srcIP", value))
-        self.destination_mac_IP.textChanged.connect(lambda value: self.update_packet("dstIP", value))
-        self.payload_IP.textChanged.connect(lambda value: self.update_packet("payload", value)) 
-
-    # Add current packet to list of packets to send.
-    def add_packet_signal(self, parent):
-        self.to_send_packets_list = parent.findChild(QVBoxLayout, "to_send_packets_list")
-        self.to_send_packets_list.setAlignment(Qt.AlignmentFlag.AlignTop) 
+    def add_packet_clicked(self, parent):
         item_widget = IPPacketWidget(packet=self.packet, packet_number=parent.packet_number)
-        self.send_packets_signal.connect(item_widget.send_packets_signal)
-        self.to_send_packets_list.addWidget(item_widget)
-        parent.packet_number = parent.packet_number + 1
-        item_widget.remove_packet.connect(lambda:self.remove_packet(item_widget))
-
-
-    # Slot to remove the IPPacketWidget from the layout
-    def remove_packet(self, packet_widget):
-        # Remove the widget from the layout
-        self.to_send_packets_list.removeWidget(packet_widget)
-
-        # Schedule the widget for deletion
-        packet_widget.deleteLater()
+        parent.add_packet_to_send_list(item_widget)

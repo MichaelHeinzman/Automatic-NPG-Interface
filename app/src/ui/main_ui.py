@@ -159,7 +159,7 @@ class Ui_MainWindow(object):
         self.scrollArea_3.setWidgetResizable(True)
         self.scrollAreaWidgetContents_6 = QWidget()
         self.scrollAreaWidgetContents_6.setObjectName(u"scrollAreaWidgetContents_6")
-        self.scrollAreaWidgetContents_6.setGeometry(QRect(0, -62, 410, 580))
+        self.scrollAreaWidgetContents_6.setGeometry(QRect(0, 0, 410, 580))
         self.scrollAreaWidgetContents_6.setStyleSheet(u"")
         self.verticalLayout_9 = QVBoxLayout(self.scrollAreaWidgetContents_6)
         self.verticalLayout_9.setObjectName(u"verticalLayout_9")
@@ -213,125 +213,125 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_9.addLayout(self.destination_ip_address_layout)
 
-        self.ip_payload_layout_2 = QHBoxLayout()
-        self.ip_payload_layout_2.setObjectName(u"ip_payload_layout_2")
-        self.ip_payload_label_2 = QLabel(self.scrollAreaWidgetContents_6)
-        self.ip_payload_label_2.setObjectName(u"ip_payload_label_2")
-        self.ip_payload_label_2.setMinimumSize(QSize(200, 50))
-        self.ip_payload_label_2.setMaximumSize(QSize(200, 50))
-        self.ip_payload_label_2.setFont(font3)
-        self.ip_payload_label_2.setWordWrap(True)
+        self.time_to_live_ip_layout = QHBoxLayout()
+        self.time_to_live_ip_layout.setObjectName(u"time_to_live_ip_layout")
+        self.time_to_live_ip_label = QLabel(self.scrollAreaWidgetContents_6)
+        self.time_to_live_ip_label.setObjectName(u"time_to_live_ip_label")
+        self.time_to_live_ip_label.setMinimumSize(QSize(200, 50))
+        self.time_to_live_ip_label.setMaximumSize(QSize(200, 50))
+        self.time_to_live_ip_label.setFont(font3)
+        self.time_to_live_ip_label.setWordWrap(True)
 
-        self.ip_payload_layout_2.addWidget(self.ip_payload_label_2)
+        self.time_to_live_ip_layout.addWidget(self.time_to_live_ip_label)
 
-        self.ip_payload_input_2 = QLineEdit(self.scrollAreaWidgetContents_6)
-        self.ip_payload_input_2.setObjectName(u"ip_payload_input_2")
-        sizePolicy.setHeightForWidth(self.ip_payload_input_2.sizePolicy().hasHeightForWidth())
-        self.ip_payload_input_2.setSizePolicy(sizePolicy)
-        self.ip_payload_input_2.setMinimumSize(QSize(0, 50))
-        self.ip_payload_input_2.setMaximumSize(QSize(250, 16777215))
-        self.ip_payload_input_2.setStyleSheet(u"")
+        self.time_to_live_ip_input = QLineEdit(self.scrollAreaWidgetContents_6)
+        self.time_to_live_ip_input.setObjectName(u"time_to_live_ip_input")
+        sizePolicy.setHeightForWidth(self.time_to_live_ip_input.sizePolicy().hasHeightForWidth())
+        self.time_to_live_ip_input.setSizePolicy(sizePolicy)
+        self.time_to_live_ip_input.setMinimumSize(QSize(0, 50))
+        self.time_to_live_ip_input.setMaximumSize(QSize(250, 16777215))
+        self.time_to_live_ip_input.setStyleSheet(u"")
 
-        self.ip_payload_layout_2.addWidget(self.ip_payload_input_2)
-
-
-        self.verticalLayout_9.addLayout(self.ip_payload_layout_2)
-
-        self.ip_payload_layout_6 = QHBoxLayout()
-        self.ip_payload_layout_6.setObjectName(u"ip_payload_layout_6")
-        self.ip_payload_label_6 = QLabel(self.scrollAreaWidgetContents_6)
-        self.ip_payload_label_6.setObjectName(u"ip_payload_label_6")
-        self.ip_payload_label_6.setMinimumSize(QSize(200, 50))
-        self.ip_payload_label_6.setMaximumSize(QSize(200, 50))
-        self.ip_payload_label_6.setFont(font3)
-        self.ip_payload_label_6.setWordWrap(True)
-
-        self.ip_payload_layout_6.addWidget(self.ip_payload_label_6)
-
-        self.ip_payload_input_6 = QLineEdit(self.scrollAreaWidgetContents_6)
-        self.ip_payload_input_6.setObjectName(u"ip_payload_input_6")
-        sizePolicy.setHeightForWidth(self.ip_payload_input_6.sizePolicy().hasHeightForWidth())
-        self.ip_payload_input_6.setSizePolicy(sizePolicy)
-        self.ip_payload_input_6.setMinimumSize(QSize(0, 50))
-        self.ip_payload_input_6.setMaximumSize(QSize(250, 16777215))
-        self.ip_payload_input_6.setStyleSheet(u"")
-
-        self.ip_payload_layout_6.addWidget(self.ip_payload_input_6)
+        self.time_to_live_ip_layout.addWidget(self.time_to_live_ip_input)
 
 
-        self.verticalLayout_9.addLayout(self.ip_payload_layout_6)
+        self.verticalLayout_9.addLayout(self.time_to_live_ip_layout)
 
-        self.ip_payload_layout_3 = QHBoxLayout()
-        self.ip_payload_layout_3.setObjectName(u"ip_payload_layout_3")
-        self.ip_payload_label_3 = QLabel(self.scrollAreaWidgetContents_6)
-        self.ip_payload_label_3.setObjectName(u"ip_payload_label_3")
-        self.ip_payload_label_3.setMinimumSize(QSize(200, 50))
-        self.ip_payload_label_3.setMaximumSize(QSize(200, 50))
-        self.ip_payload_label_3.setFont(font3)
-        self.ip_payload_label_3.setWordWrap(True)
+        self.protocol_ip_layout = QHBoxLayout()
+        self.protocol_ip_layout.setObjectName(u"protocol_ip_layout")
+        self.protocol_ip_label = QLabel(self.scrollAreaWidgetContents_6)
+        self.protocol_ip_label.setObjectName(u"protocol_ip_label")
+        self.protocol_ip_label.setMinimumSize(QSize(200, 50))
+        self.protocol_ip_label.setMaximumSize(QSize(200, 50))
+        self.protocol_ip_label.setFont(font3)
+        self.protocol_ip_label.setWordWrap(True)
 
-        self.ip_payload_layout_3.addWidget(self.ip_payload_label_3)
+        self.protocol_ip_layout.addWidget(self.protocol_ip_label)
 
-        self.ip_payload_input_3 = QLineEdit(self.scrollAreaWidgetContents_6)
-        self.ip_payload_input_3.setObjectName(u"ip_payload_input_3")
-        sizePolicy.setHeightForWidth(self.ip_payload_input_3.sizePolicy().hasHeightForWidth())
-        self.ip_payload_input_3.setSizePolicy(sizePolicy)
-        self.ip_payload_input_3.setMinimumSize(QSize(0, 50))
-        self.ip_payload_input_3.setMaximumSize(QSize(250, 16777215))
-        self.ip_payload_input_3.setStyleSheet(u"")
+        self.protocol_ip_input = QLineEdit(self.scrollAreaWidgetContents_6)
+        self.protocol_ip_input.setObjectName(u"protocol_ip_input")
+        sizePolicy.setHeightForWidth(self.protocol_ip_input.sizePolicy().hasHeightForWidth())
+        self.protocol_ip_input.setSizePolicy(sizePolicy)
+        self.protocol_ip_input.setMinimumSize(QSize(0, 50))
+        self.protocol_ip_input.setMaximumSize(QSize(250, 16777215))
+        self.protocol_ip_input.setStyleSheet(u"")
 
-        self.ip_payload_layout_3.addWidget(self.ip_payload_input_3)
-
-
-        self.verticalLayout_9.addLayout(self.ip_payload_layout_3)
-
-        self.ip_payload_layout_4 = QHBoxLayout()
-        self.ip_payload_layout_4.setObjectName(u"ip_payload_layout_4")
-        self.ip_payload_label_4 = QLabel(self.scrollAreaWidgetContents_6)
-        self.ip_payload_label_4.setObjectName(u"ip_payload_label_4")
-        self.ip_payload_label_4.setMinimumSize(QSize(200, 50))
-        self.ip_payload_label_4.setMaximumSize(QSize(200, 50))
-        self.ip_payload_label_4.setFont(font3)
-        self.ip_payload_label_4.setWordWrap(True)
-
-        self.ip_payload_layout_4.addWidget(self.ip_payload_label_4)
-
-        self.ip_payload_input_4 = QLineEdit(self.scrollAreaWidgetContents_6)
-        self.ip_payload_input_4.setObjectName(u"ip_payload_input_4")
-        sizePolicy.setHeightForWidth(self.ip_payload_input_4.sizePolicy().hasHeightForWidth())
-        self.ip_payload_input_4.setSizePolicy(sizePolicy)
-        self.ip_payload_input_4.setMinimumSize(QSize(0, 50))
-        self.ip_payload_input_4.setMaximumSize(QSize(250, 16777215))
-        self.ip_payload_input_4.setStyleSheet(u"")
-
-        self.ip_payload_layout_4.addWidget(self.ip_payload_input_4)
+        self.protocol_ip_layout.addWidget(self.protocol_ip_input)
 
 
-        self.verticalLayout_9.addLayout(self.ip_payload_layout_4)
+        self.verticalLayout_9.addLayout(self.protocol_ip_layout)
 
-        self.ip_payload_layout_5 = QHBoxLayout()
-        self.ip_payload_layout_5.setObjectName(u"ip_payload_layout_5")
-        self.ip_payload_label_5 = QLabel(self.scrollAreaWidgetContents_6)
-        self.ip_payload_label_5.setObjectName(u"ip_payload_label_5")
-        self.ip_payload_label_5.setMinimumSize(QSize(200, 50))
-        self.ip_payload_label_5.setMaximumSize(QSize(200, 50))
-        self.ip_payload_label_5.setFont(font3)
-        self.ip_payload_label_5.setWordWrap(True)
+        self.flags_ip_layout = QHBoxLayout()
+        self.flags_ip_layout.setObjectName(u"flags_ip_layout")
+        self.flags_ip_label = QLabel(self.scrollAreaWidgetContents_6)
+        self.flags_ip_label.setObjectName(u"flags_ip_label")
+        self.flags_ip_label.setMinimumSize(QSize(200, 50))
+        self.flags_ip_label.setMaximumSize(QSize(200, 50))
+        self.flags_ip_label.setFont(font3)
+        self.flags_ip_label.setWordWrap(True)
 
-        self.ip_payload_layout_5.addWidget(self.ip_payload_label_5)
+        self.flags_ip_layout.addWidget(self.flags_ip_label)
 
-        self.ip_payload_input_5 = QLineEdit(self.scrollAreaWidgetContents_6)
-        self.ip_payload_input_5.setObjectName(u"ip_payload_input_5")
-        sizePolicy.setHeightForWidth(self.ip_payload_input_5.sizePolicy().hasHeightForWidth())
-        self.ip_payload_input_5.setSizePolicy(sizePolicy)
-        self.ip_payload_input_5.setMinimumSize(QSize(0, 50))
-        self.ip_payload_input_5.setMaximumSize(QSize(250, 16777215))
-        self.ip_payload_input_5.setStyleSheet(u"")
+        self.flags_ip_input = QLineEdit(self.scrollAreaWidgetContents_6)
+        self.flags_ip_input.setObjectName(u"flags_ip_input")
+        sizePolicy.setHeightForWidth(self.flags_ip_input.sizePolicy().hasHeightForWidth())
+        self.flags_ip_input.setSizePolicy(sizePolicy)
+        self.flags_ip_input.setMinimumSize(QSize(0, 50))
+        self.flags_ip_input.setMaximumSize(QSize(250, 16777215))
+        self.flags_ip_input.setStyleSheet(u"")
 
-        self.ip_payload_layout_5.addWidget(self.ip_payload_input_5)
+        self.flags_ip_layout.addWidget(self.flags_ip_input)
 
 
-        self.verticalLayout_9.addLayout(self.ip_payload_layout_5)
+        self.verticalLayout_9.addLayout(self.flags_ip_layout)
+
+        self.fragmentation_offset_ip_layout = QHBoxLayout()
+        self.fragmentation_offset_ip_layout.setObjectName(u"fragmentation_offset_ip_layout")
+        self.fragmentation_offset_ip_label = QLabel(self.scrollAreaWidgetContents_6)
+        self.fragmentation_offset_ip_label.setObjectName(u"fragmentation_offset_ip_label")
+        self.fragmentation_offset_ip_label.setMinimumSize(QSize(200, 50))
+        self.fragmentation_offset_ip_label.setMaximumSize(QSize(200, 50))
+        self.fragmentation_offset_ip_label.setFont(font3)
+        self.fragmentation_offset_ip_label.setWordWrap(True)
+
+        self.fragmentation_offset_ip_layout.addWidget(self.fragmentation_offset_ip_label)
+
+        self.fragmentation_offset_ip_input = QLineEdit(self.scrollAreaWidgetContents_6)
+        self.fragmentation_offset_ip_input.setObjectName(u"fragmentation_offset_ip_input")
+        sizePolicy.setHeightForWidth(self.fragmentation_offset_ip_input.sizePolicy().hasHeightForWidth())
+        self.fragmentation_offset_ip_input.setSizePolicy(sizePolicy)
+        self.fragmentation_offset_ip_input.setMinimumSize(QSize(0, 50))
+        self.fragmentation_offset_ip_input.setMaximumSize(QSize(250, 16777215))
+        self.fragmentation_offset_ip_input.setStyleSheet(u"")
+
+        self.fragmentation_offset_ip_layout.addWidget(self.fragmentation_offset_ip_input)
+
+
+        self.verticalLayout_9.addLayout(self.fragmentation_offset_ip_layout)
+
+        self.identification_ip_layout = QHBoxLayout()
+        self.identification_ip_layout.setObjectName(u"identification_ip_layout")
+        self.identification_ip_label = QLabel(self.scrollAreaWidgetContents_6)
+        self.identification_ip_label.setObjectName(u"identification_ip_label")
+        self.identification_ip_label.setMinimumSize(QSize(200, 50))
+        self.identification_ip_label.setMaximumSize(QSize(200, 50))
+        self.identification_ip_label.setFont(font3)
+        self.identification_ip_label.setWordWrap(True)
+
+        self.identification_ip_layout.addWidget(self.identification_ip_label)
+
+        self.identification_ip_input = QLineEdit(self.scrollAreaWidgetContents_6)
+        self.identification_ip_input.setObjectName(u"identification_ip_input")
+        sizePolicy.setHeightForWidth(self.identification_ip_input.sizePolicy().hasHeightForWidth())
+        self.identification_ip_input.setSizePolicy(sizePolicy)
+        self.identification_ip_input.setMinimumSize(QSize(0, 50))
+        self.identification_ip_input.setMaximumSize(QSize(250, 16777215))
+        self.identification_ip_input.setStyleSheet(u"")
+
+        self.identification_ip_layout.addWidget(self.identification_ip_input)
+
+
+        self.verticalLayout_9.addLayout(self.identification_ip_layout)
 
         self.ip_payload_layout = QHBoxLayout()
         self.ip_payload_layout.setObjectName(u"ip_payload_layout")
@@ -357,29 +357,29 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_9.addLayout(self.ip_payload_layout)
 
-        self.number_of_ip_packets_layout = QHBoxLayout()
-        self.number_of_ip_packets_layout.setObjectName(u"number_of_ip_packets_layout")
-        self.number_of_ip_packets_label = QLabel(self.scrollAreaWidgetContents_6)
-        self.number_of_ip_packets_label.setObjectName(u"number_of_ip_packets_label")
-        self.number_of_ip_packets_label.setMinimumSize(QSize(200, 50))
-        self.number_of_ip_packets_label.setMaximumSize(QSize(200, 50))
-        self.number_of_ip_packets_label.setFont(font3)
-        self.number_of_ip_packets_label.setWordWrap(True)
+        self.number_ip_layout = QHBoxLayout()
+        self.number_ip_layout.setObjectName(u"number_ip_layout")
+        self.number_ip_label = QLabel(self.scrollAreaWidgetContents_6)
+        self.number_ip_label.setObjectName(u"number_ip_label")
+        self.number_ip_label.setMinimumSize(QSize(200, 50))
+        self.number_ip_label.setMaximumSize(QSize(200, 50))
+        self.number_ip_label.setFont(font3)
+        self.number_ip_label.setWordWrap(True)
 
-        self.number_of_ip_packets_layout.addWidget(self.number_of_ip_packets_label)
+        self.number_ip_layout.addWidget(self.number_ip_label)
 
-        self.number_of_ip_packets = QLineEdit(self.scrollAreaWidgetContents_6)
-        self.number_of_ip_packets.setObjectName(u"number_of_ip_packets")
-        sizePolicy.setHeightForWidth(self.number_of_ip_packets.sizePolicy().hasHeightForWidth())
-        self.number_of_ip_packets.setSizePolicy(sizePolicy)
-        self.number_of_ip_packets.setMinimumSize(QSize(0, 50))
-        self.number_of_ip_packets.setMaximumSize(QSize(250, 16777215))
-        self.number_of_ip_packets.setStyleSheet(u"")
+        self.number_ip_input = QLineEdit(self.scrollAreaWidgetContents_6)
+        self.number_ip_input.setObjectName(u"number_ip_input")
+        sizePolicy.setHeightForWidth(self.number_ip_input.sizePolicy().hasHeightForWidth())
+        self.number_ip_input.setSizePolicy(sizePolicy)
+        self.number_ip_input.setMinimumSize(QSize(0, 50))
+        self.number_ip_input.setMaximumSize(QSize(250, 16777215))
+        self.number_ip_input.setStyleSheet(u"")
 
-        self.number_of_ip_packets_layout.addWidget(self.number_of_ip_packets)
+        self.number_ip_layout.addWidget(self.number_ip_input)
 
 
-        self.verticalLayout_9.addLayout(self.number_of_ip_packets_layout)
+        self.verticalLayout_9.addLayout(self.number_ip_layout)
 
         self.verticalSpacer_3 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
@@ -424,7 +424,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents_4 = QWidget()
         self.scrollAreaWidgetContents_4.setObjectName(u"scrollAreaWidgetContents_4")
-        self.scrollAreaWidgetContents_4.setGeometry(QRect(0, -64, 408, 580))
+        self.scrollAreaWidgetContents_4.setGeometry(QRect(0, 0, 408, 522))
         self.scrollAreaWidgetContents_4.setStyleSheet(u"")
         self.verticalLayout_6 = QVBoxLayout(self.scrollAreaWidgetContents_4)
         self.verticalLayout_6.setObjectName(u"verticalLayout_6")
@@ -451,190 +451,166 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_6.addLayout(self.source_mac_address_arp_layout_8)
 
-        self.source_mac_address_arp_layout = QHBoxLayout()
-        self.source_mac_address_arp_layout.setObjectName(u"source_mac_address_arp_layout")
-        self.source_mac_address_arp = QLabel(self.scrollAreaWidgetContents_4)
-        self.source_mac_address_arp.setObjectName(u"source_mac_address_arp")
-        self.source_mac_address_arp.setMinimumSize(QSize(200, 50))
-        self.source_mac_address_arp.setMaximumSize(QSize(50, 16777215))
-        self.source_mac_address_arp.setFont(font3)
-        self.source_mac_address_arp.setWordWrap(True)
+        self.hardware_address_type_arp_layout = QHBoxLayout()
+        self.hardware_address_type_arp_layout.setObjectName(u"hardware_address_type_arp_layout")
+        self.hardware_address_type_arp_label = QLabel(self.scrollAreaWidgetContents_4)
+        self.hardware_address_type_arp_label.setObjectName(u"hardware_address_type_arp_label")
+        self.hardware_address_type_arp_label.setMinimumSize(QSize(200, 50))
+        self.hardware_address_type_arp_label.setMaximumSize(QSize(50, 16777215))
+        self.hardware_address_type_arp_label.setFont(font3)
+        self.hardware_address_type_arp_label.setWordWrap(True)
 
-        self.source_mac_address_arp_layout.addWidget(self.source_mac_address_arp)
+        self.hardware_address_type_arp_layout.addWidget(self.hardware_address_type_arp_label)
 
-        self.source_mac_address_arp_input = IPAddressInput(self.scrollAreaWidgetContents_4)
-        self.source_mac_address_arp_input.setObjectName(u"source_mac_address_arp_input")
-        sizePolicy.setHeightForWidth(self.source_mac_address_arp_input.sizePolicy().hasHeightForWidth())
-        self.source_mac_address_arp_input.setSizePolicy(sizePolicy)
-        self.source_mac_address_arp_input.setMinimumSize(QSize(0, 50))
-        self.source_mac_address_arp_input.setMaximumSize(QSize(250, 50))
+        self.hardware_address_type_arp_input = IPAddressInput(self.scrollAreaWidgetContents_4)
+        self.hardware_address_type_arp_input.setObjectName(u"hardware_address_type_arp_input")
+        sizePolicy.setHeightForWidth(self.hardware_address_type_arp_input.sizePolicy().hasHeightForWidth())
+        self.hardware_address_type_arp_input.setSizePolicy(sizePolicy)
+        self.hardware_address_type_arp_input.setMinimumSize(QSize(0, 50))
+        self.hardware_address_type_arp_input.setMaximumSize(QSize(250, 50))
 
-        self.source_mac_address_arp_layout.addWidget(self.source_mac_address_arp_input)
-
-
-        self.verticalLayout_6.addLayout(self.source_mac_address_arp_layout)
-
-        self.source_mac_address_arp_layout_3 = QHBoxLayout()
-        self.source_mac_address_arp_layout_3.setObjectName(u"source_mac_address_arp_layout_3")
-        self.source_mac_address_arp_3 = QLabel(self.scrollAreaWidgetContents_4)
-        self.source_mac_address_arp_3.setObjectName(u"source_mac_address_arp_3")
-        self.source_mac_address_arp_3.setMinimumSize(QSize(200, 50))
-        self.source_mac_address_arp_3.setMaximumSize(QSize(50, 16777215))
-        self.source_mac_address_arp_3.setFont(font3)
-        self.source_mac_address_arp_3.setWordWrap(True)
-
-        self.source_mac_address_arp_layout_3.addWidget(self.source_mac_address_arp_3)
-
-        self.source_mac_address_arp_input_3 = IPAddressInput(self.scrollAreaWidgetContents_4)
-        self.source_mac_address_arp_input_3.setObjectName(u"source_mac_address_arp_input_3")
-        sizePolicy.setHeightForWidth(self.source_mac_address_arp_input_3.sizePolicy().hasHeightForWidth())
-        self.source_mac_address_arp_input_3.setSizePolicy(sizePolicy)
-        self.source_mac_address_arp_input_3.setMinimumSize(QSize(0, 50))
-        self.source_mac_address_arp_input_3.setMaximumSize(QSize(250, 50))
-
-        self.source_mac_address_arp_layout_3.addWidget(self.source_mac_address_arp_input_3)
+        self.hardware_address_type_arp_layout.addWidget(self.hardware_address_type_arp_input)
 
 
-        self.verticalLayout_6.addLayout(self.source_mac_address_arp_layout_3)
+        self.verticalLayout_6.addLayout(self.hardware_address_type_arp_layout)
 
-        self.source_mac_address_arp_layout_2 = QHBoxLayout()
-        self.source_mac_address_arp_layout_2.setObjectName(u"source_mac_address_arp_layout_2")
-        self.source_mac_address_arp_2 = QLabel(self.scrollAreaWidgetContents_4)
-        self.source_mac_address_arp_2.setObjectName(u"source_mac_address_arp_2")
-        self.source_mac_address_arp_2.setMinimumSize(QSize(200, 50))
-        self.source_mac_address_arp_2.setMaximumSize(QSize(50, 16777215))
-        self.source_mac_address_arp_2.setFont(font3)
-        self.source_mac_address_arp_2.setWordWrap(True)
+        self.hardware_address_length_arp_layout = QHBoxLayout()
+        self.hardware_address_length_arp_layout.setObjectName(u"hardware_address_length_arp_layout")
+        self.hardware_address_length_arp_label = QLabel(self.scrollAreaWidgetContents_4)
+        self.hardware_address_length_arp_label.setObjectName(u"hardware_address_length_arp_label")
+        self.hardware_address_length_arp_label.setMinimumSize(QSize(200, 50))
+        self.hardware_address_length_arp_label.setMaximumSize(QSize(50, 16777215))
+        self.hardware_address_length_arp_label.setFont(font3)
+        self.hardware_address_length_arp_label.setWordWrap(True)
 
-        self.source_mac_address_arp_layout_2.addWidget(self.source_mac_address_arp_2)
+        self.hardware_address_length_arp_layout.addWidget(self.hardware_address_length_arp_label)
 
-        self.source_mac_address_arp_input_2 = IPAddressInput(self.scrollAreaWidgetContents_4)
-        self.source_mac_address_arp_input_2.setObjectName(u"source_mac_address_arp_input_2")
-        sizePolicy.setHeightForWidth(self.source_mac_address_arp_input_2.sizePolicy().hasHeightForWidth())
-        self.source_mac_address_arp_input_2.setSizePolicy(sizePolicy)
-        self.source_mac_address_arp_input_2.setMinimumSize(QSize(0, 50))
-        self.source_mac_address_arp_input_2.setMaximumSize(QSize(250, 50))
+        self.hardware_address_length_arp_input = IPAddressInput(self.scrollAreaWidgetContents_4)
+        self.hardware_address_length_arp_input.setObjectName(u"hardware_address_length_arp_input")
+        sizePolicy.setHeightForWidth(self.hardware_address_length_arp_input.sizePolicy().hasHeightForWidth())
+        self.hardware_address_length_arp_input.setSizePolicy(sizePolicy)
+        self.hardware_address_length_arp_input.setMinimumSize(QSize(0, 50))
+        self.hardware_address_length_arp_input.setMaximumSize(QSize(250, 50))
 
-        self.source_mac_address_arp_layout_2.addWidget(self.source_mac_address_arp_input_2)
-
-
-        self.verticalLayout_6.addLayout(self.source_mac_address_arp_layout_2)
-
-        self.source_mac_address_arp_layout_12 = QHBoxLayout()
-        self.source_mac_address_arp_layout_12.setObjectName(u"source_mac_address_arp_layout_12")
-        self.source_mac_address_arp_12 = QLabel(self.scrollAreaWidgetContents_4)
-        self.source_mac_address_arp_12.setObjectName(u"source_mac_address_arp_12")
-        self.source_mac_address_arp_12.setMinimumSize(QSize(200, 50))
-        self.source_mac_address_arp_12.setMaximumSize(QSize(50, 16777215))
-        self.source_mac_address_arp_12.setFont(font3)
-        self.source_mac_address_arp_12.setWordWrap(True)
-
-        self.source_mac_address_arp_layout_12.addWidget(self.source_mac_address_arp_12)
-
-        self.source_mac_address_arp_input_12 = IPAddressInput(self.scrollAreaWidgetContents_4)
-        self.source_mac_address_arp_input_12.setObjectName(u"source_mac_address_arp_input_12")
-        sizePolicy.setHeightForWidth(self.source_mac_address_arp_input_12.sizePolicy().hasHeightForWidth())
-        self.source_mac_address_arp_input_12.setSizePolicy(sizePolicy)
-        self.source_mac_address_arp_input_12.setMinimumSize(QSize(0, 50))
-        self.source_mac_address_arp_input_12.setMaximumSize(QSize(250, 50))
-
-        self.source_mac_address_arp_layout_12.addWidget(self.source_mac_address_arp_input_12)
+        self.hardware_address_length_arp_layout.addWidget(self.hardware_address_length_arp_input)
 
 
-        self.verticalLayout_6.addLayout(self.source_mac_address_arp_layout_12)
+        self.verticalLayout_6.addLayout(self.hardware_address_length_arp_layout)
 
-        self.source_mac_address_arp_layout_11 = QHBoxLayout()
-        self.source_mac_address_arp_layout_11.setObjectName(u"source_mac_address_arp_layout_11")
-        self.source_mac_address_arp_11 = QLabel(self.scrollAreaWidgetContents_4)
-        self.source_mac_address_arp_11.setObjectName(u"source_mac_address_arp_11")
-        self.source_mac_address_arp_11.setMinimumSize(QSize(200, 50))
-        self.source_mac_address_arp_11.setMaximumSize(QSize(50, 16777215))
-        self.source_mac_address_arp_11.setFont(font3)
-        self.source_mac_address_arp_11.setWordWrap(True)
+        self.protocol_address_type_arp_layout = QHBoxLayout()
+        self.protocol_address_type_arp_layout.setObjectName(u"protocol_address_type_arp_layout")
+        self.protocol_address_type_arp_label = QLabel(self.scrollAreaWidgetContents_4)
+        self.protocol_address_type_arp_label.setObjectName(u"protocol_address_type_arp_label")
+        self.protocol_address_type_arp_label.setMinimumSize(QSize(200, 50))
+        self.protocol_address_type_arp_label.setMaximumSize(QSize(50, 16777215))
+        self.protocol_address_type_arp_label.setFont(font3)
+        self.protocol_address_type_arp_label.setWordWrap(True)
 
-        self.source_mac_address_arp_layout_11.addWidget(self.source_mac_address_arp_11)
+        self.protocol_address_type_arp_layout.addWidget(self.protocol_address_type_arp_label)
 
-        self.source_mac_address_arp_input_11 = IPAddressInput(self.scrollAreaWidgetContents_4)
-        self.source_mac_address_arp_input_11.setObjectName(u"source_mac_address_arp_input_11")
-        sizePolicy.setHeightForWidth(self.source_mac_address_arp_input_11.sizePolicy().hasHeightForWidth())
-        self.source_mac_address_arp_input_11.setSizePolicy(sizePolicy)
-        self.source_mac_address_arp_input_11.setMinimumSize(QSize(0, 50))
-        self.source_mac_address_arp_input_11.setMaximumSize(QSize(250, 50))
+        self.protocol_address_type_arp_input = IPAddressInput(self.scrollAreaWidgetContents_4)
+        self.protocol_address_type_arp_input.setObjectName(u"protocol_address_type_arp_input")
+        sizePolicy.setHeightForWidth(self.protocol_address_type_arp_input.sizePolicy().hasHeightForWidth())
+        self.protocol_address_type_arp_input.setSizePolicy(sizePolicy)
+        self.protocol_address_type_arp_input.setMinimumSize(QSize(0, 50))
+        self.protocol_address_type_arp_input.setMaximumSize(QSize(250, 50))
 
-        self.source_mac_address_arp_layout_11.addWidget(self.source_mac_address_arp_input_11)
-
-
-        self.verticalLayout_6.addLayout(self.source_mac_address_arp_layout_11)
-
-        self.source_mac_address_arp_layout_4 = QHBoxLayout()
-        self.source_mac_address_arp_layout_4.setObjectName(u"source_mac_address_arp_layout_4")
-        self.source_mac_address_arp_4 = QLabel(self.scrollAreaWidgetContents_4)
-        self.source_mac_address_arp_4.setObjectName(u"source_mac_address_arp_4")
-        self.source_mac_address_arp_4.setMinimumSize(QSize(200, 50))
-        self.source_mac_address_arp_4.setMaximumSize(QSize(50, 16777215))
-        self.source_mac_address_arp_4.setFont(font3)
-        self.source_mac_address_arp_4.setWordWrap(True)
-
-        self.source_mac_address_arp_layout_4.addWidget(self.source_mac_address_arp_4)
-
-        self.source_mac_address_arp_input_4 = IPAddressInput(self.scrollAreaWidgetContents_4)
-        self.source_mac_address_arp_input_4.setObjectName(u"source_mac_address_arp_input_4")
-        sizePolicy.setHeightForWidth(self.source_mac_address_arp_input_4.sizePolicy().hasHeightForWidth())
-        self.source_mac_address_arp_input_4.setSizePolicy(sizePolicy)
-        self.source_mac_address_arp_input_4.setMinimumSize(QSize(0, 50))
-        self.source_mac_address_arp_input_4.setMaximumSize(QSize(250, 50))
-
-        self.source_mac_address_arp_layout_4.addWidget(self.source_mac_address_arp_input_4)
+        self.protocol_address_type_arp_layout.addWidget(self.protocol_address_type_arp_input)
 
 
-        self.verticalLayout_6.addLayout(self.source_mac_address_arp_layout_4)
+        self.verticalLayout_6.addLayout(self.protocol_address_type_arp_layout)
 
-        self.source_ip_address_layout_3 = QHBoxLayout()
-        self.source_ip_address_layout_3.setObjectName(u"source_ip_address_layout_3")
-        self.source_ip_address_label_3 = QLabel(self.scrollAreaWidgetContents_4)
-        self.source_ip_address_label_3.setObjectName(u"source_ip_address_label_3")
-        self.source_ip_address_label_3.setMinimumSize(QSize(200, 50))
-        self.source_ip_address_label_3.setMaximumSize(QSize(50, 16777215))
-        self.source_ip_address_label_3.setFont(font3)
-        self.source_ip_address_label_3.setScaledContents(False)
-        self.source_ip_address_label_3.setWordWrap(True)
+        self.protocol_address_length_arp_layout = QHBoxLayout()
+        self.protocol_address_length_arp_layout.setObjectName(u"protocol_address_length_arp_layout")
+        self.protocol_address_length_arp_label = QLabel(self.scrollAreaWidgetContents_4)
+        self.protocol_address_length_arp_label.setObjectName(u"protocol_address_length_arp_label")
+        self.protocol_address_length_arp_label.setMinimumSize(QSize(200, 50))
+        self.protocol_address_length_arp_label.setMaximumSize(QSize(50, 16777215))
+        self.protocol_address_length_arp_label.setFont(font3)
+        self.protocol_address_length_arp_label.setWordWrap(True)
 
-        self.source_ip_address_layout_3.addWidget(self.source_ip_address_label_3)
+        self.protocol_address_length_arp_layout.addWidget(self.protocol_address_length_arp_label)
 
-        self.source_ip_address_input_3 = IPAddressInput(self.scrollAreaWidgetContents_4)
-        self.source_ip_address_input_3.setObjectName(u"source_ip_address_input_3")
-        sizePolicy.setHeightForWidth(self.source_ip_address_input_3.sizePolicy().hasHeightForWidth())
-        self.source_ip_address_input_3.setSizePolicy(sizePolicy)
-        self.source_ip_address_input_3.setMinimumSize(QSize(0, 50))
-        self.source_ip_address_input_3.setMaximumSize(QSize(250, 50))
+        self.protocol_address_length_arp_input = IPAddressInput(self.scrollAreaWidgetContents_4)
+        self.protocol_address_length_arp_input.setObjectName(u"protocol_address_length_arp_input")
+        sizePolicy.setHeightForWidth(self.protocol_address_length_arp_input.sizePolicy().hasHeightForWidth())
+        self.protocol_address_length_arp_input.setSizePolicy(sizePolicy)
+        self.protocol_address_length_arp_input.setMinimumSize(QSize(0, 50))
+        self.protocol_address_length_arp_input.setMaximumSize(QSize(250, 50))
 
-        self.source_ip_address_layout_3.addWidget(self.source_ip_address_input_3)
-
-
-        self.verticalLayout_6.addLayout(self.source_ip_address_layout_3)
-
-        self.source_mac_address_arp_layout_7 = QHBoxLayout()
-        self.source_mac_address_arp_layout_7.setObjectName(u"source_mac_address_arp_layout_7")
-        self.source_mac_address_arp_7 = QLabel(self.scrollAreaWidgetContents_4)
-        self.source_mac_address_arp_7.setObjectName(u"source_mac_address_arp_7")
-        self.source_mac_address_arp_7.setMinimumSize(QSize(200, 50))
-        self.source_mac_address_arp_7.setMaximumSize(QSize(50, 16777215))
-        self.source_mac_address_arp_7.setFont(font3)
-        self.source_mac_address_arp_7.setWordWrap(True)
-
-        self.source_mac_address_arp_layout_7.addWidget(self.source_mac_address_arp_7)
-
-        self.source_mac_address_arp_input_7 = IPAddressInput(self.scrollAreaWidgetContents_4)
-        self.source_mac_address_arp_input_7.setObjectName(u"source_mac_address_arp_input_7")
-        sizePolicy.setHeightForWidth(self.source_mac_address_arp_input_7.sizePolicy().hasHeightForWidth())
-        self.source_mac_address_arp_input_7.setSizePolicy(sizePolicy)
-        self.source_mac_address_arp_input_7.setMinimumSize(QSize(0, 50))
-        self.source_mac_address_arp_input_7.setMaximumSize(QSize(250, 50))
-
-        self.source_mac_address_arp_layout_7.addWidget(self.source_mac_address_arp_input_7)
+        self.protocol_address_length_arp_layout.addWidget(self.protocol_address_length_arp_input)
 
 
-        self.verticalLayout_6.addLayout(self.source_mac_address_arp_layout_7)
+        self.verticalLayout_6.addLayout(self.protocol_address_length_arp_layout)
+
+        self.destination_mac_address_arp_layout = QHBoxLayout()
+        self.destination_mac_address_arp_layout.setObjectName(u"destination_mac_address_arp_layout")
+        self.destination_mac_address_arp_label = QLabel(self.scrollAreaWidgetContents_4)
+        self.destination_mac_address_arp_label.setObjectName(u"destination_mac_address_arp_label")
+        self.destination_mac_address_arp_label.setMinimumSize(QSize(200, 50))
+        self.destination_mac_address_arp_label.setMaximumSize(QSize(50, 16777215))
+        self.destination_mac_address_arp_label.setFont(font3)
+        self.destination_mac_address_arp_label.setWordWrap(True)
+
+        self.destination_mac_address_arp_layout.addWidget(self.destination_mac_address_arp_label)
+
+        self.destination_mac_address_arp_input = IPAddressInput(self.scrollAreaWidgetContents_4)
+        self.destination_mac_address_arp_input.setObjectName(u"destination_mac_address_arp_input")
+        sizePolicy.setHeightForWidth(self.destination_mac_address_arp_input.sizePolicy().hasHeightForWidth())
+        self.destination_mac_address_arp_input.setSizePolicy(sizePolicy)
+        self.destination_mac_address_arp_input.setMinimumSize(QSize(0, 50))
+        self.destination_mac_address_arp_input.setMaximumSize(QSize(250, 50))
+
+        self.destination_mac_address_arp_layout.addWidget(self.destination_mac_address_arp_input)
+
+
+        self.verticalLayout_6.addLayout(self.destination_mac_address_arp_layout)
+
+        self.operation_code_arp_layout = QHBoxLayout()
+        self.operation_code_arp_layout.setObjectName(u"operation_code_arp_layout")
+        self.operation_code_arp_label = QLabel(self.scrollAreaWidgetContents_4)
+        self.operation_code_arp_label.setObjectName(u"operation_code_arp_label")
+        self.operation_code_arp_label.setMinimumSize(QSize(200, 50))
+        self.operation_code_arp_label.setMaximumSize(QSize(50, 16777215))
+        self.operation_code_arp_label.setFont(font3)
+        self.operation_code_arp_label.setWordWrap(True)
+
+        self.operation_code_arp_layout.addWidget(self.operation_code_arp_label)
+
+        self.operation_code_arp_input = IPAddressInput(self.scrollAreaWidgetContents_4)
+        self.operation_code_arp_input.setObjectName(u"operation_code_arp_input")
+        sizePolicy.setHeightForWidth(self.operation_code_arp_input.sizePolicy().hasHeightForWidth())
+        self.operation_code_arp_input.setSizePolicy(sizePolicy)
+        self.operation_code_arp_input.setMinimumSize(QSize(0, 50))
+        self.operation_code_arp_input.setMaximumSize(QSize(250, 50))
+
+        self.operation_code_arp_layout.addWidget(self.operation_code_arp_input)
+
+
+        self.verticalLayout_6.addLayout(self.operation_code_arp_layout)
+
+        self.number_arp_layout = QHBoxLayout()
+        self.number_arp_layout.setObjectName(u"number_arp_layout")
+        self.number_arp_label = QLabel(self.scrollAreaWidgetContents_4)
+        self.number_arp_label.setObjectName(u"number_arp_label")
+        self.number_arp_label.setMinimumSize(QSize(200, 50))
+        self.number_arp_label.setMaximumSize(QSize(50, 16777215))
+        self.number_arp_label.setFont(font3)
+        self.number_arp_label.setWordWrap(True)
+
+        self.number_arp_layout.addWidget(self.number_arp_label)
+
+        self.number_arp_input = IPAddressInput(self.scrollAreaWidgetContents_4)
+        self.number_arp_input.setObjectName(u"number_arp_input")
+        sizePolicy.setHeightForWidth(self.number_arp_input.sizePolicy().hasHeightForWidth())
+        self.number_arp_input.setSizePolicy(sizePolicy)
+        self.number_arp_input.setMinimumSize(QSize(0, 50))
+        self.number_arp_input.setMaximumSize(QSize(250, 50))
+
+        self.number_arp_layout.addWidget(self.number_arp_input)
+
+
+        self.verticalLayout_6.addLayout(self.number_arp_layout)
 
         self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
@@ -878,7 +854,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.protocol_types_configuration_pages.setCurrentIndex(1)
+        self.protocol_types_configuration_pages.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -896,23 +872,22 @@ class Ui_MainWindow(object):
         self.source_ip_address_label.setText(QCoreApplication.translate("MainWindow", u"Source IP Address", None))
         self.source_ip_address_input.setText("")
         self.destination_ip_address_label.setText(QCoreApplication.translate("MainWindow", u"Destination IP Address", None))
-        self.ip_payload_label_2.setText(QCoreApplication.translate("MainWindow", u"Time To Live", None))
-        self.ip_payload_label_6.setText(QCoreApplication.translate("MainWindow", u"Protocol", None))
-        self.ip_payload_label_3.setText(QCoreApplication.translate("MainWindow", u"Flags", None))
-        self.ip_payload_label_4.setText(QCoreApplication.translate("MainWindow", u"Fragmentation Offset", None))
-        self.ip_payload_label_5.setText(QCoreApplication.translate("MainWindow", u"Identification", None))
+        self.time_to_live_ip_label.setText(QCoreApplication.translate("MainWindow", u"Time To Live", None))
+        self.protocol_ip_label.setText(QCoreApplication.translate("MainWindow", u"Protocol", None))
+        self.flags_ip_label.setText(QCoreApplication.translate("MainWindow", u"Flags", None))
+        self.fragmentation_offset_ip_label.setText(QCoreApplication.translate("MainWindow", u"Fragmentation Offset", None))
+        self.identification_ip_label.setText(QCoreApplication.translate("MainWindow", u"Identification", None))
         self.ip_payload_label.setText(QCoreApplication.translate("MainWindow", u"Payload", None))
-        self.number_of_ip_packets_label.setText(QCoreApplication.translate("MainWindow", u"How many of this packet?", None))
+        self.number_ip_label.setText(QCoreApplication.translate("MainWindow", u"How many of this packet?", None))
         self.source_mac_address_arp_10.setText(QCoreApplication.translate("MainWindow", u"ARP Configuration", None))
         self.source_mac_address_arp_8.setText(QCoreApplication.translate("MainWindow", u"Source MAC Address", None))
-        self.source_mac_address_arp.setText(QCoreApplication.translate("MainWindow", u"Hardware Address Type", None))
-        self.source_mac_address_arp_3.setText(QCoreApplication.translate("MainWindow", u"Hardware Address Length", None))
-        self.source_mac_address_arp_2.setText(QCoreApplication.translate("MainWindow", u"Protocol Address Type", None))
-        self.source_mac_address_arp_12.setText(QCoreApplication.translate("MainWindow", u"Protocol Address Length", None))
-        self.source_mac_address_arp_11.setText(QCoreApplication.translate("MainWindow", u"Destination MAC Address", None))
-        self.source_mac_address_arp_4.setText(QCoreApplication.translate("MainWindow", u"Operation Code", None))
-        self.source_ip_address_label_3.setText(QCoreApplication.translate("MainWindow", u"Destination Hardware Address", None))
-        self.source_mac_address_arp_7.setText(QCoreApplication.translate("MainWindow", u"How many packets?", None))
+        self.hardware_address_type_arp_label.setText(QCoreApplication.translate("MainWindow", u"Hardware Address Type", None))
+        self.hardware_address_length_arp_label.setText(QCoreApplication.translate("MainWindow", u"Hardware Address Length", None))
+        self.protocol_address_type_arp_label.setText(QCoreApplication.translate("MainWindow", u"Protocol Address Type", None))
+        self.protocol_address_length_arp_label.setText(QCoreApplication.translate("MainWindow", u"Protocol Address Length", None))
+        self.destination_mac_address_arp_label.setText(QCoreApplication.translate("MainWindow", u"Destination MAC Address", None))
+        self.operation_code_arp_label.setText(QCoreApplication.translate("MainWindow", u"Operation Code", None))
+        self.number_arp_label.setText(QCoreApplication.translate("MainWindow", u"How many packets?", None))
         self.source_mac_address_arp_13.setText(QCoreApplication.translate("MainWindow", u"DNS Configuration", None))
         self.source_mac_address_arp_14.setText(QCoreApplication.translate("MainWindow", u"Source MAC Address", None))
         self.source_mac_address_arp_6.setText(QCoreApplication.translate("MainWindow", u"Hardware Address Type", None))

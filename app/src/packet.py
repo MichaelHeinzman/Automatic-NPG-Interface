@@ -5,7 +5,6 @@ import network.packet_generator as packet_generator
 class PacketWidget(QWidget):
     packet_clicked = pyqtSignal()
     packet_selected = pyqtSignal()
-    packet_generation_completed = pyqtSignal(object)
     remove_packet = pyqtSignal()
 
     def __init__(self, parent=None):
@@ -55,7 +54,3 @@ class PacketWidget(QWidget):
     
     def generate_packet(self, packet):
         result = packet_generator.generate_packets(packet)
-        self.packet_generation_completed.emit(result)
-
-
-

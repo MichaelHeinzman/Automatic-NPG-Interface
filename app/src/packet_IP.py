@@ -1,5 +1,5 @@
 from PyQt6.QtWidgets import QHBoxLayout, QLabel,QSpacerItem,QSizePolicy,QWidget
-from PyQt6.QtCore import  Qt
+from PyQt6.QtCore import  Qt,pyqtSignal
 from packet import PacketWidget
 
 class IPPacketWidget(PacketWidget):
@@ -51,8 +51,8 @@ class IPPacketWidget(PacketWidget):
         self.top_layout.addWidget(self.dst_label)
         self.top_layout.addItem(spacer)
         self.layout.addLayout(self.top_layout)
-
-    def send_packets_signal(self):
+    
+    def send_packet(self):
         self.generate_packet(self.packet)
         self.__del__()
         self.remove_packet.emit()

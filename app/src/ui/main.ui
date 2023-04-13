@@ -134,7 +134,7 @@ QLineEdit {
           <item>
            <widget class="QStackedWidget" name="protocol_types_configuration_pages">
             <property name="currentIndex">
-             <number>1</number>
+             <number>0</number>
             </property>
             <widget class="IPConfigurationWidget" name="ip_page">
              <property name="font">
@@ -200,7 +200,7 @@ QHBoxLayout {
                  <property name="geometry">
                   <rect>
                    <x>0</x>
-                   <y>-62</y>
+                   <y>0</y>
                    <width>410</width>
                    <height>580</height>
                   </rect>
@@ -325,9 +325,9 @@ QHBoxLayout {
                    </layout>
                   </item>
                   <item>
-                   <layout class="QHBoxLayout" name="ip_payload_layout_2">
+                   <layout class="QHBoxLayout" name="time_to_live_ip_layout">
                     <item>
-                     <widget class="QLabel" name="ip_payload_label_2">
+                     <widget class="QLabel" name="time_to_live_ip_label">
                       <property name="minimumSize">
                        <size>
                         <width>200</width>
@@ -354,7 +354,7 @@ QHBoxLayout {
                      </widget>
                     </item>
                     <item>
-                     <widget class="QLineEdit" name="ip_payload_input_2">
+                     <widget class="QLineEdit" name="time_to_live_ip_input">
                       <property name="sizePolicy">
                        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                         <horstretch>0</horstretch>
@@ -381,9 +381,9 @@ QHBoxLayout {
                    </layout>
                   </item>
                   <item>
-                   <layout class="QHBoxLayout" name="ip_payload_layout_6">
+                   <layout class="QHBoxLayout" name="protocol_ip_layout">
                     <item>
-                     <widget class="QLabel" name="ip_payload_label_6">
+                     <widget class="QLabel" name="protocol_ip_label">
                       <property name="minimumSize">
                        <size>
                         <width>200</width>
@@ -410,7 +410,7 @@ QHBoxLayout {
                      </widget>
                     </item>
                     <item>
-                     <widget class="QLineEdit" name="ip_payload_input_6">
+                     <widget class="QLineEdit" name="protocol_ip_input">
                       <property name="sizePolicy">
                        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                         <horstretch>0</horstretch>
@@ -437,9 +437,9 @@ QHBoxLayout {
                    </layout>
                   </item>
                   <item>
-                   <layout class="QHBoxLayout" name="ip_payload_layout_3">
+                   <layout class="QHBoxLayout" name="flags_ip_layout">
                     <item>
-                     <widget class="QLabel" name="ip_payload_label_3">
+                     <widget class="QLabel" name="flags_ip_label">
                       <property name="minimumSize">
                        <size>
                         <width>200</width>
@@ -466,7 +466,7 @@ QHBoxLayout {
                      </widget>
                     </item>
                     <item>
-                     <widget class="QLineEdit" name="ip_payload_input_3">
+                     <widget class="QLineEdit" name="flags_ip_input">
                       <property name="sizePolicy">
                        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                         <horstretch>0</horstretch>
@@ -493,9 +493,9 @@ QHBoxLayout {
                    </layout>
                   </item>
                   <item>
-                   <layout class="QHBoxLayout" name="ip_payload_layout_4">
+                   <layout class="QHBoxLayout" name="fragmentation_offset_ip_layout">
                     <item>
-                     <widget class="QLabel" name="ip_payload_label_4">
+                     <widget class="QLabel" name="fragmentation_offset_ip_label">
                       <property name="minimumSize">
                        <size>
                         <width>200</width>
@@ -522,7 +522,7 @@ QHBoxLayout {
                      </widget>
                     </item>
                     <item>
-                     <widget class="QLineEdit" name="ip_payload_input_4">
+                     <widget class="QLineEdit" name="fragmentation_offset_ip_input">
                       <property name="sizePolicy">
                        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                         <horstretch>0</horstretch>
@@ -549,9 +549,9 @@ QHBoxLayout {
                    </layout>
                   </item>
                   <item>
-                   <layout class="QHBoxLayout" name="ip_payload_layout_5">
+                   <layout class="QHBoxLayout" name="identification_ip_layout">
                     <item>
-                     <widget class="QLabel" name="ip_payload_label_5">
+                     <widget class="QLabel" name="identification_ip_label">
                       <property name="minimumSize">
                        <size>
                         <width>200</width>
@@ -578,7 +578,7 @@ QHBoxLayout {
                      </widget>
                     </item>
                     <item>
-                     <widget class="QLineEdit" name="ip_payload_input_5">
+                     <widget class="QLineEdit" name="identification_ip_input">
                       <property name="sizePolicy">
                        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                         <horstretch>0</horstretch>
@@ -661,9 +661,9 @@ QHBoxLayout {
                    </layout>
                   </item>
                   <item>
-                   <layout class="QHBoxLayout" name="number_of_ip_packets_layout">
+                   <layout class="QHBoxLayout" name="number_ip_layout">
                     <item>
-                     <widget class="QLabel" name="number_of_ip_packets_label">
+                     <widget class="QLabel" name="number_ip_label">
                       <property name="minimumSize">
                        <size>
                         <width>200</width>
@@ -690,7 +690,7 @@ QHBoxLayout {
                      </widget>
                     </item>
                     <item>
-                     <widget class="QLineEdit" name="number_of_ip_packets">
+                     <widget class="QLineEdit" name="number_ip_input">
                       <property name="sizePolicy">
                        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                         <horstretch>0</horstretch>
@@ -790,9 +790,9 @@ QHBoxLayout {
                    <property name="geometry">
                     <rect>
                      <x>0</x>
-                     <y>-64</y>
+                     <y>0</y>
                      <width>408</width>
-                     <height>580</height>
+                     <height>522</height>
                     </rect>
                    </property>
                    <property name="styleSheet">
@@ -853,9 +853,9 @@ QHBoxLayout {
                      </layout>
                     </item>
                     <item>
-                     <layout class="QHBoxLayout" name="source_mac_address_arp_layout">
+                     <layout class="QHBoxLayout" name="hardware_address_type_arp_layout">
                       <item>
-                       <widget class="QLabel" name="source_mac_address_arp">
+                       <widget class="QLabel" name="hardware_address_type_arp_label">
                         <property name="minimumSize">
                          <size>
                           <width>200</width>
@@ -882,7 +882,7 @@ QHBoxLayout {
                        </widget>
                       </item>
                       <item>
-                       <widget class="IPAddressInput" name="source_mac_address_arp_input">
+                       <widget class="IPAddressInput" name="hardware_address_type_arp_input">
                         <property name="sizePolicy">
                          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                           <horstretch>0</horstretch>
@@ -906,9 +906,9 @@ QHBoxLayout {
                      </layout>
                     </item>
                     <item>
-                     <layout class="QHBoxLayout" name="source_mac_address_arp_layout_3">
+                     <layout class="QHBoxLayout" name="hardware_address_length_arp_layout">
                       <item>
-                       <widget class="QLabel" name="source_mac_address_arp_3">
+                       <widget class="QLabel" name="hardware_address_length_arp_label">
                         <property name="minimumSize">
                          <size>
                           <width>200</width>
@@ -935,7 +935,7 @@ QHBoxLayout {
                        </widget>
                       </item>
                       <item>
-                       <widget class="IPAddressInput" name="source_mac_address_arp_input_3">
+                       <widget class="IPAddressInput" name="hardware_address_length_arp_input">
                         <property name="sizePolicy">
                          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                           <horstretch>0</horstretch>
@@ -959,9 +959,9 @@ QHBoxLayout {
                      </layout>
                     </item>
                     <item>
-                     <layout class="QHBoxLayout" name="source_mac_address_arp_layout_2">
+                     <layout class="QHBoxLayout" name="protocol_address_type_arp_layout">
                       <item>
-                       <widget class="QLabel" name="source_mac_address_arp_2">
+                       <widget class="QLabel" name="protocol_address_type_arp_label">
                         <property name="minimumSize">
                          <size>
                           <width>200</width>
@@ -988,7 +988,7 @@ QHBoxLayout {
                        </widget>
                       </item>
                       <item>
-                       <widget class="IPAddressInput" name="source_mac_address_arp_input_2">
+                       <widget class="IPAddressInput" name="protocol_address_type_arp_input">
                         <property name="sizePolicy">
                          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                           <horstretch>0</horstretch>
@@ -1012,9 +1012,9 @@ QHBoxLayout {
                      </layout>
                     </item>
                     <item>
-                     <layout class="QHBoxLayout" name="source_mac_address_arp_layout_12">
+                     <layout class="QHBoxLayout" name="protocol_address_length_arp_layout">
                       <item>
-                       <widget class="QLabel" name="source_mac_address_arp_12">
+                       <widget class="QLabel" name="protocol_address_length_arp_label">
                         <property name="minimumSize">
                          <size>
                           <width>200</width>
@@ -1041,7 +1041,7 @@ QHBoxLayout {
                        </widget>
                       </item>
                       <item>
-                       <widget class="IPAddressInput" name="source_mac_address_arp_input_12">
+                       <widget class="IPAddressInput" name="protocol_address_length_arp_input">
                         <property name="sizePolicy">
                          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                           <horstretch>0</horstretch>
@@ -1065,9 +1065,9 @@ QHBoxLayout {
                      </layout>
                     </item>
                     <item>
-                     <layout class="QHBoxLayout" name="source_mac_address_arp_layout_11">
+                     <layout class="QHBoxLayout" name="destination_mac_address_arp_layout">
                       <item>
-                       <widget class="QLabel" name="source_mac_address_arp_11">
+                       <widget class="QLabel" name="destination_mac_address_arp_label">
                         <property name="minimumSize">
                          <size>
                           <width>200</width>
@@ -1094,7 +1094,7 @@ QHBoxLayout {
                        </widget>
                       </item>
                       <item>
-                       <widget class="IPAddressInput" name="source_mac_address_arp_input_11">
+                       <widget class="IPAddressInput" name="destination_mac_address_arp_input">
                         <property name="sizePolicy">
                          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                           <horstretch>0</horstretch>
@@ -1118,9 +1118,9 @@ QHBoxLayout {
                      </layout>
                     </item>
                     <item>
-                     <layout class="QHBoxLayout" name="source_mac_address_arp_layout_4">
+                     <layout class="QHBoxLayout" name="operation_code_arp_layout">
                       <item>
-                       <widget class="QLabel" name="source_mac_address_arp_4">
+                       <widget class="QLabel" name="operation_code_arp_label">
                         <property name="minimumSize">
                          <size>
                           <width>200</width>
@@ -1147,7 +1147,7 @@ QHBoxLayout {
                        </widget>
                       </item>
                       <item>
-                       <widget class="IPAddressInput" name="source_mac_address_arp_input_4">
+                       <widget class="IPAddressInput" name="operation_code_arp_input">
                         <property name="sizePolicy">
                          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                           <horstretch>0</horstretch>
@@ -1171,65 +1171,9 @@ QHBoxLayout {
                      </layout>
                     </item>
                     <item>
-                     <layout class="QHBoxLayout" name="source_ip_address_layout_3">
+                     <layout class="QHBoxLayout" name="number_arp_layout">
                       <item>
-                       <widget class="QLabel" name="source_ip_address_label_3">
-                        <property name="minimumSize">
-                         <size>
-                          <width>200</width>
-                          <height>50</height>
-                         </size>
-                        </property>
-                        <property name="maximumSize">
-                         <size>
-                          <width>50</width>
-                          <height>16777215</height>
-                         </size>
-                        </property>
-                        <property name="font">
-                         <font>
-                          <pointsize>14</pointsize>
-                         </font>
-                        </property>
-                        <property name="text">
-                         <string>Destination Hardware Address</string>
-                        </property>
-                        <property name="scaledContents">
-                         <bool>false</bool>
-                        </property>
-                        <property name="wordWrap">
-                         <bool>true</bool>
-                        </property>
-                       </widget>
-                      </item>
-                      <item>
-                       <widget class="IPAddressInput" name="source_ip_address_input_3">
-                        <property name="sizePolicy">
-                         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                          <horstretch>0</horstretch>
-                          <verstretch>0</verstretch>
-                         </sizepolicy>
-                        </property>
-                        <property name="minimumSize">
-                         <size>
-                          <width>0</width>
-                          <height>50</height>
-                         </size>
-                        </property>
-                        <property name="maximumSize">
-                         <size>
-                          <width>250</width>
-                          <height>50</height>
-                         </size>
-                        </property>
-                       </widget>
-                      </item>
-                     </layout>
-                    </item>
-                    <item>
-                     <layout class="QHBoxLayout" name="source_mac_address_arp_layout_7">
-                      <item>
-                       <widget class="QLabel" name="source_mac_address_arp_7">
+                       <widget class="QLabel" name="number_arp_label">
                         <property name="minimumSize">
                          <size>
                           <width>200</width>
@@ -1256,7 +1200,7 @@ QHBoxLayout {
                        </widget>
                       </item>
                       <item>
-                       <widget class="IPAddressInput" name="source_mac_address_arp_input_7">
+                       <widget class="IPAddressInput" name="number_arp_input">
                         <property name="sizePolicy">
                          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                           <horstretch>0</horstretch>
