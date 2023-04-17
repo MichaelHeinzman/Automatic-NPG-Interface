@@ -1,4 +1,4 @@
-from PyQt6.QtWidgets import QHBoxLayout, QLabel, QSpacerItem, QSizePolicy, QWidget
+from PyQt6.QtWidgets import QHBoxLayout, QLabel, QSpacerItem, QSizePolicy, QWidget,QVBoxLayout
 from PyQt6.QtCore import Qt, pyqtSignal
 from widgets.packet import PacketWidget
 
@@ -29,6 +29,11 @@ class IPPacketWidget(PacketWidget):
         self.destination_ip_address = "192.168.1.236"
         self.payload = "Hello World!"
 
+        # Create Bottom Layout
+        self.bottom_layout = QVBoxLayout()
+        self.bottom_layout.setAlignment(Qt.AlignmentFlag.AlignTop)
+        self.bottom_layout.setSpacing(10)
+        
         # Create top-level horizontal layout
         self.top_layout = QHBoxLayout()
         self.top_layout.setAlignment(Qt.AlignmentFlag.AlignJustify)
@@ -51,13 +56,56 @@ class IPPacketWidget(PacketWidget):
         self.top_layout.addWidget(self.dst_label)
         self.top_layout.addItem(spacer)
         self.layout.addLayout(self.top_layout)
-
+        self.layout.addLayout(self.bottom_layout)
+        self.packet_selected.connect(self.on_packet_selected)
+        
     # Sends the generated packet
     def send_packet(self):
         self.generate_packet(self.packet)
         self.__del__()
         self.send_packet_signal.emit()
 
+
+    def on_packet_selected(self):
+        if self.selected:
+            # Change Style  of top layout
+            self.src_label.setStyleSheet(self.selectedTopLayout)
+            self.dst_label.setStyleSheet(self.selectedTopLayout)
+            self.packet_number_label.setStyleSheet(self.selectedTopLayout)
+
+            # show details
+            self.version_label = QLabel("Version: {}".format(self.version))
+            self.version_label.setStyleSheet(self.textStyle)
+            self.protocol_label = QLabel("Protocol: {}".format(self.protocol))
+            self.protocol_label.setStyleSheet(self.textStyle)
+            self.payload_label = QLabel("Payload: {}".format(self.payload))
+            self.payload_label.setStyleSheet(self.textStyle)
+            self.number_of_packets = QLabel("Number of Packets: {}".format(self.number_of_packet))
+            self.number_of_packets.setStyleSheet(self.textStyle)
+            self.bottom_layout.addWidget(self.version_label)
+            self.bottom_layout.addWidget(self.protocol_label)
+            self.bottom_layout.addWidget(self.payload_label)
+            self.bottom_layout.addWidget(self.number_of_packets)
+        else:
+            # Change Style  of top layout
+            self.src_label.setStyleSheet(self.textStyle)
+            self.dst_label.setStyleSheet(self.textStyle)
+            self.packet_number_label.setStyleSheet(self.textStyle)
+
+            # hide details
+            if self.version_label is not None:
+                self.version_label.deleteLater()
+                self.version_label = None
+            if self.protocol_label is not None:
+                self.protocol_label.deleteLater()
+                self.protocol_label = None
+            if self.payload_label is not None:
+                self.payload_label.deleteLater()
+                self.payload_label = None
+            if self.number_of_packets is not None:
+                self.number_of_packets.deleteLater()
+                self.number_of_packets = None
+    
     # Deletes the widget and its layout
     def __del__(self):
         if self.top_layout is not None:

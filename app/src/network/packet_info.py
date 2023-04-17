@@ -11,11 +11,68 @@ IP_PACKET_INFO = {
     "ttl": 64,
     "proto": 6,
     "chksum": None,
-    "srcIP": "192.168.1.236",
-    "dstIP": "192.168.1.236",
+    "srcIP": "127.0.0.1",
+    "dstIP": "127.0.0.1",
     "options": None,
-    "payload": "Hello World!",
+    "payload": "HELLO",
     "number": 5
+}
+
+TCP_IP_PACKET = {
+    "type": "IP",
+    "version": 4,
+    "ihl": 5,
+    "tos": 0,
+    "len": 64,
+    "id": 54321,
+    "flags": 0,
+    "frag": 0,
+    "ttl": 64,
+    "proto": 6,
+    "chksum": None,
+    "srcIP": "127.0.0.1",
+    "dstIP": "127.0.0.1",
+    "options": None,
+    "payload": "This is a TCP packet",
+    "number": 1
+}
+
+UDP_IP_PACKET ={
+    "type": "IP",
+    "version": 4,
+    "ihl": 5,
+    "tos": 0,
+    "len": 64,
+    "id": 12345,
+    "flags": 0,
+    "frag": 0,
+    "ttl": 64,
+    "proto": 17,
+    "chksum": None,
+    "srcIP": "127.0.0.1",
+    "dstIP": "127.0.0.1",
+    "options": None,
+    "payload": "This is a UDP packet",
+    "number": 2
+}
+
+ICMP_IP_PACKET = {
+    "type": "IP",
+    "version": 4,
+    "ihl": 5,
+    "tos": 0,
+    "len": 84,
+    "id": 54321,
+    "flags": 0,
+    "frag": 0,
+    "ttl": 64,
+    "proto": 1,
+    "chksum": None,
+    "srcIP": "127.0.0.1",
+    "dstIP": "127.0.0.1",
+    "options": None,
+    "payload": "This is an ICMP packet",
+    "number": 1
 }
 
 # ARP packet information dictionary

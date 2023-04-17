@@ -10,7 +10,6 @@ from PyQt6.QtWidgets import (
     QVBoxLayout)
 from PyQt6.uic import loadUi
 from PyQt6.QtCore import pyqtSignal, Qt, QThreadPool
-from network.packet_info import ARP_PACKET_INFO, DNS_PACKET_INFO
 from widgets.ip_packet_configuration import IPConfigurationWidget
 from widgets.packet_sender import PacketSender
 

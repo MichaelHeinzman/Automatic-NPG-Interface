@@ -35,6 +35,23 @@ class PacketWidget(QWidget):
             background-color: rgba(217, 217, 217, 1);
         '''
 
+        self.selectedTopLayout = '''
+            position: absolute;
+            width: 122px;
+            max-height: 32px;
+            padding: 10px;
+            left: 700px;
+            top: 161px;
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 19px;
+            text-align: center;
+            color: #363C4B;
+            background-color: #FFD600;
+        '''
+
         # Connect the packet_clicked signal to the on_packet_clicked method
         self.packet_clicked.connect(self.on_packet_clicked)
 

@@ -16,6 +16,7 @@ def send_packet (packet, packet_info):
 
     send_method = check_packet_type_assign_send_method(packet, packet_info)
     result = send_method(packet * number_of_packets, timeout = 10)
+    time.sleep(.1)
     return result
 
 @handle_error

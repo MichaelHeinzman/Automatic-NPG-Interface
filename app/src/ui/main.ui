@@ -134,7 +134,7 @@ QLineEdit {
           <item>
            <widget class="QStackedWidget" name="protocol_types_configuration_pages">
             <property name="currentIndex">
-             <number>0</number>
+             <number>1</number>
             </property>
             <widget class="IPConfigurationWidget" name="ip_page">
              <property name="font">
@@ -1313,8 +1313,8 @@ QHBoxLayout {
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>427</width>
-                   <height>518</height>
+                   <width>147</width>
+                   <height>212</height>
                   </rect>
                  </property>
                  <property name="autoFillBackground">

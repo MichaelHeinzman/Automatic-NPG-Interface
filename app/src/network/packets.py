@@ -26,12 +26,31 @@ def create_ARP_who_has(packet_info):
 def create_IP(packet_info):
     src_IP = packet_info.get("srcIP", get_if_addr(get_working_if()))
     dst_IP = packet_info.get("dstIP")
+    id = packet_info.get("id", 1)
+    flags = packet_info.get("flags", 0)
+    frag = packet_info.get("frag", 0)
+    ttl = packet_info.get("ttl", 64)
+    proto = packet_info.get("proto", 6)
+    chksum = packet_info.get("chksum")
     payload = packet_info.get("payload", '')
+    options = packet_info.get("options")
+    if options is None:
+        options = {}
 
-    ip_packet = IP(src=src_IP, dst=dst_IP, options={})
-    ip_packet = ip_packet/payload.encode() if payload else ip_packet
+    # encode the payload as bytes
+    payload_bytes = payload.encode('iso-8859-1')
 
-    return ip_packet
+    # set the length field in packet_info
+    packet_info['len'] = len(payload_bytes) + 20
+
+    ip_packet = IP(src=src_IP, dst=dst_IP, id=id, flags=flags, frag=frag, ttl=ttl, proto=proto, chksum=chksum, options=options, len=packet_info['len'])
+
+    try:
+        ip_packet = ip_packet/payload_bytes if payload_bytes else ip_packet
+        return ip_packet
+    except Exception as e:
+        print(f"Error: {e}")
+        return None
 
 
 # Create a DNS packet.
