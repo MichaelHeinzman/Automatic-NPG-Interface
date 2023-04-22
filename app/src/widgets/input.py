@@ -20,5 +20,5 @@ class Input(QLineEdit):
             color: #363C4B;
             background-color: rgba(217, 217, 217, 1);
         '''
-
+        
         self.setStyleSheet(self.textStyle)

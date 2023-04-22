@@ -6,9 +6,9 @@ class IPPacketWidget(PacketWidget):
     # Signals
     send_packet_signal = pyqtSignal()
 
-    def __init__(self, parent=None, packet=None, packet_number=0):
+    def __init__(self, parent=None, packet=None, packet_number=0, add_to_summary=None):
         super().__init__(parent)
-
+        self.add_to_summary = add_to_summary
         # Initialize variables
         self.protocol = "IP"
         self.version = 4
@@ -61,9 +61,11 @@ class IPPacketWidget(PacketWidget):
         
     # Sends the generated packet
     def send_packet(self):
-        self.generate_packet(self.packet)
-        self.__del__()
-        self.send_packet_signal.emit()
+        result = self.generate_packet(self.packet)
+        if (result):
+            self.__del__()
+            self.add_to_summary(result)
+        
 
 
     def on_packet_selected(self):

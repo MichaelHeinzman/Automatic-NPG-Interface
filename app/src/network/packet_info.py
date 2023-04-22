@@ -1,23 +1,3 @@
-# IP packet information dictionary
-IP_PACKET_INFO = {
-    "type": "IP",
-    "version": 4,
-    "ihl": 5,
-    "tos": 0,
-    "len": 0,
-    "id": 1,
-    "flags": 0,
-    "frag": 0,
-    "ttl": 64,
-    "proto": 6,
-    "chksum": None,
-    "srcIP": "127.0.0.1",
-    "dstIP": "127.0.0.1",
-    "options": None,
-    "payload": "HELLO",
-    "number": 5
-}
-
 TCP_IP_PACKET = {
     "type": "IP",
     "version": 4,
@@ -71,7 +51,7 @@ ICMP_IP_PACKET = {
     "srcIP": "127.0.0.1",
     "dstIP": "127.0.0.1",
     "options": None,
-    "payload": "This is an ICMP packet",
+    "payload": "This is an ICMP packet.",
     "number": 1
 }
 

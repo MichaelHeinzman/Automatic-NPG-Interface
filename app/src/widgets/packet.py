@@ -82,4 +82,4 @@ class PacketWidget(QWidget):
 
     # Function to generate a packet using the packet_generator module
     def generate_packet(self, packet):
-        result = packet_generator.generate_packets(packet)
+        return packet_generator.generate_packets(packet)

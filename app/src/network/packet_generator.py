@@ -9,3 +9,4 @@ from .error_handling import handle_error
 def generate_packets (packet_info):
     new_packet = create_packet(packet_info)
     return send_packet(new_packet, packet_info)
+

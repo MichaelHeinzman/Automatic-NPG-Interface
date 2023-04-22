@@ -33,6 +33,7 @@ class PacketCreationScreen(QMainWindow):
         self.packet_result = None
         self.packet_number = 1
         self.packets_to_send = []
+        self.packet_summary = []
 
         # Set up UI elements
         self.setup_configuration_pages()
@@ -63,6 +64,11 @@ class PacketCreationScreen(QMainWindow):
         else:
             return
     
+    # Function to add a packet to packet_summary
+    def add_to_summary(self, result):
+        # Add the packet to the summary list
+        self.packet_summary.append(result)
+            
     # Function to add a packet to the list of packets to be sent
     def add_packet_to_send_list(self, packet):
         self.packets_to_send.append(packet)
@@ -97,7 +103,7 @@ class PacketCreationScreen(QMainWindow):
     def setup_configuration_pages(self):
         # Store Important UI Elements in variables.
         self.ip_page = self.findChild(IPConfigurationWidget, "ip_page")
-        self.ip_page.setup_inputs(self)
+        self.ip_page.setup_inputs()
 
     # Function to set up the protocol selection combo box
     def setup_protocol_selection(self):
@@ -105,7 +111,6 @@ class PacketCreationScreen(QMainWindow):
         self.protocol_selection = self.findChild(QComboBox, "protocol_input")
         self.protocol_selection.protocol_details_stacked = self.protocol_details_stacked
         self.protocol_selection.setup()
-
 
 # Launch Application
 app = QApplication(sys.argv)

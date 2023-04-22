@@ -16,10 +16,11 @@ from PySide6.QtGui import (QAction, QBrush, QColor, QConicalGradient,
     QIcon, QImage, QKeySequence, QLinearGradient,
     QPainter, QPalette, QPixmap, QRadialGradient,
     QTransform)
-from PySide6.QtWidgets import (QApplication, QHBoxLayout, QLabel, QLineEdit,
-    QMainWindow, QMenu, QMenuBar, QPushButton,
-    QScrollArea, QSizePolicy, QSpacerItem, QStackedWidget,
-    QStatusBar, QVBoxLayout, QWidget)
+from PySide6.QtWidgets import (QApplication, QGridLayout, QHBoxLayout, QLabel,
+    QLineEdit, QMainWindow, QMenu, QMenuBar,
+    QPushButton, QRadioButton, QScrollArea, QSizePolicy,
+    QSpacerItem, QStackedWidget, QStatusBar, QVBoxLayout,
+    QWidget)
 
 from widgets.ip_4_address_input import IPAddressInput
 from widgets.ip_packet_configuration import IPConfigurationWidget
@@ -53,7 +54,7 @@ class Ui_MainWindow(object):
 "	background-color: rgb(82, 88, 104);\n"
 "}\n"
 "\n"
-"QLineEdit {\n"
+"QLineEdit, QRadioButton {\n"
 "            position: absolute;\n"
 "            padding: 10px;\n"
 "            font-family: 'Inter';\n"
@@ -64,7 +65,8 @@ class Ui_MainWindow(object):
 "            text-align: center;\n"
 "            color: #363C4B;\n"
 "            background-color: rgba(217, 217, 217, 1);\n"
-"}")
+"}\n"
+"")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.centralwidget.setStyleSheet(u"")
@@ -161,18 +163,167 @@ class Ui_MainWindow(object):
         self.scrollArea_3.setWidgetResizable(True)
         self.scrollAreaWidgetContents_6 = QWidget()
         self.scrollAreaWidgetContents_6.setObjectName(u"scrollAreaWidgetContents_6")
-        self.scrollAreaWidgetContents_6.setGeometry(QRect(0, 0, 410, 580))
+        self.scrollAreaWidgetContents_6.setGeometry(QRect(0, 0, 410, 639))
         self.scrollAreaWidgetContents_6.setStyleSheet(u"")
         self.verticalLayout_9 = QVBoxLayout(self.scrollAreaWidgetContents_6)
+        self.verticalLayout_9.setSpacing(6)
         self.verticalLayout_9.setObjectName(u"verticalLayout_9")
+        self.verticalLayout_9.setContentsMargins(6, 6, 6, 6)
+        self.ip_types_radios = QHBoxLayout()
+        self.ip_types_radios.setSpacing(0)
+        self.ip_types_radios.setObjectName(u"ip_types_radios")
+        self.ip_types_radios.setContentsMargins(-1, 0, -1, -1)
+        self.icmp_radio = QRadioButton(self.scrollAreaWidgetContents_6)
+        self.icmp_radio.setObjectName(u"icmp_radio")
+
+        self.ip_types_radios.addWidget(self.icmp_radio)
+
+        self.tcp_radio = QRadioButton(self.scrollAreaWidgetContents_6)
+        self.tcp_radio.setObjectName(u"tcp_radio")
+        self.tcp_radio.setChecked(True)
+
+        self.ip_types_radios.addWidget(self.tcp_radio)
+
+        self.udp_radio = QRadioButton(self.scrollAreaWidgetContents_6)
+        self.udp_radio.setObjectName(u"udp_radio")
+
+        self.ip_types_radios.addWidget(self.udp_radio)
+
+
+        self.verticalLayout_9.addLayout(self.ip_types_radios)
+
+        self.ip_types_stacked_widget = QStackedWidget(self.scrollAreaWidgetContents_6)
+        self.ip_types_stacked_widget.setObjectName(u"ip_types_stacked_widget")
+        self.ip_types_stacked_widget.setStyleSheet(u"\n"
+"#ip_types_stacked_widget {	\n"
+"background-color: rgba(82, 88, 104, 1);\n"
+"}")
+        self.tcp = QWidget()
+        self.tcp.setObjectName(u"tcp")
+        self.tcp.setAutoFillBackground(False)
+        self.tcp.setStyleSheet(u"#page{	\n"
+"background-color: rgba(82, 88, 104, 1);\n"
+"}")
+        self.verticalLayout_5 = QVBoxLayout(self.tcp)
+        self.verticalLayout_5.setSpacing(6)
+        self.verticalLayout_5.setObjectName(u"verticalLayout_5")
+        self.verticalLayout_5.setContentsMargins(0, 0, 0, 0)
+        self.tcp_types_grid = QGridLayout()
+        self.tcp_types_grid.setSpacing(0)
+        self.tcp_types_grid.setObjectName(u"tcp_types_grid")
+        self.tcp_types_grid.setContentsMargins(-1, -1, -1, 0)
+        self.tcp_syn_radio = QRadioButton(self.tcp)
+        self.tcp_syn_radio.setObjectName(u"tcp_syn_radio")
+
+        self.tcp_types_grid.addWidget(self.tcp_syn_radio, 0, 0, 1, 1)
+
+        self.tcp_fin_radio = QRadioButton(self.tcp)
+        self.tcp_fin_radio.setObjectName(u"tcp_fin_radio")
+
+        self.tcp_types_grid.addWidget(self.tcp_fin_radio, 3, 0, 1, 1)
+
+        self.tcp_finack_radio = QRadioButton(self.tcp)
+        self.tcp_finack_radio.setObjectName(u"tcp_finack_radio")
+
+        self.tcp_types_grid.addWidget(self.tcp_finack_radio, 3, 1, 1, 1)
+
+        self.tcp_rst_radio = QRadioButton(self.tcp)
+        self.tcp_rst_radio.setObjectName(u"tcp_rst_radio")
+
+        self.tcp_types_grid.addWidget(self.tcp_rst_radio, 2, 1, 1, 1)
+
+        self.tcp_synack_radio = QRadioButton(self.tcp)
+        self.tcp_synack_radio.setObjectName(u"tcp_synack_radio")
+
+        self.tcp_types_grid.addWidget(self.tcp_synack_radio, 0, 1, 1, 1)
+
+        self.tcp_psh_radio = QRadioButton(self.tcp)
+        self.tcp_psh_radio.setObjectName(u"tcp_psh_radio")
+
+        self.tcp_types_grid.addWidget(self.tcp_psh_radio, 2, 0, 1, 1)
+
+        self.tcp_ack_radio = QRadioButton(self.tcp)
+        self.tcp_ack_radio.setObjectName(u"tcp_ack_radio")
+
+        self.tcp_types_grid.addWidget(self.tcp_ack_radio, 0, 4, 1, 1)
+
+        self.tcp_urg_radio = QRadioButton(self.tcp)
+        self.tcp_urg_radio.setObjectName(u"tcp_urg_radio")
+
+        self.tcp_types_grid.addWidget(self.tcp_urg_radio, 2, 4, 1, 1)
+
+
+        self.verticalLayout_5.addLayout(self.tcp_types_grid)
+
+        self.tcp_source_port = QHBoxLayout()
+        self.tcp_source_port.setSpacing(6)
+        self.tcp_source_port.setObjectName(u"tcp_source_port")
+        self.tcp_source_port_label = QLabel(self.tcp)
+        self.tcp_source_port_label.setObjectName(u"tcp_source_port_label")
+        self.tcp_source_port_label.setMinimumSize(QSize(200, 50))
+        self.tcp_source_port_label.setMaximumSize(QSize(200, 50))
+        font3 = QFont()
+        font3.setPointSize(14)
+        self.tcp_source_port_label.setFont(font3)
+        self.tcp_source_port_label.setWordWrap(True)
+
+        self.tcp_source_port.addWidget(self.tcp_source_port_label)
+
+        self.tcp_source_port_input = QLineEdit(self.tcp)
+        self.tcp_source_port_input.setObjectName(u"tcp_source_port_input")
+        sizePolicy.setHeightForWidth(self.tcp_source_port_input.sizePolicy().hasHeightForWidth())
+        self.tcp_source_port_input.setSizePolicy(sizePolicy)
+        self.tcp_source_port_input.setMinimumSize(QSize(0, 50))
+        self.tcp_source_port_input.setMaximumSize(QSize(250, 50))
+        self.tcp_source_port_input.setStyleSheet(u"")
+
+        self.tcp_source_port.addWidget(self.tcp_source_port_input)
+
+
+        self.verticalLayout_5.addLayout(self.tcp_source_port)
+
+        self.tcp_destination_port = QHBoxLayout()
+        self.tcp_destination_port.setSpacing(6)
+        self.tcp_destination_port.setObjectName(u"tcp_destination_port")
+        self.tcp_destination_port.setContentsMargins(-1, 6, -1, -1)
+        self.tcp_destination_port_label = QLabel(self.tcp)
+        self.tcp_destination_port_label.setObjectName(u"tcp_destination_port_label")
+        self.tcp_destination_port_label.setMinimumSize(QSize(200, 50))
+        self.tcp_destination_port_label.setMaximumSize(QSize(200, 50))
+        self.tcp_destination_port_label.setFont(font3)
+        self.tcp_destination_port_label.setWordWrap(True)
+
+        self.tcp_destination_port.addWidget(self.tcp_destination_port_label)
+
+        self.tcp_destination_port_input = QLineEdit(self.tcp)
+        self.tcp_destination_port_input.setObjectName(u"tcp_destination_port_input")
+        sizePolicy.setHeightForWidth(self.tcp_destination_port_input.sizePolicy().hasHeightForWidth())
+        self.tcp_destination_port_input.setSizePolicy(sizePolicy)
+        self.tcp_destination_port_input.setMinimumSize(QSize(0, 50))
+        self.tcp_destination_port_input.setMaximumSize(QSize(250, 50))
+        self.tcp_destination_port_input.setStyleSheet(u"")
+
+        self.tcp_destination_port.addWidget(self.tcp_destination_port_input)
+
+
+        self.verticalLayout_5.addLayout(self.tcp_destination_port)
+
+        self.ip_types_stacked_widget.addWidget(self.tcp)
+        self.icmp = QWidget()
+        self.icmp.setObjectName(u"icmp")
+        self.ip_types_stacked_widget.addWidget(self.icmp)
+        self.udp = QWidget()
+        self.udp.setObjectName(u"udp")
+        self.ip_types_stacked_widget.addWidget(self.udp)
+
+        self.verticalLayout_9.addWidget(self.ip_types_stacked_widget)
+
         self.source_ip_address_layout = QHBoxLayout()
         self.source_ip_address_layout.setObjectName(u"source_ip_address_layout")
         self.source_ip_address_label = QLabel(self.scrollAreaWidgetContents_6)
         self.source_ip_address_label.setObjectName(u"source_ip_address_label")
         self.source_ip_address_label.setMinimumSize(QSize(200, 50))
         self.source_ip_address_label.setMaximumSize(QSize(200, 50))
-        font3 = QFont()
-        font3.setPointSize(14)
         self.source_ip_address_label.setFont(font3)
         self.source_ip_address_label.setWordWrap(True)
 
@@ -239,103 +390,8 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_9.addLayout(self.time_to_live_ip_layout)
 
-        self.protocol_ip_layout = QHBoxLayout()
-        self.protocol_ip_layout.setObjectName(u"protocol_ip_layout")
-        self.protocol_ip_label = QLabel(self.scrollAreaWidgetContents_6)
-        self.protocol_ip_label.setObjectName(u"protocol_ip_label")
-        self.protocol_ip_label.setMinimumSize(QSize(200, 50))
-        self.protocol_ip_label.setMaximumSize(QSize(200, 50))
-        self.protocol_ip_label.setFont(font3)
-        self.protocol_ip_label.setWordWrap(True)
-
-        self.protocol_ip_layout.addWidget(self.protocol_ip_label)
-
-        self.protocol_ip_input = NumberLineEdit(self.scrollAreaWidgetContents_6)
-        self.protocol_ip_input.setObjectName(u"protocol_ip_input")
-        sizePolicy.setHeightForWidth(self.protocol_ip_input.sizePolicy().hasHeightForWidth())
-        self.protocol_ip_input.setSizePolicy(sizePolicy)
-        self.protocol_ip_input.setMinimumSize(QSize(0, 50))
-        self.protocol_ip_input.setMaximumSize(QSize(250, 16777215))
-        self.protocol_ip_input.setStyleSheet(u"")
-
-        self.protocol_ip_layout.addWidget(self.protocol_ip_input)
-
-
-        self.verticalLayout_9.addLayout(self.protocol_ip_layout)
-
-        self.flags_ip_layout = QHBoxLayout()
-        self.flags_ip_layout.setObjectName(u"flags_ip_layout")
-        self.flags_ip_label = QLabel(self.scrollAreaWidgetContents_6)
-        self.flags_ip_label.setObjectName(u"flags_ip_label")
-        self.flags_ip_label.setMinimumSize(QSize(200, 50))
-        self.flags_ip_label.setMaximumSize(QSize(200, 50))
-        self.flags_ip_label.setFont(font3)
-        self.flags_ip_label.setWordWrap(True)
-
-        self.flags_ip_layout.addWidget(self.flags_ip_label)
-
-        self.flags_ip_input = NumberLineEdit(self.scrollAreaWidgetContents_6)
-        self.flags_ip_input.setObjectName(u"flags_ip_input")
-        sizePolicy.setHeightForWidth(self.flags_ip_input.sizePolicy().hasHeightForWidth())
-        self.flags_ip_input.setSizePolicy(sizePolicy)
-        self.flags_ip_input.setMinimumSize(QSize(0, 50))
-        self.flags_ip_input.setMaximumSize(QSize(250, 16777215))
-        self.flags_ip_input.setStyleSheet(u"")
-
-        self.flags_ip_layout.addWidget(self.flags_ip_input)
-
-
-        self.verticalLayout_9.addLayout(self.flags_ip_layout)
-
-        self.fragmentation_offset_ip_layout = QHBoxLayout()
-        self.fragmentation_offset_ip_layout.setObjectName(u"fragmentation_offset_ip_layout")
-        self.fragmentation_offset_ip_label = QLabel(self.scrollAreaWidgetContents_6)
-        self.fragmentation_offset_ip_label.setObjectName(u"fragmentation_offset_ip_label")
-        self.fragmentation_offset_ip_label.setMinimumSize(QSize(200, 50))
-        self.fragmentation_offset_ip_label.setMaximumSize(QSize(200, 50))
-        self.fragmentation_offset_ip_label.setFont(font3)
-        self.fragmentation_offset_ip_label.setWordWrap(True)
-
-        self.fragmentation_offset_ip_layout.addWidget(self.fragmentation_offset_ip_label)
-
-        self.fragmentation_offset_ip_input = NumberLineEdit(self.scrollAreaWidgetContents_6)
-        self.fragmentation_offset_ip_input.setObjectName(u"fragmentation_offset_ip_input")
-        sizePolicy.setHeightForWidth(self.fragmentation_offset_ip_input.sizePolicy().hasHeightForWidth())
-        self.fragmentation_offset_ip_input.setSizePolicy(sizePolicy)
-        self.fragmentation_offset_ip_input.setMinimumSize(QSize(0, 50))
-        self.fragmentation_offset_ip_input.setMaximumSize(QSize(250, 16777215))
-        self.fragmentation_offset_ip_input.setStyleSheet(u"")
-
-        self.fragmentation_offset_ip_layout.addWidget(self.fragmentation_offset_ip_input)
-
-
-        self.verticalLayout_9.addLayout(self.fragmentation_offset_ip_layout)
-
-        self.identification_ip_layout = QHBoxLayout()
-        self.identification_ip_layout.setObjectName(u"identification_ip_layout")
-        self.identification_ip_label = QLabel(self.scrollAreaWidgetContents_6)
-        self.identification_ip_label.setObjectName(u"identification_ip_label")
-        self.identification_ip_label.setMinimumSize(QSize(200, 50))
-        self.identification_ip_label.setMaximumSize(QSize(200, 50))
-        self.identification_ip_label.setFont(font3)
-        self.identification_ip_label.setWordWrap(True)
-
-        self.identification_ip_layout.addWidget(self.identification_ip_label)
-
-        self.identification_ip_input = NumberLineEdit(self.scrollAreaWidgetContents_6)
-        self.identification_ip_input.setObjectName(u"identification_ip_input")
-        sizePolicy.setHeightForWidth(self.identification_ip_input.sizePolicy().hasHeightForWidth())
-        self.identification_ip_input.setSizePolicy(sizePolicy)
-        self.identification_ip_input.setMinimumSize(QSize(0, 50))
-        self.identification_ip_input.setMaximumSize(QSize(250, 16777215))
-        self.identification_ip_input.setStyleSheet(u"")
-
-        self.identification_ip_layout.addWidget(self.identification_ip_input)
-
-
-        self.verticalLayout_9.addLayout(self.identification_ip_layout)
-
         self.ip_payload_layout = QHBoxLayout()
+        self.ip_payload_layout.setSpacing(6)
         self.ip_payload_layout.setObjectName(u"ip_payload_layout")
         self.ip_payload_label = QLabel(self.scrollAreaWidgetContents_6)
         self.ip_payload_label.setObjectName(u"ip_payload_label")
@@ -351,7 +407,7 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.ip_payload_input.sizePolicy().hasHeightForWidth())
         self.ip_payload_input.setSizePolicy(sizePolicy)
         self.ip_payload_input.setMinimumSize(QSize(0, 50))
-        self.ip_payload_input.setMaximumSize(QSize(250, 16777215))
+        self.ip_payload_input.setMaximumSize(QSize(250, 50))
         self.ip_payload_input.setStyleSheet(u"")
 
         self.ip_payload_layout.addWidget(self.ip_payload_input)
@@ -426,7 +482,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents_4 = QWidget()
         self.scrollAreaWidgetContents_4.setObjectName(u"scrollAreaWidgetContents_4")
-        self.scrollAreaWidgetContents_4.setGeometry(QRect(0, 0, 408, 522))
+        self.scrollAreaWidgetContents_4.setGeometry(QRect(0, 0, 265, 522))
         self.scrollAreaWidgetContents_4.setStyleSheet(u"")
         self.verticalLayout_6 = QVBoxLayout(self.scrollAreaWidgetContents_4)
         self.verticalLayout_6.setObjectName(u"verticalLayout_6")
@@ -857,6 +913,7 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
 
         self.protocol_types_configuration_pages.setCurrentIndex(0)
+        self.ip_types_stacked_widget.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -871,14 +928,23 @@ class Ui_MainWindow(object):
         self.protocol_input.setItemText(2, QCoreApplication.translate("MainWindow", u"DNS", None))
 
         self.protocol_selection_title_3.setText(QCoreApplication.translate("MainWindow", u"IP Packet Configuration", None))
+        self.icmp_radio.setText(QCoreApplication.translate("MainWindow", u"ICMP", None))
+        self.tcp_radio.setText(QCoreApplication.translate("MainWindow", u"TCP", None))
+        self.udp_radio.setText(QCoreApplication.translate("MainWindow", u"UDP", None))
+        self.tcp_syn_radio.setText(QCoreApplication.translate("MainWindow", u"SYN", None))
+        self.tcp_fin_radio.setText(QCoreApplication.translate("MainWindow", u"FIN", None))
+        self.tcp_finack_radio.setText(QCoreApplication.translate("MainWindow", u"FIN-ACK", None))
+        self.tcp_rst_radio.setText(QCoreApplication.translate("MainWindow", u"RST", None))
+        self.tcp_synack_radio.setText(QCoreApplication.translate("MainWindow", u"SYN-ACK", None))
+        self.tcp_psh_radio.setText(QCoreApplication.translate("MainWindow", u"PSH", None))
+        self.tcp_ack_radio.setText(QCoreApplication.translate("MainWindow", u"ACK", None))
+        self.tcp_urg_radio.setText(QCoreApplication.translate("MainWindow", u"URG", None))
+        self.tcp_source_port_label.setText(QCoreApplication.translate("MainWindow", u"Source Port", None))
+        self.tcp_destination_port_label.setText(QCoreApplication.translate("MainWindow", u"Destination Port", None))
         self.source_ip_address_label.setText(QCoreApplication.translate("MainWindow", u"Source IP Address", None))
         self.source_ip_address_input.setText("")
         self.destination_ip_address_label.setText(QCoreApplication.translate("MainWindow", u"Destination IP Address", None))
         self.time_to_live_ip_label.setText(QCoreApplication.translate("MainWindow", u"Time To Live", None))
-        self.protocol_ip_label.setText(QCoreApplication.translate("MainWindow", u"Protocol", None))
-        self.flags_ip_label.setText(QCoreApplication.translate("MainWindow", u"Flags", None))
-        self.fragmentation_offset_ip_label.setText(QCoreApplication.translate("MainWindow", u"Fragmentation Offset", None))
-        self.identification_ip_label.setText(QCoreApplication.translate("MainWindow", u"Identification", None))
         self.ip_payload_label.setText(QCoreApplication.translate("MainWindow", u"Payload", None))
         self.number_ip_label.setText(QCoreApplication.translate("MainWindow", u"How many of this packet?", None))
         self.number_ip_input.setInputMask("")

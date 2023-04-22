@@ -10,18 +10,22 @@ class NumberLineEdit(Input):
     def __init__(self, parent=None):
         super().__init__(parent)
         self.setValidator(QIntValidator())  # Set validator to only allow integers
+        self.textChanged.connect(self._on_text_changed)
 
-    def text(self) -> str:
-        """
-        Override the QLineEdit text() method to return an empty string if input is invalid.
-        """
-        text = super().text()
-        if self.hasAcceptableInput():
-            return text
-        return ""
-
-    def value(self) -> int:
+    def _on_text_changed(self, text):
         """
         Convert the input text to an integer.
         """
-        return int(self.text() or 0)
+        if text:
+            try:
+                value = int(text)
+            except ValueError:
+                pass
+            else:
+                self.setText(str(value))
+
+    def value(self) -> int:
+        """
+        Return the integer value of the input text.
+        """
+        return int(self.text() or 1)
