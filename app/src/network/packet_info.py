@@ -14,7 +14,8 @@ TCP_IP_PACKET = {
     "dstIP": "127.0.0.1",
     "options": None,
     "payload": "This is a TCP packet",
-    "number": 1
+    "number": 1,
+    "tcp_type": "S"
 }
 
 UDP_IP_PACKET ={

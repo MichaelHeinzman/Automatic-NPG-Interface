@@ -1,9 +1,20 @@
-from PyQt6.QtWidgets import QWidget, QLineEdit, QVBoxLayout, QHBoxLayout,QRadioButton,QStackedWidget
+from PyQt6.QtWidgets import QWidget, QLineEdit, QVBoxLayout, QHBoxLayout,QRadioButton,QStackedWidget,QGridLayout
 from PyQt6.QtCore import Qt
 from network.packet_info import  TCP_IP_PACKET, ICMP_IP_PACKET, UDP_IP_PACKET
 from widgets.packet_IP import IPPacketWidget
 
 class IPConfigurationWidget(QWidget):
+    TCP_FLAG_MAP = {
+    "tcp_ack_radio": "A",
+    "tcp_fin_radio": "F",
+    "tcp_finack_radio": "FA",
+    "tcp_psh_radio": "P",
+    "tcp_rst_radio": "R",
+    "tcp_syn_radio": "S",
+    "tcp_synack_radio": "SA",
+    "tcp_urg_radio": "U"
+    }
+
     def __init__(self, parent=None):
         super().__init__(parent)
         
@@ -25,7 +36,7 @@ class IPConfigurationWidget(QWidget):
 
     def setup_ip_stacked(self):
         self.ip_stacked = self.findChild(QStackedWidget, "ip_types_stacked_widget")
-        
+  
     def setup_radio_buttons(self):
         self.icmp_radio = self.findChild(QRadioButton, "icmp_radio")
         self.tcp_radio = self.findChild(QRadioButton, "tcp_radio")
@@ -35,7 +46,26 @@ class IPConfigurationWidget(QWidget):
         self.tcp_radio.clicked.connect(self.handle_ip_type_change)
         self.udp_radio.clicked.connect(self.handle_ip_type_change)
 
+        self.tcp_ack_radio = self.findChild(QRadioButton, "tcp_ack_radio")
+        self.tcp_fin_radio = self.findChild(QRadioButton, "tcp_fin_radio")
+        self.tcp_finack_radio = self.findChild(QRadioButton, "tcp_finack_radio")
+        self.tcp_psh_radio = self.findChild(QRadioButton, "tcp_psh_radio")
+        self.tcp_rst_radio = self.findChild(QRadioButton, "tcp_rst_radio")
+        self.tcp_syn_radio = self.findChild(QRadioButton, "tcp_syn_radio")
+        self.tcp_synack_radio = self.findChild(QRadioButton, "tcp_synack_radio")
+        self.tcp_urg_radio = self.findChild(QRadioButton, "tcp_urg_radio")
+
+        self.tcp_ack_radio.clicked.connect(lambda: self.handle_tcp_type_change(self.tcp_ack_radio))
+        self.tcp_fin_radio.clicked.connect(lambda: self.handle_tcp_type_change(self.tcp_fin_radio))
+        self.tcp_finack_radio.clicked.connect(lambda: self.handle_tcp_type_change(self.tcp_finack_radio))
+        self.tcp_psh_radio.clicked.connect(lambda: self.handle_tcp_type_change(self.tcp_psh_radio))
+        self.tcp_rst_radio.clicked.connect(lambda: self.handle_tcp_type_change(self.tcp_rst_radio))
+        self.tcp_syn_radio.clicked.connect(lambda: self.handle_tcp_type_change(self.tcp_syn_radio))
+        self.tcp_synack_radio.clicked.connect(lambda: self.handle_tcp_type_change(self.tcp_synack_radio))
+        self.tcp_urg_radio.clicked.connect(lambda: self.handle_tcp_type_change(self.tcp_urg_radio))
+
     def setup_inputs(self):
+        self.tcp_types_grid = self.findChild(QGridLayout, "tcp_types_grid")
         self.setup_ip_stacked()
         self.setup_radio_buttons()
         # Get IP Inputs and store references in dictionary
@@ -49,7 +79,12 @@ class IPConfigurationWidget(QWidget):
             widget.textChanged.connect(lambda value, key=name: self.update_packet(value, key))
             self.input_widgets[name] = widget
 
-    def handle_ip_type_change (self):
+    def handle_tcp_type_change(self, checked_button):
+        button_name = checked_button.objectName()
+        if button_name in self.TCP_FLAG_MAP:
+            self.packet['tcp_type'] = self.TCP_FLAG_MAP[button_name]
+            
+    def handle_ip_type_change(self):
         if self.icmp_radio.isChecked():
             self.packet = ICMP_IP_PACKET
             self.ip_stacked.setCurrentIndex(1)
@@ -64,10 +99,13 @@ class IPConfigurationWidget(QWidget):
             self.ip_stacked.hide()
 
         self.update_input_fields()
-        
+
     def update_input_fields(self):
         for name, widget in self.input_widgets.items():
             widget.setText(str(self.packet[name]))
+
     def add_packet_clicked(self, parent):
-        item_widget = IPPacketWidget(packet=self.packet, packet_number=parent.packet_number, add_to_summary=parent.add_to_summary)
+        # Create a copy of the current packet
+        packet_copy = dict(self.packet)
+        item_widget = IPPacketWidget(packet=packet_copy, packet_number=parent.packet_number, add_to_summary=parent.add_to_summary)
         parent.add_packet_to_send_list(item_widget)
