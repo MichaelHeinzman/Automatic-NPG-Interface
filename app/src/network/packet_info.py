@@ -15,6 +15,8 @@ TCP_IP_PACKET = {
     "options": None,
     "payload": "This is a TCP packet",
     "number": 1,
+    "sport": 0,
+    "dport": 80,
     "tcp_type": "S"
 }
 
@@ -33,6 +35,8 @@ UDP_IP_PACKET ={
     "srcIP": "127.0.0.1",
     "dstIP": "127.0.0.1",
     "options": None,
+    "sport": 0,
+    "dport": 80,
     "payload": "This is a UDP packet",
     "number": 2
 }
@@ -52,13 +56,15 @@ ICMP_IP_PACKET = {
     "srcIP": "127.0.0.1",
     "dstIP": "127.0.0.1",
     "options": None,
+    "sport": 0,
+    "dport": 80,
     "payload": "This is an ICMP packet.",
     "number": 1
 }
 
 # ARP packet information dictionary
 ARP_PACKET_INFO = {
-    "type": "ARP-who-has",
+    "type": "ARP",
     "hwtype": 1,
     "ptype": 2048,
     "hwlen": 6,
@@ -73,6 +79,8 @@ ARP_PACKET_INFO = {
 
 # DNS packet information dictionary
 DNS_PACKET_INFO = {
+    "srcIP": "192.1.168.236",
+    "dstIP": "8.8.8.8",
     "type": "DNS",
     "id": 0xAAA,
     "qr": 0,
@@ -93,5 +101,6 @@ DNS_PACKET_INFO = {
     "an": [],
     "ns": [],
     "ar": [],
-    "qname": "www.example.com"
+    "qname": "www.example.com",
+    "number": 0,
 }

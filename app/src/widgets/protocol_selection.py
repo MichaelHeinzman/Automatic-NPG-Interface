@@ -21,10 +21,10 @@ class ProtocolSelection(QComboBox):
         if value == "IP":
             self.protocol_details_stacked.setCurrentIndex(0)
         elif value == "DNS":
-            self.protocol_details_stacked.setCurrentIndex(1)
+            self.protocol_details_stacked.setCurrentIndex(2)
             self.packet = DNS_PACKET_INFO
         elif value == "ARP":
-            self.protocol_details_stacked.setCurrentIndex(2)
+            self.protocol_details_stacked.setCurrentIndex(1)
             self.packet = ARP_PACKET_INFO
         else:
             return

@@ -11,6 +11,8 @@ from PyQt6.QtWidgets import (
 from PyQt6.uic import loadUi
 from PyQt6.QtCore import pyqtSignal, Qt, QThreadPool
 from widgets.ip_packet_configuration import IPConfigurationWidget
+from widgets.dns_configuration import DNSConfigurationWidget
+from widgets.arp_configuration import ARPConfigurationWidget
 from widgets.packet_sender import PacketSender
 
 
@@ -26,6 +28,8 @@ class PacketCreationScreen(QMainWindow):
 
         # Load the UI file
         loadUi("./ui/main.ui", self)
+
+
 
         # Initialize variables
         self.packet = {}
@@ -56,11 +60,9 @@ class PacketCreationScreen(QMainWindow):
         if index == 0: 
             return self.ip_page.add_packet_clicked(self)
         elif index == 1: 
-            print("ARP")
-            return
+            return self.arp_page.add_packet_clicked(self)
         elif index == 2:
-            print("DNS")
-            return
+            return self.dns_page.add_packet_clicked(self)
         else:
             return
     
@@ -105,6 +107,12 @@ class PacketCreationScreen(QMainWindow):
         self.ip_page = self.findChild(IPConfigurationWidget, "ip_page")
         self.ip_page.setup_inputs()
 
+        self.dns_page = self.findChild(DNSConfigurationWidget, "dns_page")
+        self.dns_page.setup_inputs()
+
+        self.arp_page = self.findChild(ARPConfigurationWidget, "arp_page")
+        self.arp_page.setup_inputs()
+
     # Function to set up the protocol selection combo box
     def setup_protocol_selection(self):
         self.protocol_details_stacked = self.findChild(QStackedWidget, "protocol_types_configuration_pages")
@@ -115,11 +123,10 @@ class PacketCreationScreen(QMainWindow):
 # Launch Application
 app = QApplication(sys.argv)
 packetCreation = PacketCreationScreen()
-widget = QStackedWidget()
-widget.setFixedHeight(800)
-widget.setFixedWidth(1200)
-widget.addWidget(packetCreation)
-widget.show()
+packetCreationWidget = QMainWindow()
+packetCreationWidget.setWindowTitle("Automatic Network Packet Generator")
+packetCreationWidget.setCentralWidget(packetCreation)
+packetCreationWidget.show()
 
 try: 
     sys.exit(app.exec())
