@@ -25,4 +25,4 @@ jobs:
 
       - name: Run tests
         working-directory: ./app/src/
-        run: pytest src/tests/
+        run: pytest tests/
