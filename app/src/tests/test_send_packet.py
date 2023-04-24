@@ -2,23 +2,42 @@ import sys
 import os
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
-import unittest
-from unittest.mock import patch
-from network import packet_sending
+from unittest.mock import MagicMock, patch
+from scapy.layers.l2 import Ether
+from scapy.layers.inet import IP
+from scapy.layers.dns import DNS, DNSQR
+from network import send_packet, check_packet_type_assign_send_method
 
-class TestSendPacket(unittest.TestCase):
-    @patch('scapy.sendrecv.sr')
-    def test_send_packet(self, mock_sr):
-        # Create a fake packet and packet_info to send
-        packet = b'fake packet'
-        packet_info = {'type': 'IP', 'number': 1}
+# Test send_packet function with a single packet
+def test_send_packet_single():
+    packet = Ether() / IP(dst="8.8.8.8") / DNS(rd=1, qd=DNSQR(qname="www.google.com"))
+    packet_info = {"type": "DNS", "number": 1}
+    result = send_packet(packet, packet_info)
+    assert len(result[0]) > 0  # Check that there is at least one answered packet
+    assert len(result[1]) == 0  # Check that there are no unanswered packets
+    assert len(result[2]) == 1  # Check that only one packet was sent
 
-        # Call send_packet with the fake packet and packet_info
-        packet_sending.send_packet(packet, packet_info)
+# Test send_packet function with multiple packets
+def test_send_packet_multiple():
+    packet = Ether() / IP(dst="8.8.8.8") / DNS(rd=1, qd=DNSQR(qname="www.google.com"))
+    packet_info = {"type": "DNS", "number": 5}
+    result = send_packet(packet, packet_info)
+    assert len(result[0]) > 0  # Check that there is at least one answered packet
+    assert len(result[1]) == 0  # Check that there are no unanswered packets
+    assert len(result[2]) == 5  # Check that all packets were sent
 
-        # Assert that sr was called with the correct arguments
-        mock_sr.assert_called_with(packet * packet_info['number'], timeout=10, iface=None, filter=None, verbose=0, chainCC=0, retry=0, multi=0)
+# Test check_packet_type_assign_send_method function with a valid packet type
+def test_check_packet_type_assign_send_method_valid():
+    packet = Ether() / IP(dst="8.8.8.8") / DNS(rd=1, qd=DNSQR(qname="www.google.com"))
+    packet_info = {"type": "DNS", "number": 1}
+    send_method, iface = check_packet_type_assign_send_method(packet, packet_info)
+    assert send_method.__name__ == "sr"  # Check that the correct send method was assigned
+    assert iface is not None  # Check that the interface is not None
 
-  
-if __name__ == '__main__':
-    unittest.main()
+# Test check_packet_type_assign_send_method function with an invalid packet type
+def test_check_packet_type_assign_send_method_invalid():
+    packet = Ether() / IP(dst="8.8.8.8") / DNS(rd=1, qd=DNSQR(qname="www.google.com"))
+    packet_info = {"type": "HTTP", "number": 1}
+    send_method, iface = check_packet_type_assign_send_method(packet, packet_info)
+    assert send_method.__name__ == "sr"  # Check that the default send method was assigned
+    assert iface is not None  # Check that the interface is not None
