@@ -86,7 +86,7 @@ QLineEdit, QRadioButton {
 QTabWidget::pane { border: 0; }</string>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <property name="iconSize">
        <size>
@@ -281,7 +281,7 @@ QHBoxLayout {
                       <rect>
                        <x>0</x>
                        <y>0</y>
-                       <width>401</width>
+                       <width>284</width>
                        <height>634</height>
                       </rect>
                      </property>
@@ -1440,8 +1440,8 @@ QHBoxLayout {
                       <rect>
                        <x>0</x>
                        <y>0</y>
-                       <width>418</width>
-                       <height>542</height>
+                       <width>136</width>
+                       <height>270</height>
                       </rect>
                      </property>
                      <property name="autoFillBackground">
@@ -2128,8 +2128,8 @@ background-color: rgb(255,255,255);
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>972</width>
-                 <height>416</height>
+                 <width>98</width>
+                 <height>28</height>
                 </rect>
                </property>
                <property name="styleSheet">

@@ -35,7 +35,7 @@ def create_IP(packet_info):
     if proto == 1:
         ip_packet /= ICMP()
     elif proto == 6:
-        ip_packet /= TCP(sport=packet_info.get("sport", 0), dport=packet_info.get("dport", 80),flags=packet_info.get("tcp_type", "S"))/Raw(load=payload)
+        ip_packet /= TCP(sport=packet_info.get("sport", 0), dport=packet_info.get("dport", 80),flags=packet_info.get("tcp_type", "S"),seq=packet_info.get("seq", None), ack=packet_info.get("ack", None))/Raw(load=payload)
     elif proto == 17:
         ip_packet /= UDP(sport=packet_info.get("sport", 12345), dport=packet_info.get("dport", 54321))/Raw(load=payload)
 

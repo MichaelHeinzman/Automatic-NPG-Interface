@@ -1,7 +1,8 @@
 from PyQt6.QtWidgets import QHBoxLayout, QLabel, QSpacerItem, QSizePolicy, QWidget,QVBoxLayout
 from PyQt6.QtCore import Qt, pyqtSignal
 from widgets.packet import PacketWidget
-from scapy.layers.inet import TCP
+from scapy.layers.inet import TCP,IP
+from network.tcp_handshake import tcp_handshake
 
 class IPPacketWidget(PacketWidget):
     # Signals
@@ -25,10 +26,23 @@ class IPPacketWidget(PacketWidget):
         self.top_layout.setAlignment(Qt.AlignmentFlag.AlignLeft)
         self.top_layout.setSpacing(10)
 
+
+        # Add protocol label if applicable
+        if packet["proto"] == 6:
+            protocol_label_text = "TCP"
+        elif packet["proto"] == 17:
+            protocol_label_text = "UDP"
+        elif packet["proto"] == 1:
+            protocol_label_text == "ICMP"
+        else:
+            protocol_label_text = "Protocol {}".format(packet["proto"])
+
         # Create and add the labels for the source and destination IP addresses
         self.packet_number_label = QLabel("No. {}".format(self.packet_number))
         self.src_label = QLabel("Src: {}".format(packet["srcIP"]))
         self.dst_label = QLabel("Dst: {}".format(packet["dstIP"]))
+        self.protocol_label = QLabel(protocol_label_text)
+        self.protocol_label.setStyleSheet(self.textStyle)
         self.src_label.setStyleSheet(self.textStyle)
         self.dst_label.setStyleSheet(self.textStyle)
         self.packet_number_label.setStyleSheet(self.textStyle)
@@ -37,6 +51,7 @@ class IPPacketWidget(PacketWidget):
         self.top_layout.addWidget(self.packet_number_label)
         self.top_layout.addWidget(self.src_label)
         self.top_layout.addWidget(self.dst_label)
+        self.top_layout.addWidget(self.protocol_label)
         self.layout.addLayout(self.top_layout)
         self.layout.addLayout(self.bottom_layout)
         self.packet_selected.connect(self.on_packet_selected)
@@ -44,44 +59,7 @@ class IPPacketWidget(PacketWidget):
     # Sends the generated packet
     def send_packet(self):
         if self.packet["proto"] == 6:
-            if self.packet["tcp_type"] == "S":  # SYN packet
-                syn_result = self.generate_packet(self.packet)
-                syn_ack = syn_result[0]
-                if syn_ack:
-                    seq_num = syn_ack[TCP].ack
-                    ack_num = syn_ack[TCP].seq + 1
-                    self.packet["tcp_seq_num"] = seq_num
-                    self.packet["tcp_ack_num"] = ack_num
-                    
-                    # Create an ACK packet
-                    ack_packet = self.generate_packet(tcp_type="A")
-                    return ack_packet
-                else: return syn_result   
-            elif self.packet["tcp_type"] == "F":  # FIN packet
-                fin_result = self.generate_packet(self.packet)
-                fin_ack = fin_result[0]
-                if fin_ack:
-                    seq_num = fin_ack[TCP].ack
-                    ack_num = fin_ack[TCP].seq + 1
-                    self.packet["tcp_seq_num"] = seq_num
-                    self.packet["tcp_ack_num"] = ack_num
-                    
-                    # Create an ACK packet
-                    ack_packet = self.generate_packet(tcp_type="A")
-                    return ack_packet
-                else: return fin_result
-            elif self.packet["tcp_type"] == "A":  # ACK packet
-                ack_result = self.generate_packet(self.packet)
-                ack_resp = ack_result[0]
-                if ack_resp:
-                    seq_num = ack_resp[TCP].ack
-                    ack_num = ack_resp[TCP].seq + 1
-                    self.packet["tcp_seq_num"] = seq_num
-                    self.packet["tcp_ack_num"] = ack_num
-                else: return ack_result
-            else:  # All other cases (e.g. PSH, RST, etc.)
-                return self.generate_packet(self.packet)
-                
+            return tcp_handshake(self.packet)
         else:
             return self.generate_packet(self.packet)
 
@@ -91,34 +69,36 @@ class IPPacketWidget(PacketWidget):
             # Change Style  of top layout
             self.src_label.setStyleSheet(self.selectedTopLayout)
             self.dst_label.setStyleSheet(self.selectedTopLayout)
+            self.protocol_label.setStyleSheet(self.selectedTopLayout)
             self.packet_number_label.setStyleSheet(self.selectedTopLayout)
 
             # show details
             self.version_label = QLabel("Version: {}".format(self.packet["version"]))
             self.version_label.setStyleSheet(self.textStyle)
-            self.protocol_label = QLabel("Protocol: {}".format(self.packet["proto"]))
-            self.protocol_label.setStyleSheet(self.textStyle)
+            self.proto_label = QLabel("Protocol: {}".format(self.packet["proto"]))
+            self.proto_label.setStyleSheet(self.textStyle)
             self.payload_label = QLabel("Payload: {}".format(self.packet["payload"]))
             self.payload_label.setStyleSheet(self.textStyle)
             self.number_of_packets = QLabel("Number of Packets: {}".format(self.packet["number"]))
             self.number_of_packets.setStyleSheet(self.textStyle)
             self.bottom_layout.addWidget(self.version_label)
-            self.bottom_layout.addWidget(self.protocol_label)
+            self.bottom_layout.addWidget(self.proto_label)
             self.bottom_layout.addWidget(self.payload_label)
             self.bottom_layout.addWidget(self.number_of_packets)
         else:
             # Change Style  of top layout
             self.src_label.setStyleSheet(self.textStyle)
             self.dst_label.setStyleSheet(self.textStyle)
+            self.protocol_label.setStyleSheet(self.textStyle)
             self.packet_number_label.setStyleSheet(self.textStyle)
 
             # hide details
             if self.version_label is not None:
                 self.version_label.deleteLater()
                 self.version_label = None
-            if self.protocol_label is not None:
-                self.protocol_label.deleteLater()
-                self.protocol_label = None
+            if self.proto_label is not None:
+                self.proto_label.deleteLater()
+                self.proto_label = None
             if self.payload_label is not None:
                 self.payload_label.deleteLater()
                 self.payload_label = None

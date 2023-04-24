@@ -6,6 +6,6 @@ def handle_error(func):
         try:
             return func(*args, **kwargs)
         except Exception as e:
-            print(f"An error occurred while creating a packet: {e}")
+            print(f"An error occurred in function '{func.__name__}': {e}")
             return None
     return wrapper
