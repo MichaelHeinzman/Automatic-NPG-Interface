@@ -6,7 +6,7 @@ from unittest.mock import MagicMock, patch
 from scapy.layers.l2 import Ether
 from scapy.layers.inet import IP
 from scapy.layers.dns import DNS, DNSQR
-from network import send_packet, check_packet_type_assign_send_method
+from network.packet_sending import send_packet, check_packet_type_assign_send_method
 
 # Test send_packet function with a single packet
 def test_send_packet_single():
