@@ -35,6 +35,7 @@ def send_packet(packet, packet_info, iface=None):
         if isinstance(pkt, tuple):
             # if the packet is a tuple, it contains the packet and the answer
             pkt, ans = pkt
+            pkt.time = ans.time
         print(pkt.summary())
 
     # Print unanswered packets

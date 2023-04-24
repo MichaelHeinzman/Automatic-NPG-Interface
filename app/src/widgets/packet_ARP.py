@@ -40,6 +40,7 @@ class ARPPacketWidget(PacketWidget):
         
     # Sends the generated packet
     def send_packet(self):
+        print("Sending ARP Packet")
         return self.generate_packet(self.packet)
     
         

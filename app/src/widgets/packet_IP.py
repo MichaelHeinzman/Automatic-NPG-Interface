@@ -73,6 +73,7 @@ class IPPacketWidget(PacketWidget):
         
     # Sends the generated packet
     def send_packet(self):
+        print("Sending IP Packet")
         if self.packet["proto"] == 6:
             return tcp_handshake(self.packet)
         else:

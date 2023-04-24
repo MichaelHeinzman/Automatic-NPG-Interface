@@ -57,7 +57,6 @@ def process_packets(result):
             elif resp[1].haslayer(ICMP):
                 data['payload'] = resp[1][ICMP].payload.load
         elif resp[1].haslayer(ARP):
-            print("ARP RECEIVED")
             data['type'] = 'ARP'
             data['hwsrc'] = resp[1][ARP].hwsrc
             data['hwdst'] = resp[1][ARP].hwdst

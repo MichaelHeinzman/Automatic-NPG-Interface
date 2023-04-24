@@ -118,6 +118,13 @@ class PacketCreationScreen(QMainWindow):
 
     # Function to handle "Send Packets" button click
     def send_packets_button_clicked(self):
+        # Set the send button to disabled state.
+        self.send_packets_button.setText("Sending Packets...")
+        self.send_packets_button.setEnabled(False)
+        self.add_packet_button.setEnabled(False)
+        self.add_packet_button.setStyleSheet("background-color: #bfbfbf;")
+        self.send_packets_button.setStyleSheet("background-color: #bfbfbf;")
+
         # Clear Current packet_summary
         self.packet_summary.clear()
 
@@ -155,11 +162,19 @@ class PacketCreationScreen(QMainWindow):
         while threadpool.activeThreadCount() > 0:
             QApplication.processEvents()
         
+        # Set Send Button to normal.
+        self.send_packets_button.setEnabled(True)
+        self.add_packet_button.setEnabled(True)
+        self.send_packets_button.setText("Send Packets")
+        self.send_packets_button.setStyleSheet("background-color: #F0F0F0;")
+        self.add_packet_button.setStyleSheet("background-color: #F0F0F0;")
+
         # Get End Time of Generation of Packets
         end_time = datetime.datetime.now()
         duration = end_time - start_time
         total_time = f"{duration.total_seconds():.2f} seconds"
         self.duration_packet_generation_value.setText(total_time)
+        self.tab_widget.setCurrentIndex(1)
 
     def on_packet_finished_sending(self, result, sent_packet):
         self.packet_summary.append(result)
@@ -170,7 +185,6 @@ class PacketCreationScreen(QMainWindow):
         # process the packets in the summary
         processed_packets = packet_processing.process_packets(result[0])
 
-        print(processed_packets)
         if not processed_packets:
             for i in range(sent_packet.packet["number"]):
                 self.packets_list.addWidget(sent_packet)

@@ -14,7 +14,6 @@ def create_ARP(packet_info):
     pdst = packet_info.get('pdst', '192.168.1.1')
     hwdst = packet_info.get('hwdst', 'ff:ff:ff:ff:ff:ff')
     arp_packet = Ether(dst=hwdst)/ARP(op=1,pdst=pdst)
-    ARP.show(arp_packet)
     return arp_packet
     
 @handle_error
@@ -53,5 +52,4 @@ def create_DNS (packet_info):
 
     dns_packet = IP(dst='8.8.8.8')/UDP(sport=RandShort(),dport=53)/DNS(rd=1, qd=DNSQR(qname=qname))
 
-    dns_packet.show()
     return dns_packet

@@ -43,6 +43,7 @@ class DNSPacketWidget(PacketWidget):
         
     # Sends the generated packet
     def send_packet(self):
+        print("Sending DNS Packet")
         return self.generate_packet(self.packet)
 
     def on_packet_selected(self):
