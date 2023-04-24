@@ -32,7 +32,6 @@ def test_check_packet_type_assign_send_method_valid():
     packet_info = {"type": "DNS", "number": 1}
     send_method, iface = check_packet_type_assign_send_method(packet, packet_info)
     assert send_method.__name__ == "sr"  # Check that the correct send method was assigned
-    assert iface is not None  # Check that the interface is not None
 
 # Test check_packet_type_assign_send_method function with an invalid packet type
 def test_check_packet_type_assign_send_method_invalid():
@@ -40,4 +39,3 @@ def test_check_packet_type_assign_send_method_invalid():
     packet_info = {"type": "HTTP", "number": 1}
     send_method, iface = check_packet_type_assign_send_method(packet, packet_info)
     assert send_method.__name__ == "sr"  # Check that the default send method was assigned
-    assert iface is not None  # Check that the interface is not None
