@@ -15,6 +15,6 @@ class TestSendPacket(unittest.TestCase):
         # Assert that sr was called with the correct arguments
         mock_sr.assert_called_with(packet * packet_info['number'], timeout=10, iface=None, filter=None, verbose=0, chainCC=0, retry=0, multi=0)
 
- 
+  
 if __name__ == '__main__':
     unittest.main()
