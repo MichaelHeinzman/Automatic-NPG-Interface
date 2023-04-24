@@ -162,41 +162,40 @@ class PacketCreationScreen(QMainWindow):
         self.duration_packet_generation_value.setText(total_time)
 
     def on_packet_finished_sending(self, result, sent_packet):
-            self.packet_summary.append(result)
+        self.packet_summary.append(result)
 
-            # Remove from send List and add to packets_list
-            self.to_send_packets_list.removeWidget(sent_packet)
+        # Remove from send List and add to packets_list
+        self.to_send_packets_list.removeWidget(sent_packet)
 
-            # process the packets in the summary
-            processed_packets = packet_processing.process_packets(result[0])
+        # process the packets in the summary
+        processed_packets = packet_processing.process_packets(result[0])
 
-            # create packet widgets and add them to the list
-            if not processed_packets:
-                for i in range(sent_packet.packet["number"]):
-                    self.packets_list.addWidget(sent_packet)
+        print(processed_packets)
+        if not processed_packets:
+            for i in range(sent_packet.packet["number"]):
+                self.packets_list.addWidget(sent_packet)
+                self.packet_finished_number += 1
+        else:
+            packet_type_to_widget_class = {
+                "IP": IPPacketWidget,
+                "ARP": ARPPacketWidget,
+                "DNS": DNSPacketWidget,
+            }
+
+            for packet in processed_packets:
+                packet_type = packet["type"]
+                if packet_type in packet_type_to_widget_class:
+                    sent = packet_type_to_widget_class[packet_type](
+                        packet=sent_packet.packet, packet_number=self.packet_finished_number
+                    )
                     self.packet_finished_number += 1
-            else:
-                for packet in processed_packets:
-                    if packet["type"] == "IP":
-                        # Create a copy of the sent_packet for each processed packet
-                        sent = IPPacketWidget(packet=sent_packet.packet, packet_number=self.packet_finished_number)
-                        self.packet_finished_number += 1
-                        widget = IPPacketWidget(packet=packet, packet_number=self.packet_finished_number)
-                    elif packet["type"] == "ARP":
-                        sent = ARPPacketWidget(packet=sent_packet.packet, packet_number=self.packet_finished_number)
-                        self.packet_finished_number += 1
-                        widget = ARPPacketWidget(packet=packet, packet_number=self.packet_finished_number)
-                    elif packet["type"] == "DNS":
-                        sent = DNSPacketWidget(packet=sent_packet.packet, packet_number=self.packet_finished_number)
-                        self.packet_finished_number += 1
-                        widget = DNSPacketWidget(packet=packet, packet_number=self.packet_finished_number)
-                    else:
-                        widget = None
-                    if widget:
-                        self.packets_list.addWidget(sent)
-                        self.packets_list.addWidget(widget)
-                        self.packet_finished_number += 1
-                        self.total_number_of_packets.setText(str(self.packet_finished_number - 1))
+                    widget = packet_type_to_widget_class[packet_type](
+                        packet=packet, packet_number=self.packet_finished_number
+                    )
+                    self.packets_list.addWidget(sent)
+                    self.packets_list.addWidget(widget)
+                    self.packet_finished_number += 1
+                    self.total_number_of_packets.setText(str(self.packet_finished_number - 1))
 
     # Function to update the current packet with changed values
     def update_packet(self, index, value):

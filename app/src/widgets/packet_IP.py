@@ -29,11 +29,26 @@ class IPPacketWidget(PacketWidget):
 
         # Add protocol label if applicable
         if packet["proto"] == 6:
-            protocol_label_text = "TCP"
+            if packet.get("tcp_type"):
+                if packet["tcp_type"] == "S":
+                    tcp_type_text = "SYN"
+                elif packet["tcp_type"] == "A":
+                    tcp_type_text = "ACK"
+                elif packet["tcp_type"] == "SA":
+                    tcp_type_text = "SYN-ACK"
+                elif packet["tcp_type"] == "FA":
+                    tcp_type_text = "FIN-ACK"
+                elif packet["tcp_type"] == "R":
+                    tcp_type_text = "RST"
+                else:
+                    tcp_type_text = "TCP"
+                protocol_label_text = "TCP ({})".format(tcp_type_text)
+            else:
+                protocol_label_text = "TCP"
         elif packet["proto"] == 17:
             protocol_label_text = "UDP"
         elif packet["proto"] == 1:
-            protocol_label_text == "ICMP"
+            protocol_label_text = "ICMP"
         else:
             protocol_label_text = "Protocol {}".format(packet["proto"])
 
