@@ -1,4 +1,4 @@
-__all__ = ['export_to_wireshark']
+__all__ = ['export_to_wireshark','download_pcap_file']
 import os
 import shutil
 import tkinter as tk

@@ -1,7 +1,8 @@
 
 __all__ = ['process_packets']
 from scapy.all import *
-from scapy.layers.inet import IP, ARP,ICMP
+from scapy.layers.inet import IP,ICMP
+from scapy.layers.l2 import ARP
 from scapy.layers.dns import DNS
 from .error_handling import handle_error
 
