@@ -28,7 +28,7 @@ def test_create_IP():
     assert packet[UDP].sport == 12345
     assert packet[UDP].dport == 54321
     assert packet.haslayer(Raw)
-    assert packet[Raw].load == packet_info['payload']
+    assert packet[Raw].load == packet_info['payload'].encode()
 
 
 def test_create_DNS():
@@ -42,4 +42,4 @@ def test_create_DNS():
     assert packet.haslayer(DNS)
     assert packet[DNS].rd == 1
     assert packet.haslayer(DNSQR)
-    assert packet[DNSQR].qname == packet_info['qname']
+    assert packet[DNSQR].qname.decode() == packet_info['qname'] + '.'
