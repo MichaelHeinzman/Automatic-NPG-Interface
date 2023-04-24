@@ -11,18 +11,18 @@
 from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
     QMetaObject, QObject, QPoint, QRect,
     QSize, QTime, QUrl, Qt)
-from PySide6.QtGui import (QAction, QBrush, QColor, QConicalGradient,
-    QCursor, QFont, QFontDatabase, QGradient,
-    QIcon, QImage, QKeySequence, QLinearGradient,
-    QPainter, QPalette, QPixmap, QRadialGradient,
-    QTransform)
+from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
+    QFont, QFontDatabase, QGradient, QIcon,
+    QImage, QKeySequence, QLinearGradient, QPainter,
+    QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QGridLayout, QHBoxLayout, QLabel,
-    QLayout, QLineEdit, QMainWindow, QMenu,
-    QMenuBar, QPushButton, QRadioButton, QScrollArea,
-    QSizePolicy, QSpacerItem, QStackedWidget, QStatusBar,
-    QVBoxLayout, QWidget)
+    QLayout, QLineEdit, QMainWindow, QPushButton,
+    QRadioButton, QScrollArea, QSizePolicy, QSpacerItem,
+    QStackedWidget, QStatusBar, QTabWidget, QVBoxLayout,
+    QWidget)
 
 from widgets.arp_configuration import ARPConfigurationWidget
+from widgets.console_output import ConsoleOutput
 from widgets.dns_configuration import DNSConfigurationWidget
 from widgets.ip_4_address_input import IPAddressInput
 from widgets.ip_packet_configuration import IPConfigurationWidget
@@ -33,7 +33,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1030, 900)
+        MainWindow.resize(1010, 880)
         font = QFont()
         font.setBold(False)
         MainWindow.setFont(font)
@@ -76,7 +76,24 @@ class Ui_MainWindow(object):
         self.centralwidget.setObjectName(u"centralwidget")
         self.centralwidget.setStyleSheet(u"")
         self.verticalLayout_2 = QVBoxLayout(self.centralwidget)
+        self.verticalLayout_2.setSpacing(0)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
+        self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
+        self.tabWidget = QTabWidget(self.centralwidget)
+        self.tabWidget.setObjectName(u"tabWidget")
+        self.tabWidget.setStyleSheet(u"#tabWidget {\n"
+"	background:transparent;\n"
+"}\n"
+"\n"
+"QTabWidget::pane { border: 0; }")
+        self.tabWidget.setIconSize(QSize(16, 16))
+        self.tabWidget.setElideMode(Qt.ElideMiddle)
+        self.tabWidget.setMovable(False)
+        self.tabWidget.setTabBarAutoHide(False)
+        self.CreatingAndSending = QWidget()
+        self.CreatingAndSending.setObjectName(u"CreatingAndSending")
+        self.verticalLayout_7 = QVBoxLayout(self.CreatingAndSending)
+        self.verticalLayout_7.setObjectName(u"verticalLayout_7")
         self.horizontalLayout_2 = QHBoxLayout()
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
         self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
@@ -88,7 +105,7 @@ class Ui_MainWindow(object):
         self.left_side.setContentsMargins(-1, -1, -1, 0)
         self.protocol_selection_container = QVBoxLayout()
         self.protocol_selection_container.setObjectName(u"protocol_selection_container")
-        self.protocol_selection_title = QLabel(self.centralwidget)
+        self.protocol_selection_title = QLabel(self.CreatingAndSending)
         self.protocol_selection_title.setObjectName(u"protocol_selection_title")
         font1 = QFont()
         font1.setPointSize(24)
@@ -98,12 +115,12 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout = QHBoxLayout()
         self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.protocol_label = QLabel(self.centralwidget)
+        self.protocol_label = QLabel(self.CreatingAndSending)
         self.protocol_label.setObjectName(u"protocol_label")
 
         self.horizontalLayout.addWidget(self.protocol_label)
 
-        self.protocol_input = ProtocolSelection(self.centralwidget)
+        self.protocol_input = ProtocolSelection(self.CreatingAndSending)
         self.protocol_input.addItem("")
         self.protocol_input.addItem("")
         self.protocol_input.addItem("")
@@ -129,7 +146,7 @@ class Ui_MainWindow(object):
         self.protocol_details_container = QVBoxLayout()
         self.protocol_details_container.setObjectName(u"protocol_details_container")
         self.protocol_details_container.setContentsMargins(-1, -1, -1, 0)
-        self.protocol_types_configuration_pages = QStackedWidget(self.centralwidget)
+        self.protocol_types_configuration_pages = QStackedWidget(self.CreatingAndSending)
         self.protocol_types_configuration_pages.setObjectName(u"protocol_types_configuration_pages")
         self.ip_page = IPConfigurationWidget()
         self.ip_page.setObjectName(u"ip_page")
@@ -141,6 +158,10 @@ class Ui_MainWindow(object):
         self.verticalLayout.setSpacing(0)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
+        self.verticalSpacer_7 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout.addItem(self.verticalSpacer_7)
+
         self.protocol_selection_title_3 = QLabel(self.ip_page)
         self.protocol_selection_title_3.setObjectName(u"protocol_selection_title_3")
         sizePolicy.setHeightForWidth(self.protocol_selection_title_3.sizePolicy().hasHeightForWidth())
@@ -150,6 +171,10 @@ class Ui_MainWindow(object):
         self.protocol_selection_title_3.setFont(font3)
 
         self.verticalLayout.addWidget(self.protocol_selection_title_3)
+
+        self.verticalSpacer_6 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout.addItem(self.verticalSpacer_6)
 
         self.scrollArea_3 = QScrollArea(self.ip_page)
         self.scrollArea_3.setObjectName(u"scrollArea_3")
@@ -168,7 +193,7 @@ class Ui_MainWindow(object):
         self.scrollArea_3.setWidgetResizable(True)
         self.scrollAreaWidgetContents_6 = QWidget()
         self.scrollAreaWidgetContents_6.setObjectName(u"scrollAreaWidgetContents_6")
-        self.scrollAreaWidgetContents_6.setGeometry(QRect(0, 0, 410, 634))
+        self.scrollAreaWidgetContents_6.setGeometry(QRect(0, 0, 401, 634))
         self.scrollAreaWidgetContents_6.setStyleSheet(u"")
         self.verticalLayout_9 = QVBoxLayout(self.scrollAreaWidgetContents_6)
         self.verticalLayout_9.setSpacing(6)
@@ -522,7 +547,9 @@ class Ui_MainWindow(object):
         self.verticalLayout.addWidget(self.scrollArea_3)
 
         self.verticalLayout.setStretch(0, 1)
-        self.verticalLayout.setStretch(1, 12)
+        self.verticalLayout.setStretch(1, 1)
+        self.verticalLayout.setStretch(2, 1)
+        self.verticalLayout.setStretch(3, 18)
         self.protocol_types_configuration_pages.addWidget(self.ip_page)
         self.arp_page = ARPConfigurationWidget()
         self.arp_page.setObjectName(u"arp_page")
@@ -530,16 +557,25 @@ class Ui_MainWindow(object):
         self.verticalLayout_3.setSpacing(0)
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
         self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
+        self.verticalSpacer_4 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout_3.addItem(self.verticalSpacer_4)
+
         self.source_mac_address_arp_10 = QLabel(self.arp_page)
         self.source_mac_address_arp_10.setObjectName(u"source_mac_address_arp_10")
         self.source_mac_address_arp_10.setFont(font4)
 
         self.verticalLayout_3.addWidget(self.source_mac_address_arp_10)
 
+        self.verticalSpacer_5 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout_3.addItem(self.verticalSpacer_5)
+
         self.source_mac_address_arp_layout_10 = QHBoxLayout()
         self.source_mac_address_arp_layout_10.setObjectName(u"source_mac_address_arp_layout_10")
         self.scrollArea = QScrollArea(self.arp_page)
         self.scrollArea.setObjectName(u"scrollArea")
+        self.scrollArea.setMaximumSize(QSize(500, 16777215))
         self.scrollArea.setStyleSheet(u"\n"
 "\n"
 "QScrollArea {\n"
@@ -553,13 +589,15 @@ class Ui_MainWindow(object):
 "QHBoxLayout {\n"
 "	background-color: rgb(255, 255, 255);\n"
 "}")
+        self.scrollArea.setHorizontalScrollBarPolicy(Qt.ScrollBarAsNeeded)
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents_4 = QWidget()
         self.scrollAreaWidgetContents_4.setObjectName(u"scrollAreaWidgetContents_4")
-        self.scrollAreaWidgetContents_4.setGeometry(QRect(0, 0, 425, 516))
+        self.scrollAreaWidgetContents_4.setGeometry(QRect(0, 0, 415, 539))
         self.scrollAreaWidgetContents_4.setStyleSheet(u"")
         self.verticalLayout_6 = QVBoxLayout(self.scrollAreaWidgetContents_4)
         self.verticalLayout_6.setObjectName(u"verticalLayout_6")
+        self.verticalLayout_6.setContentsMargins(6, 6, 6, 6)
         self.arp_type_radios = QHBoxLayout()
         self.arp_type_radios.setSpacing(0)
         self.arp_type_radios.setObjectName(u"arp_type_radios")
@@ -568,17 +606,23 @@ class Ui_MainWindow(object):
         self.arp_who_has_radio.setObjectName(u"arp_who_has_radio")
         sizePolicy.setHeightForWidth(self.arp_who_has_radio.sizePolicy().hasHeightForWidth())
         self.arp_who_has_radio.setSizePolicy(sizePolicy)
-        self.arp_who_has_radio.setMaximumSize(QSize(1000000, 50))
+        self.arp_who_has_radio.setMinimumSize(QSize(0, 50))
+        self.arp_who_has_radio.setMaximumSize(QSize(11000, 50))
         self.arp_who_has_radio.setChecked(True)
 
         self.arp_type_radios.addWidget(self.arp_who_has_radio)
 
         self.arp_is_at_radio = QRadioButton(self.scrollAreaWidgetContents_4)
         self.arp_is_at_radio.setObjectName(u"arp_is_at_radio")
-        self.arp_is_at_radio.setMaximumSize(QSize(300, 50))
+        sizePolicy.setHeightForWidth(self.arp_is_at_radio.sizePolicy().hasHeightForWidth())
+        self.arp_is_at_radio.setSizePolicy(sizePolicy)
+        self.arp_is_at_radio.setMinimumSize(QSize(0, 50))
+        self.arp_is_at_radio.setMaximumSize(QSize(10000, 50))
 
         self.arp_type_radios.addWidget(self.arp_is_at_radio)
 
+        self.arp_type_radios.setStretch(0, 1)
+        self.arp_type_radios.setStretch(1, 1)
 
         self.verticalLayout_6.addLayout(self.arp_type_radios)
 
@@ -587,7 +631,7 @@ class Ui_MainWindow(object):
         self.destination_ip_address_arp_label = QLabel(self.scrollAreaWidgetContents_4)
         self.destination_ip_address_arp_label.setObjectName(u"destination_ip_address_arp_label")
         self.destination_ip_address_arp_label.setMinimumSize(QSize(200, 50))
-        self.destination_ip_address_arp_label.setMaximumSize(QSize(50, 16777215))
+        self.destination_ip_address_arp_label.setMaximumSize(QSize(50, 50))
         self.destination_ip_address_arp_label.setFont(font4)
         self.destination_ip_address_arp_label.setWordWrap(True)
 
@@ -598,7 +642,7 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.destination_ip_address_arp_input.sizePolicy().hasHeightForWidth())
         self.destination_ip_address_arp_input.setSizePolicy(sizePolicy)
         self.destination_ip_address_arp_input.setMinimumSize(QSize(0, 50))
-        self.destination_ip_address_arp_input.setMaximumSize(QSize(250, 16777215))
+        self.destination_ip_address_arp_input.setMaximumSize(QSize(250, 50))
 
         self.destination_ip_address_arp_layout_8.addWidget(self.destination_ip_address_arp_input)
 
@@ -632,6 +676,9 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_6.addItem(self.verticalSpacer_2)
 
+        self.verticalLayout_6.setStretch(1, 1)
+        self.verticalLayout_6.setStretch(2, 1)
+        self.verticalLayout_6.setStretch(3, 5)
         self.scrollArea.setWidget(self.scrollAreaWidgetContents_4)
 
         self.source_mac_address_arp_layout_10.addWidget(self.scrollArea)
@@ -640,7 +687,9 @@ class Ui_MainWindow(object):
         self.verticalLayout_3.addLayout(self.source_mac_address_arp_layout_10)
 
         self.verticalLayout_3.setStretch(0, 1)
-        self.verticalLayout_3.setStretch(1, 12)
+        self.verticalLayout_3.setStretch(1, 1)
+        self.verticalLayout_3.setStretch(2, 1)
+        self.verticalLayout_3.setStretch(3, 18)
         self.protocol_types_configuration_pages.addWidget(self.arp_page)
         self.dns_page = DNSConfigurationWidget()
         self.dns_page.setObjectName(u"dns_page")
@@ -651,11 +700,19 @@ class Ui_MainWindow(object):
         self.verticalLayout_8.setSpacing(0)
         self.verticalLayout_8.setObjectName(u"verticalLayout_8")
         self.verticalLayout_8.setContentsMargins(0, 0, 0, 0)
+        self.verticalSpacer_9 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout_8.addItem(self.verticalSpacer_9)
+
         self.source_mac_address_arp_13 = QLabel(self.dns_page)
         self.source_mac_address_arp_13.setObjectName(u"source_mac_address_arp_13")
         self.source_mac_address_arp_13.setFont(font4)
 
         self.verticalLayout_8.addWidget(self.source_mac_address_arp_13)
+
+        self.verticalSpacer_8 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout_8.addItem(self.verticalSpacer_8)
 
         self.scrollArea_2 = QScrollArea(self.dns_page)
         self.scrollArea_2.setObjectName(u"scrollArea_2")
@@ -676,7 +733,7 @@ class Ui_MainWindow(object):
         self.scrollArea_2.setWidgetResizable(True)
         self.scrollAreaWidgetContents_5 = QWidget()
         self.scrollAreaWidgetContents_5.setObjectName(u"scrollAreaWidgetContents_5")
-        self.scrollAreaWidgetContents_5.setGeometry(QRect(0, 0, 427, 518))
+        self.scrollAreaWidgetContents_5.setGeometry(QRect(0, 0, 418, 542))
         self.scrollAreaWidgetContents_5.setAutoFillBackground(False)
         self.scrollAreaWidgetContents_5.setStyleSheet(u"QHBoxLayout {\n"
 "background-color: rgb(255,255,255);\n"
@@ -758,7 +815,9 @@ class Ui_MainWindow(object):
         self.verticalLayout_8.addWidget(self.scrollArea_2)
 
         self.verticalLayout_8.setStretch(0, 1)
-        self.verticalLayout_8.setStretch(1, 12)
+        self.verticalLayout_8.setStretch(1, 1)
+        self.verticalLayout_8.setStretch(2, 1)
+        self.verticalLayout_8.setStretch(3, 18)
         self.protocol_types_configuration_pages.addWidget(self.dns_page)
 
         self.protocol_details_container.addWidget(self.protocol_types_configuration_pages)
@@ -778,13 +837,13 @@ class Ui_MainWindow(object):
         self.right_side = QVBoxLayout()
         self.right_side.setSpacing(0)
         self.right_side.setObjectName(u"right_side")
-        self.packets_to_send_title = QLabel(self.centralwidget)
+        self.packets_to_send_title = QLabel(self.CreatingAndSending)
         self.packets_to_send_title.setObjectName(u"packets_to_send_title")
         self.packets_to_send_title.setFont(font1)
 
         self.right_side.addWidget(self.packets_to_send_title)
 
-        self.packets_to_send_scroll_container = QScrollArea(self.centralwidget)
+        self.packets_to_send_scroll_container = QScrollArea(self.CreatingAndSending)
         self.packets_to_send_scroll_container.setObjectName(u"packets_to_send_scroll_container")
         sizePolicy.setHeightForWidth(self.packets_to_send_scroll_container.sizePolicy().hasHeightForWidth())
         self.packets_to_send_scroll_container.setSizePolicy(sizePolicy)
@@ -794,7 +853,7 @@ class Ui_MainWindow(object):
         self.packets_to_send_scroll_container.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
         self.scroll_area_contents = QWidget()
         self.scroll_area_contents.setObjectName(u"scroll_area_contents")
-        self.scroll_area_contents.setGeometry(QRect(0, 0, 429, 625))
+        self.scroll_area_contents.setGeometry(QRect(0, 0, 419, 702))
         self.scroll_area_contents.setStyleSheet(u"background-color: rgba(82, 88, 104, 1)")
         self.verticalLayout_11 = QVBoxLayout(self.scroll_area_contents)
         self.verticalLayout_11.setSpacing(0)
@@ -823,7 +882,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_2.setStretch(1, 5)
         self.horizontalLayout_2.setStretch(3, 5)
 
-        self.verticalLayout_2.addLayout(self.horizontalLayout_2)
+        self.verticalLayout_7.addLayout(self.horizontalLayout_2)
 
         self.horizontalLayout_3 = QHBoxLayout()
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
@@ -831,7 +890,7 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_3.addItem(self.horizontalSpacer_5)
 
-        self.add_packet_button = QPushButton(self.centralwidget)
+        self.add_packet_button = QPushButton(self.CreatingAndSending)
         self.add_packet_button.setObjectName(u"add_packet_button")
         sizePolicy2 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Preferred)
         sizePolicy2.setHorizontalStretch(0)
@@ -847,7 +906,7 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_3.addItem(self.horizontalSpacer_6)
 
-        self.send_packets_button = QPushButton(self.centralwidget)
+        self.send_packets_button = QPushButton(self.CreatingAndSending)
         self.send_packets_button.setObjectName(u"send_packets_button")
         sizePolicy2.setHeightForWidth(self.send_packets_button.sizePolicy().hasHeightForWidth())
         self.send_packets_button.setSizePolicy(sizePolicy2)
@@ -863,37 +922,210 @@ class Ui_MainWindow(object):
         self.horizontalLayout_3.setStretch(1, 1)
         self.horizontalLayout_3.setStretch(3, 1)
 
-        self.verticalLayout_2.addLayout(self.horizontalLayout_3)
+        self.verticalLayout_7.addLayout(self.horizontalLayout_3)
 
-        self.verticalLayout_2.setStretch(0, 5)
-        self.verticalLayout_2.setStretch(1, 1)
+        self.tabWidget.addTab(self.CreatingAndSending, "")
+        self.Summary = QWidget()
+        self.Summary.setObjectName(u"Summary")
+        self.Summary.setStyleSheet(u"QLabel\n"
+" {\n"
+"            position: absolute;\n"
+"            padding: 10px;\n"
+"            font-family: 'Inter';\n"
+"            font-style: normal;\n"
+"            font-weight: 700;\n"
+"            font-size: 16px;\n"
+"            line-height: 19px;\n"
+"            text-align: center;\n"
+"            color: #363C4B;\n"
+"            background-color: rgba(217, 217, 217, 1);\n"
+"}")
+        self.verticalLayout_13 = QVBoxLayout(self.Summary)
+        self.verticalLayout_13.setObjectName(u"verticalLayout_13")
+        self.gridLayout = QGridLayout()
+        self.gridLayout.setObjectName(u"gridLayout")
+        self.gridLayout.setContentsMargins(-1, -1, -1, 0)
+        self.horizontalLayout_7 = QHBoxLayout()
+        self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
+        self.horizontalLayout_7.setContentsMargins(-1, -1, -1, 0)
+        self.duration_packet_generation_label = QLabel(self.Summary)
+        self.duration_packet_generation_label.setObjectName(u"duration_packet_generation_label")
+
+        self.horizontalLayout_7.addWidget(self.duration_packet_generation_label)
+
+        self.duration_packet_generation_value = QLabel(self.Summary)
+        self.duration_packet_generation_value.setObjectName(u"duration_packet_generation_value")
+
+        self.horizontalLayout_7.addWidget(self.duration_packet_generation_value)
+
+
+        self.gridLayout.addLayout(self.horizontalLayout_7, 1, 0, 1, 1)
+
+        self.horizontalLayout_8 = QHBoxLayout()
+        self.horizontalLayout_8.setObjectName(u"horizontalLayout_8")
+        self.export_label = QLabel(self.Summary)
+        self.export_label.setObjectName(u"export_label")
+
+        self.horizontalLayout_8.addWidget(self.export_label)
+
+        self.download_pcap_file_button = QPushButton(self.Summary)
+        self.download_pcap_file_button.setObjectName(u"download_pcap_file_button")
+        sizePolicy2.setHeightForWidth(self.download_pcap_file_button.sizePolicy().hasHeightForWidth())
+        self.download_pcap_file_button.setSizePolicy(sizePolicy2)
+
+        self.horizontalLayout_8.addWidget(self.download_pcap_file_button)
+
+        self.export_to_wireshark_button = QPushButton(self.Summary)
+        self.export_to_wireshark_button.setObjectName(u"export_to_wireshark_button")
+        sizePolicy2.setHeightForWidth(self.export_to_wireshark_button.sizePolicy().hasHeightForWidth())
+        self.export_to_wireshark_button.setSizePolicy(sizePolicy2)
+
+        self.horizontalLayout_8.addWidget(self.export_to_wireshark_button)
+
+
+        self.gridLayout.addLayout(self.horizontalLayout_8, 2, 0, 1, 1)
+
+        self.horizontalLayout_4 = QHBoxLayout()
+        self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
+        self.label = QLabel(self.Summary)
+        self.label.setObjectName(u"label")
+
+        self.horizontalLayout_4.addWidget(self.label)
+
+        self.total_number_of_packets = QLabel(self.Summary)
+        self.total_number_of_packets.setObjectName(u"total_number_of_packets")
+
+        self.horizontalLayout_4.addWidget(self.total_number_of_packets)
+
+
+        self.gridLayout.addLayout(self.horizontalLayout_4, 0, 0, 1, 1)
+
+
+        self.verticalLayout_13.addLayout(self.gridLayout)
+
+        self.verticalSpacer_10 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout_13.addItem(self.verticalSpacer_10)
+
+        self.tabWidget_2 = QTabWidget(self.Summary)
+        self.tabWidget_2.setObjectName(u"tabWidget_2")
+        self.output = QWidget()
+        self.output.setObjectName(u"output")
+        self.verticalLayout_14 = QVBoxLayout(self.output)
+        self.verticalLayout_14.setSpacing(0)
+        self.verticalLayout_14.setObjectName(u"verticalLayout_14")
+        self.verticalLayout_14.setContentsMargins(0, 0, 0, 0)
+        self.console_output_container = QScrollArea(self.output)
+        self.console_output_container.setObjectName(u"console_output_container")
+        sizePolicy.setHeightForWidth(self.console_output_container.sizePolicy().hasHeightForWidth())
+        self.console_output_container.setSizePolicy(sizePolicy)
+        self.console_output_container.setMinimumSize(QSize(0, 0))
+        self.console_output_container.setMaximumSize(QSize(16777215, 16777215))
+        self.console_output_container.setWidgetResizable(True)
+        self.console_output_container.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
+        self.scroll_area_contents_2 = QWidget()
+        self.scroll_area_contents_2.setObjectName(u"scroll_area_contents_2")
+        self.scroll_area_contents_2.setGeometry(QRect(0, 0, 990, 426))
+        self.scroll_area_contents_2.setStyleSheet(u"background-color: rgba(82, 88, 104, 1)")
+        self.verticalLayout_12 = QVBoxLayout(self.scroll_area_contents_2)
+        self.verticalLayout_12.setSpacing(0)
+        self.verticalLayout_12.setObjectName(u"verticalLayout_12")
+        self.verticalLayout_12.setContentsMargins(0, 0, 0, 0)
+        self.console_output = QVBoxLayout()
+        self.console_output.setSpacing(10)
+        self.console_output.setObjectName(u"console_output")
+        self.console_output.setContentsMargins(-1, -1, -1, 0)
+        self.console_output_label = ConsoleOutput(self.scroll_area_contents_2)
+        self.console_output_label.setObjectName(u"console_output_label")
+        self.console_output_label.setStyleSheet(u"QLabel\n"
+" {\n"
+"            position: absolute;\n"
+"            padding: 10px;\n"
+"            font-family: 'Inter';\n"
+"            font-style: normal;\n"
+"            font-weight: 700;\n"
+"            font-size: 16px;\n"
+"            line-height: 19px;\n"
+"            text-align: center;\n"
+"            color: #FFFFFF;\n"
+"\n"
+"}\n"
+"")
+        self.console_output_label.setWordWrap(True)
+
+        self.console_output.addWidget(self.console_output_label)
+
+        self.verticalSpacer_11 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.console_output.addItem(self.verticalSpacer_11)
+
+
+        self.verticalLayout_12.addLayout(self.console_output)
+
+        self.console_output_container.setWidget(self.scroll_area_contents_2)
+
+        self.verticalLayout_14.addWidget(self.console_output_container)
+
+        self.tabWidget_2.addTab(self.output, "")
+        self.packets = QWidget()
+        self.packets.setObjectName(u"packets")
+        self.verticalLayout_16 = QVBoxLayout(self.packets)
+        self.verticalLayout_16.setSpacing(0)
+        self.verticalLayout_16.setObjectName(u"verticalLayout_16")
+        self.verticalLayout_16.setContentsMargins(0, 0, 0, 0)
+        self.packets_container = QScrollArea(self.packets)
+        self.packets_container.setObjectName(u"packets_container")
+        sizePolicy.setHeightForWidth(self.packets_container.sizePolicy().hasHeightForWidth())
+        self.packets_container.setSizePolicy(sizePolicy)
+        self.packets_container.setMinimumSize(QSize(0, 0))
+        self.packets_container.setMaximumSize(QSize(16777215, 16777215))
+        self.packets_container.setWidgetResizable(True)
+        self.packets_container.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
+        self.scroll_area_contents_3 = QWidget()
+        self.scroll_area_contents_3.setObjectName(u"scroll_area_contents_3")
+        self.scroll_area_contents_3.setGeometry(QRect(0, 0, 972, 416))
+        self.scroll_area_contents_3.setStyleSheet(u"background-color: rgba(82, 88, 104, 1)")
+        self.verticalLayout_15 = QVBoxLayout(self.scroll_area_contents_3)
+        self.verticalLayout_15.setSpacing(0)
+        self.verticalLayout_15.setObjectName(u"verticalLayout_15")
+        self.verticalLayout_15.setContentsMargins(0, 0, 0, 0)
+        self.packets_list = QVBoxLayout()
+        self.packets_list.setSpacing(10)
+        self.packets_list.setObjectName(u"packets_list")
+        self.packets_list.setContentsMargins(-1, -1, -1, 0)
+        self.verticalSpacer_12 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.packets_list.addItem(self.verticalSpacer_12)
+
+
+        self.verticalLayout_15.addLayout(self.packets_list)
+
+        self.packets_container.setWidget(self.scroll_area_contents_3)
+
+        self.verticalLayout_16.addWidget(self.packets_container)
+
+        self.tabWidget_2.addTab(self.packets, "")
+
+        self.verticalLayout_13.addWidget(self.tabWidget_2)
+
+        self.verticalLayout_13.setStretch(0, 3)
+        self.verticalLayout_13.setStretch(1, 1)
+        self.verticalLayout_13.setStretch(2, 5)
+        self.tabWidget.addTab(self.Summary, "")
+
+        self.verticalLayout_2.addWidget(self.tabWidget)
+
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QStatusBar(MainWindow)
         self.statusbar.setObjectName(u"statusbar")
         MainWindow.setStatusBar(self.statusbar)
-        self.menubar = QMenuBar(MainWindow)
-        self.menubar.setObjectName(u"menubar")
-        self.menubar.setGeometry(QRect(0, 0, 1030, 31))
-        self.menubar.setStyleSheet(u"QMenuBar {\n"
-"	background-color: rgb(100, 100, 100);\n"
-"	font: 75 16pt \"MS Shell Dlg 2\";\n"
-"	color: rgb(255, 255, 255);\n"
-"}\n"
-"")
-        self.menuPacket_Generation = QMenu(self.menubar)
-        self.menuPacket_Generation.setObjectName(u"menuPacket_Generation")
-        self.menuPacket_Generation.setStyleSheet(u"")
-        self.menuSend_Summary = QMenu(self.menubar)
-        self.menuSend_Summary.setObjectName(u"menuSend_Summary")
-        MainWindow.setMenuBar(self.menubar)
-
-        self.menubar.addAction(self.menuPacket_Generation.menuAction())
-        self.menubar.addAction(self.menuSend_Summary.menuAction())
 
         self.retranslateUi(MainWindow)
 
+        self.tabWidget.setCurrentIndex(0)
         self.protocol_types_configuration_pages.setCurrentIndex(1)
         self.ip_types_stacked_widget.setCurrentIndex(0)
+        self.tabWidget_2.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -942,7 +1174,17 @@ class Ui_MainWindow(object):
         self.packets_to_send_title.setText(QCoreApplication.translate("MainWindow", u"Packets To Send", None))
         self.add_packet_button.setText(QCoreApplication.translate("MainWindow", u"Add Packets", None))
         self.send_packets_button.setText(QCoreApplication.translate("MainWindow", u"Send packets", None))
-        self.menuPacket_Generation.setTitle(QCoreApplication.translate("MainWindow", u"Packet Generation", None))
-        self.menuSend_Summary.setTitle(QCoreApplication.translate("MainWindow", u"Send Summary", None))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.CreatingAndSending), QCoreApplication.translate("MainWindow", u"Creating and Sending", None))
+        self.duration_packet_generation_label.setText(QCoreApplication.translate("MainWindow", u"Duration of Packet Generation", None))
+        self.duration_packet_generation_value.setText(QCoreApplication.translate("MainWindow", u"300ms", None))
+        self.export_label.setText(QCoreApplication.translate("MainWindow", u"Export", None))
+        self.download_pcap_file_button.setText(QCoreApplication.translate("MainWindow", u"Download Pcap File", None))
+        self.export_to_wireshark_button.setText(QCoreApplication.translate("MainWindow", u"Export To Wireshark", None))
+        self.label.setText(QCoreApplication.translate("MainWindow", u"Total Number of Packets Sent", None))
+        self.total_number_of_packets.setText(QCoreApplication.translate("MainWindow", u"100", None))
+        self.console_output_label.setText("")
+        self.tabWidget_2.setTabText(self.tabWidget_2.indexOf(self.output), QCoreApplication.translate("MainWindow", u"Output", None))
+        self.tabWidget_2.setTabText(self.tabWidget_2.indexOf(self.packets), QCoreApplication.translate("MainWindow", u"Packets", None))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.Summary), QCoreApplication.translate("MainWindow", u"Summary", None))
     # retranslateUi
 

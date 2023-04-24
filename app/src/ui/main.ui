@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1030</width>
-    <height>900</height>
+    <width>1010</width>
+    <height>880</height>
    </rect>
   </property>
   <property name="font">
@@ -60,903 +60,161 @@ QLineEdit, QRadioButton {
    <property name="styleSheet">
     <string notr="true"/>
    </property>
-   <layout class="QVBoxLayout" name="verticalLayout_2" stretch="5,1">
+   <layout class="QVBoxLayout" name="verticalLayout_2" stretch="0">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
     <item>
-     <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="0,5,0,5,0">
-      <item>
-       <spacer name="horizontalSpacer_2">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item>
-       <layout class="QVBoxLayout" name="left_side" stretch="1,5">
-        <property name="bottomMargin">
-         <number>0</number>
-        </property>
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="styleSheet">
+       <string notr="true">#tabWidget {
+	background:transparent;
+}
+
+QTabWidget::pane { border: 0; }</string>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>16</width>
+        <height>16</height>
+       </size>
+      </property>
+      <property name="elideMode">
+       <enum>Qt::ElideMiddle</enum>
+      </property>
+      <property name="movable">
+       <bool>false</bool>
+      </property>
+      <property name="tabBarAutoHide">
+       <bool>false</bool>
+      </property>
+      <widget class="QWidget" name="CreatingAndSending">
+       <attribute name="title">
+        <string>Creating and Sending</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_7">
         <item>
-         <layout class="QVBoxLayout" name="protocol_selection_container" stretch="1,1">
+         <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="0,5,0,5,0">
           <item>
-           <widget class="QLabel" name="protocol_selection_title">
-            <property name="font">
-             <font>
-              <pointsize>24</pointsize>
-             </font>
+           <spacer name="horizontalSpacer_2">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
             </property>
-            <property name="text">
-             <string>Protocol Selection</string>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
             </property>
-           </widget>
+           </spacer>
           </item>
           <item>
-           <layout class="QHBoxLayout" name="horizontalLayout" stretch="1,1">
-            <item>
-             <widget class="QLabel" name="protocol_label">
-              <property name="text">
-               <string>Protocol Type</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="ProtocolSelection" name="protocol_input">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-              <item>
-               <property name="text">
-                <string>IP</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>ARP</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>DNS</string>
-               </property>
-              </item>
-             </widget>
-            </item>
-           </layout>
-          </item>
-         </layout>
-        </item>
-        <item>
-         <layout class="QVBoxLayout" name="protocol_details_container">
-          <property name="bottomMargin">
-           <number>0</number>
-          </property>
-          <item>
-           <widget class="QStackedWidget" name="protocol_types_configuration_pages">
-            <property name="currentIndex">
-             <number>1</number>
+           <layout class="QVBoxLayout" name="left_side" stretch="1,5">
+            <property name="bottomMargin">
+             <number>0</number>
             </property>
-            <widget class="IPConfigurationWidget" name="ip_page">
-             <property name="font">
-              <font>
-               <family>Calibri</family>
-               <pointsize>20</pointsize>
-              </font>
-             </property>
-             <layout class="QVBoxLayout" name="verticalLayout" stretch="1,12">
-              <property name="spacing">
-               <number>0</number>
-              </property>
-              <property name="leftMargin">
-               <number>0</number>
-              </property>
-              <property name="topMargin">
-               <number>0</number>
-              </property>
-              <property name="rightMargin">
-               <number>0</number>
-              </property>
-              <property name="bottomMargin">
-               <number>0</number>
-              </property>
+            <item>
+             <layout class="QVBoxLayout" name="protocol_selection_container" stretch="1,1">
               <item>
-               <widget class="QLabel" name="protocol_selection_title_3">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
+               <widget class="QLabel" name="protocol_selection_title">
                 <property name="font">
                  <font>
-                  <pointsize>20</pointsize>
+                  <pointsize>24</pointsize>
                  </font>
                 </property>
                 <property name="text">
-                 <string>IP Packet Configuration</string>
+                 <string>Protocol Selection</string>
                 </property>
                </widget>
               </item>
               <item>
-               <widget class="QScrollArea" name="scrollArea_3">
-                <property name="styleSheet">
-                 <string notr="true">QScrollArea {
-	background-color: rgba(82, 88, 104, 1)
-}
-
- QWidget #scrollAreaWidgetContents_6
-{
-	background-color: rgba(82, 88, 104, 1)
-}
-
-QHBoxLayout {
-	background-color: rgb(255, 255, 255);
-}</string>
+               <layout class="QHBoxLayout" name="horizontalLayout" stretch="1,1">
+                <item>
+                 <widget class="QLabel" name="protocol_label">
+                  <property name="text">
+                   <string>Protocol Type</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="ProtocolSelection" name="protocol_input">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <item>
+                   <property name="text">
+                    <string>IP</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>ARP</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>DNS</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QVBoxLayout" name="protocol_details_container">
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
+              <item>
+               <widget class="QStackedWidget" name="protocol_types_configuration_pages">
+                <property name="currentIndex">
+                 <number>1</number>
                 </property>
-                <property name="widgetResizable">
-                 <bool>true</bool>
-                </property>
-                <widget class="QWidget" name="scrollAreaWidgetContents_6">
-                 <property name="geometry">
-                  <rect>
-                   <x>0</x>
-                   <y>0</y>
-                   <width>410</width>
-                   <height>634</height>
-                  </rect>
+                <widget class="IPConfigurationWidget" name="ip_page">
+                 <property name="font">
+                  <font>
+                   <family>Calibri</family>
+                   <pointsize>20</pointsize>
+                  </font>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true"/>
-                 </property>
-                 <layout class="QVBoxLayout" name="verticalLayout_9">
+                 <layout class="QVBoxLayout" name="verticalLayout" stretch="1,1,1,18">
                   <property name="spacing">
-                   <number>6</number>
+                   <number>0</number>
                   </property>
                   <property name="leftMargin">
-                   <number>6</number>
+                   <number>0</number>
                   </property>
                   <property name="topMargin">
-                   <number>6</number>
+                   <number>0</number>
                   </property>
                   <property name="rightMargin">
-                   <number>6</number>
+                   <number>0</number>
                   </property>
                   <property name="bottomMargin">
-                   <number>6</number>
+                   <number>0</number>
                   </property>
                   <item>
-                   <layout class="QHBoxLayout" name="ip_types_radios">
-                    <property name="spacing">
-                     <number>0</number>
-                    </property>
-                    <property name="topMargin">
-                     <number>0</number>
-                    </property>
-                    <item>
-                     <widget class="QRadioButton" name="icmp_radio">
-                      <property name="text">
-                       <string>ICMP</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QRadioButton" name="tcp_radio">
-                      <property name="text">
-                       <string>TCP</string>
-                      </property>
-                      <property name="checked">
-                       <bool>true</bool>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QRadioButton" name="udp_radio">
-                      <property name="text">
-                       <string>UDP</string>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </item>
-                  <item>
-                   <widget class="QStackedWidget" name="ip_types_stacked_widget">
-                    <property name="sizePolicy">
-                     <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
-                      <horstretch>0</horstretch>
-                      <verstretch>0</verstretch>
-                     </sizepolicy>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">
-#ip_types_stacked_widget {	
-background-color: rgba(82, 88, 104, 1);
-}</string>
-                    </property>
-                    <property name="currentIndex">
-                     <number>0</number>
-                    </property>
-                    <widget class="QWidget" name="tcp">
-                     <property name="autoFillBackground">
-                      <bool>false</bool>
-                     </property>
-                     <property name="styleSheet">
-                      <string notr="true">#tcp{	
-background-color: rgba(82, 88, 104, 1);
-}</string>
-                     </property>
-                     <layout class="QVBoxLayout" name="verticalLayout_5">
-                      <property name="spacing">
-                       <number>6</number>
-                      </property>
-                      <property name="leftMargin">
-                       <number>0</number>
-                      </property>
-                      <property name="topMargin">
-                       <number>0</number>
-                      </property>
-                      <property name="rightMargin">
-                       <number>0</number>
-                      </property>
-                      <property name="bottomMargin">
-                       <number>0</number>
-                      </property>
-                      <item>
-                       <layout class="QGridLayout" name="tcp_types_grid">
-                        <property name="bottomMargin">
-                         <number>0</number>
-                        </property>
-                        <property name="spacing">
-                         <number>0</number>
-                        </property>
-                        <item row="0" column="0">
-                         <widget class="QRadioButton" name="tcp_syn_radio">
-                          <property name="text">
-                           <string>SYN</string>
-                          </property>
-                         </widget>
-                        </item>
-                        <item row="3" column="0">
-                         <widget class="QRadioButton" name="tcp_fin_radio">
-                          <property name="text">
-                           <string>FIN</string>
-                          </property>
-                         </widget>
-                        </item>
-                        <item row="3" column="1">
-                         <widget class="QRadioButton" name="tcp_finack_radio">
-                          <property name="text">
-                           <string>FIN-ACK</string>
-                          </property>
-                         </widget>
-                        </item>
-                        <item row="2" column="1">
-                         <widget class="QRadioButton" name="tcp_rst_radio">
-                          <property name="text">
-                           <string>RST</string>
-                          </property>
-                         </widget>
-                        </item>
-                        <item row="0" column="1">
-                         <widget class="QRadioButton" name="tcp_synack_radio">
-                          <property name="text">
-                           <string>SYN-ACK</string>
-                          </property>
-                         </widget>
-                        </item>
-                        <item row="2" column="0">
-                         <widget class="QRadioButton" name="tcp_psh_radio">
-                          <property name="text">
-                           <string>PSH</string>
-                          </property>
-                         </widget>
-                        </item>
-                        <item row="0" column="4">
-                         <widget class="QRadioButton" name="tcp_ack_radio">
-                          <property name="text">
-                           <string>ACK</string>
-                          </property>
-                         </widget>
-                        </item>
-                        <item row="2" column="4">
-                         <widget class="QRadioButton" name="tcp_urg_radio">
-                          <property name="text">
-                           <string>URG</string>
-                          </property>
-                         </widget>
-                        </item>
-                       </layout>
-                      </item>
-                      <item>
-                       <layout class="QHBoxLayout" name="tcp_source_port">
-                        <property name="spacing">
-                         <number>6</number>
-                        </property>
-                        <item>
-                         <widget class="QLabel" name="tcp_source_port_label">
-                          <property name="minimumSize">
-                           <size>
-                            <width>200</width>
-                            <height>50</height>
-                           </size>
-                          </property>
-                          <property name="maximumSize">
-                           <size>
-                            <width>200</width>
-                            <height>50</height>
-                           </size>
-                          </property>
-                          <property name="font">
-                           <font>
-                            <pointsize>14</pointsize>
-                           </font>
-                          </property>
-                          <property name="text">
-                           <string>Source Port</string>
-                          </property>
-                          <property name="wordWrap">
-                           <bool>true</bool>
-                          </property>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="QLineEdit" name="tcp_source_port_input">
-                          <property name="sizePolicy">
-                           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                            <horstretch>0</horstretch>
-                            <verstretch>0</verstretch>
-                           </sizepolicy>
-                          </property>
-                          <property name="minimumSize">
-                           <size>
-                            <width>0</width>
-                            <height>50</height>
-                           </size>
-                          </property>
-                          <property name="maximumSize">
-                           <size>
-                            <width>250</width>
-                            <height>50</height>
-                           </size>
-                          </property>
-                          <property name="styleSheet">
-                           <string notr="true"/>
-                          </property>
-                         </widget>
-                        </item>
-                       </layout>
-                      </item>
-                      <item>
-                       <layout class="QHBoxLayout" name="tcp_destination_port">
-                        <property name="spacing">
-                         <number>6</number>
-                        </property>
-                        <property name="topMargin">
-                         <number>0</number>
-                        </property>
-                        <item>
-                         <widget class="QLabel" name="tcp_destination_port_label">
-                          <property name="minimumSize">
-                           <size>
-                            <width>200</width>
-                            <height>50</height>
-                           </size>
-                          </property>
-                          <property name="maximumSize">
-                           <size>
-                            <width>200</width>
-                            <height>50</height>
-                           </size>
-                          </property>
-                          <property name="font">
-                           <font>
-                            <pointsize>14</pointsize>
-                           </font>
-                          </property>
-                          <property name="text">
-                           <string>Destination Port</string>
-                          </property>
-                          <property name="wordWrap">
-                           <bool>true</bool>
-                          </property>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="QLineEdit" name="tcp_destination_port_input">
-                          <property name="sizePolicy">
-                           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                            <horstretch>0</horstretch>
-                            <verstretch>0</verstretch>
-                           </sizepolicy>
-                          </property>
-                          <property name="minimumSize">
-                           <size>
-                            <width>0</width>
-                            <height>50</height>
-                           </size>
-                          </property>
-                          <property name="maximumSize">
-                           <size>
-                            <width>250</width>
-                            <height>50</height>
-                           </size>
-                          </property>
-                          <property name="styleSheet">
-                           <string notr="true"/>
-                          </property>
-                         </widget>
-                        </item>
-                       </layout>
-                      </item>
-                     </layout>
-                    </widget>
-                    <widget class="QWidget" name="udp">
-                     <property name="sizePolicy">
-                      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                       <horstretch>0</horstretch>
-                       <verstretch>0</verstretch>
-                      </sizepolicy>
-                     </property>
-                     <property name="minimumSize">
-                      <size>
-                       <width>0</width>
-                       <height>200</height>
-                      </size>
-                     </property>
-                     <property name="maximumSize">
-                      <size>
-                       <width>16777215</width>
-                       <height>400</height>
-                      </size>
-                     </property>
-                     <property name="styleSheet">
-                      <string notr="true">#udp {
-	background-color: rgba(82, 88, 104, 1);
-
-}</string>
-                     </property>
-                     <layout class="QVBoxLayout" name="verticalLayout_10" stretch="0,0">
-                      <property name="spacing">
-                       <number>6</number>
-                      </property>
-                      <property name="leftMargin">
-                       <number>0</number>
-                      </property>
-                      <property name="topMargin">
-                       <number>0</number>
-                      </property>
-                      <property name="rightMargin">
-                       <number>0</number>
-                      </property>
-                      <property name="bottomMargin">
-                       <number>0</number>
-                      </property>
-                      <item>
-                       <layout class="QHBoxLayout" name="udp_destination_port">
-                        <property name="spacing">
-                         <number>6</number>
-                        </property>
-                        <property name="sizeConstraint">
-                         <enum>QLayout::SetDefaultConstraint</enum>
-                        </property>
-                        <item>
-                         <widget class="QLabel" name="udp_destination_port_label">
-                          <property name="minimumSize">
-                           <size>
-                            <width>200</width>
-                            <height>50</height>
-                           </size>
-                          </property>
-                          <property name="maximumSize">
-                           <size>
-                            <width>200</width>
-                            <height>50</height>
-                           </size>
-                          </property>
-                          <property name="font">
-                           <font>
-                            <pointsize>14</pointsize>
-                           </font>
-                          </property>
-                          <property name="text">
-                           <string>Source Port</string>
-                          </property>
-                          <property name="wordWrap">
-                           <bool>true</bool>
-                          </property>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="QLineEdit" name="udp_destination_port_input">
-                          <property name="sizePolicy">
-                           <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
-                            <horstretch>0</horstretch>
-                            <verstretch>0</verstretch>
-                           </sizepolicy>
-                          </property>
-                          <property name="minimumSize">
-                           <size>
-                            <width>0</width>
-                            <height>50</height>
-                           </size>
-                          </property>
-                          <property name="maximumSize">
-                           <size>
-                            <width>250</width>
-                            <height>50</height>
-                           </size>
-                          </property>
-                          <property name="styleSheet">
-                           <string notr="true"/>
-                          </property>
-                         </widget>
-                        </item>
-                       </layout>
-                      </item>
-                      <item>
-                       <layout class="QHBoxLayout" name="udp_source_port">
-                        <property name="spacing">
-                         <number>6</number>
-                        </property>
-                        <property name="sizeConstraint">
-                         <enum>QLayout::SetDefaultConstraint</enum>
-                        </property>
-                        <item>
-                         <widget class="QLabel" name="udp_source_port_label">
-                          <property name="minimumSize">
-                           <size>
-                            <width>200</width>
-                            <height>50</height>
-                           </size>
-                          </property>
-                          <property name="maximumSize">
-                           <size>
-                            <width>200</width>
-                            <height>50</height>
-                           </size>
-                          </property>
-                          <property name="font">
-                           <font>
-                            <pointsize>14</pointsize>
-                           </font>
-                          </property>
-                          <property name="text">
-                           <string>Destination Port</string>
-                          </property>
-                          <property name="wordWrap">
-                           <bool>true</bool>
-                          </property>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="QLineEdit" name="udp_source_port_input">
-                          <property name="sizePolicy">
-                           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                            <horstretch>0</horstretch>
-                            <verstretch>0</verstretch>
-                           </sizepolicy>
-                          </property>
-                          <property name="minimumSize">
-                           <size>
-                            <width>0</width>
-                            <height>50</height>
-                           </size>
-                          </property>
-                          <property name="maximumSize">
-                           <size>
-                            <width>250</width>
-                            <height>50</height>
-                           </size>
-                          </property>
-                          <property name="styleSheet">
-                           <string notr="true"/>
-                          </property>
-                         </widget>
-                        </item>
-                       </layout>
-                      </item>
-                     </layout>
-                    </widget>
-                    <widget class="QWidget" name="icmp"/>
-                   </widget>
-                  </item>
-                  <item>
-                   <layout class="QHBoxLayout" name="source_ip_address_layout">
-                    <item>
-                     <widget class="QLabel" name="source_ip_address_label">
-                      <property name="minimumSize">
-                       <size>
-                        <width>200</width>
-                        <height>50</height>
-                       </size>
-                      </property>
-                      <property name="maximumSize">
-                       <size>
-                        <width>200</width>
-                        <height>50</height>
-                       </size>
-                      </property>
-                      <property name="font">
-                       <font>
-                        <pointsize>14</pointsize>
-                       </font>
-                      </property>
-                      <property name="text">
-                       <string>Source IP Address</string>
-                      </property>
-                      <property name="wordWrap">
-                       <bool>true</bool>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="IPAddressInput" name="source_ip_address_input">
-                      <property name="sizePolicy">
-                       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                        <horstretch>0</horstretch>
-                        <verstretch>0</verstretch>
-                       </sizepolicy>
-                      </property>
-                      <property name="minimumSize">
-                       <size>
-                        <width>0</width>
-                        <height>50</height>
-                       </size>
-                      </property>
-                      <property name="maximumSize">
-                       <size>
-                        <width>250</width>
-                        <height>16777215</height>
-                       </size>
-                      </property>
-                      <property name="styleSheet">
-                       <string notr="true"/>
-                      </property>
-                      <property name="text">
-                       <string/>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </item>
-                  <item>
-                   <layout class="QHBoxLayout" name="destination_ip_address_layout">
-                    <item>
-                     <widget class="QLabel" name="destination_ip_address_label">
-                      <property name="minimumSize">
-                       <size>
-                        <width>200</width>
-                        <height>50</height>
-                       </size>
-                      </property>
-                      <property name="maximumSize">
-                       <size>
-                        <width>200</width>
-                        <height>50</height>
-                       </size>
-                      </property>
-                      <property name="font">
-                       <font>
-                        <pointsize>14</pointsize>
-                       </font>
-                      </property>
-                      <property name="text">
-                       <string>Destination IP Address</string>
-                      </property>
-                      <property name="wordWrap">
-                       <bool>true</bool>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="IPAddressInput" name="destination_ip_address_input">
-                      <property name="sizePolicy">
-                       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                        <horstretch>0</horstretch>
-                        <verstretch>0</verstretch>
-                       </sizepolicy>
-                      </property>
-                      <property name="minimumSize">
-                       <size>
-                        <width>0</width>
-                        <height>50</height>
-                       </size>
-                      </property>
-                      <property name="maximumSize">
-                       <size>
-                        <width>250</width>
-                        <height>16777215</height>
-                       </size>
-                      </property>
-                      <property name="styleSheet">
-                       <string notr="true"/>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </item>
-                  <item>
-                   <layout class="QHBoxLayout" name="time_to_live_ip_layout">
-                    <item>
-                     <widget class="QLabel" name="time_to_live_ip_label">
-                      <property name="minimumSize">
-                       <size>
-                        <width>200</width>
-                        <height>50</height>
-                       </size>
-                      </property>
-                      <property name="maximumSize">
-                       <size>
-                        <width>200</width>
-                        <height>50</height>
-                       </size>
-                      </property>
-                      <property name="font">
-                       <font>
-                        <pointsize>14</pointsize>
-                       </font>
-                      </property>
-                      <property name="text">
-                       <string>Time To Live</string>
-                      </property>
-                      <property name="wordWrap">
-                       <bool>true</bool>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="NumberLineEdit" name="time_to_live_ip_input">
-                      <property name="sizePolicy">
-                       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                        <horstretch>0</horstretch>
-                        <verstretch>0</verstretch>
-                       </sizepolicy>
-                      </property>
-                      <property name="minimumSize">
-                       <size>
-                        <width>0</width>
-                        <height>50</height>
-                       </size>
-                      </property>
-                      <property name="maximumSize">
-                       <size>
-                        <width>250</width>
-                        <height>16777215</height>
-                       </size>
-                      </property>
-                      <property name="styleSheet">
-                       <string notr="true"/>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </item>
-                  <item>
-                   <layout class="QHBoxLayout" name="ip_payload_layout">
-                    <property name="spacing">
-                     <number>6</number>
-                    </property>
-                    <item>
-                     <widget class="QLabel" name="ip_payload_label">
-                      <property name="minimumSize">
-                       <size>
-                        <width>200</width>
-                        <height>50</height>
-                       </size>
-                      </property>
-                      <property name="maximumSize">
-                       <size>
-                        <width>200</width>
-                        <height>50</height>
-                       </size>
-                      </property>
-                      <property name="font">
-                       <font>
-                        <pointsize>14</pointsize>
-                       </font>
-                      </property>
-                      <property name="text">
-                       <string>Payload</string>
-                      </property>
-                      <property name="wordWrap">
-                       <bool>true</bool>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QLineEdit" name="ip_payload_input">
-                      <property name="sizePolicy">
-                       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                        <horstretch>0</horstretch>
-                        <verstretch>0</verstretch>
-                       </sizepolicy>
-                      </property>
-                      <property name="minimumSize">
-                       <size>
-                        <width>0</width>
-                        <height>50</height>
-                       </size>
-                      </property>
-                      <property name="maximumSize">
-                       <size>
-                        <width>250</width>
-                        <height>50</height>
-                       </size>
-                      </property>
-                      <property name="styleSheet">
-                       <string notr="true"/>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </item>
-                  <item>
-                   <layout class="QHBoxLayout" name="number_ip_layout">
-                    <item>
-                     <widget class="QLabel" name="number_ip_label">
-                      <property name="minimumSize">
-                       <size>
-                        <width>200</width>
-                        <height>50</height>
-                       </size>
-                      </property>
-                      <property name="maximumSize">
-                       <size>
-                        <width>200</width>
-                        <height>50</height>
-                       </size>
-                      </property>
-                      <property name="font">
-                       <font>
-                        <pointsize>14</pointsize>
-                       </font>
-                      </property>
-                      <property name="text">
-                       <string>How many of this packet?</string>
-                      </property>
-                      <property name="wordWrap">
-                       <bool>true</bool>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="NumberLineEdit" name="number_ip_input">
-                      <property name="sizePolicy">
-                       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                        <horstretch>0</horstretch>
-                        <verstretch>0</verstretch>
-                       </sizepolicy>
-                      </property>
-                      <property name="minimumSize">
-                       <size>
-                        <width>0</width>
-                        <height>50</height>
-                       </size>
-                      </property>
-                      <property name="maximumSize">
-                       <size>
-                        <width>250</width>
-                        <height>16777215</height>
-                       </size>
-                      </property>
-                      <property name="styleSheet">
-                       <string notr="true"/>
-                      </property>
-                      <property name="inputMask">
-                       <string/>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </item>
-                  <item>
-                   <spacer name="verticalSpacer_3">
+                   <spacer name="verticalSpacer_7">
                     <property name="orientation">
                      <enum>Qt::Vertical</enum>
                     </property>
@@ -968,47 +226,894 @@ background-color: rgba(82, 88, 104, 1);
                     </property>
                    </spacer>
                   </item>
+                  <item>
+                   <widget class="QLabel" name="protocol_selection_title_3">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <pointsize>20</pointsize>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>IP Packet Configuration</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <spacer name="verticalSpacer_6">
+                    <property name="orientation">
+                     <enum>Qt::Vertical</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>20</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item>
+                   <widget class="QScrollArea" name="scrollArea_3">
+                    <property name="styleSheet">
+                     <string notr="true">QScrollArea {
+	background-color: rgba(82, 88, 104, 1)
+}
+
+ QWidget #scrollAreaWidgetContents_6
+{
+	background-color: rgba(82, 88, 104, 1)
+}
+
+QHBoxLayout {
+	background-color: rgb(255, 255, 255);
+}</string>
+                    </property>
+                    <property name="widgetResizable">
+                     <bool>true</bool>
+                    </property>
+                    <widget class="QWidget" name="scrollAreaWidgetContents_6">
+                     <property name="geometry">
+                      <rect>
+                       <x>0</x>
+                       <y>0</y>
+                       <width>401</width>
+                       <height>634</height>
+                      </rect>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true"/>
+                     </property>
+                     <layout class="QVBoxLayout" name="verticalLayout_9">
+                      <property name="spacing">
+                       <number>6</number>
+                      </property>
+                      <property name="leftMargin">
+                       <number>6</number>
+                      </property>
+                      <property name="topMargin">
+                       <number>6</number>
+                      </property>
+                      <property name="rightMargin">
+                       <number>6</number>
+                      </property>
+                      <property name="bottomMargin">
+                       <number>6</number>
+                      </property>
+                      <item>
+                       <layout class="QHBoxLayout" name="ip_types_radios">
+                        <property name="spacing">
+                         <number>0</number>
+                        </property>
+                        <property name="topMargin">
+                         <number>0</number>
+                        </property>
+                        <item>
+                         <widget class="QRadioButton" name="icmp_radio">
+                          <property name="text">
+                           <string>ICMP</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QRadioButton" name="tcp_radio">
+                          <property name="text">
+                           <string>TCP</string>
+                          </property>
+                          <property name="checked">
+                           <bool>true</bool>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QRadioButton" name="udp_radio">
+                          <property name="text">
+                           <string>UDP</string>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </item>
+                      <item>
+                       <widget class="QStackedWidget" name="ip_types_stacked_widget">
+                        <property name="sizePolicy">
+                         <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+                          <horstretch>0</horstretch>
+                          <verstretch>0</verstretch>
+                         </sizepolicy>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true">
+#ip_types_stacked_widget {	
+background-color: rgba(82, 88, 104, 1);
+}</string>
+                        </property>
+                        <property name="currentIndex">
+                         <number>0</number>
+                        </property>
+                        <widget class="QWidget" name="tcp">
+                         <property name="autoFillBackground">
+                          <bool>false</bool>
+                         </property>
+                         <property name="styleSheet">
+                          <string notr="true">#tcp{	
+background-color: rgba(82, 88, 104, 1);
+}</string>
+                         </property>
+                         <layout class="QVBoxLayout" name="verticalLayout_5">
+                          <property name="spacing">
+                           <number>6</number>
+                          </property>
+                          <property name="leftMargin">
+                           <number>0</number>
+                          </property>
+                          <property name="topMargin">
+                           <number>0</number>
+                          </property>
+                          <property name="rightMargin">
+                           <number>0</number>
+                          </property>
+                          <property name="bottomMargin">
+                           <number>0</number>
+                          </property>
+                          <item>
+                           <layout class="QGridLayout" name="tcp_types_grid">
+                            <property name="bottomMargin">
+                             <number>0</number>
+                            </property>
+                            <property name="spacing">
+                             <number>0</number>
+                            </property>
+                            <item row="0" column="0">
+                             <widget class="QRadioButton" name="tcp_syn_radio">
+                              <property name="text">
+                               <string>SYN</string>
+                              </property>
+                             </widget>
+                            </item>
+                            <item row="3" column="0">
+                             <widget class="QRadioButton" name="tcp_fin_radio">
+                              <property name="text">
+                               <string>FIN</string>
+                              </property>
+                             </widget>
+                            </item>
+                            <item row="3" column="1">
+                             <widget class="QRadioButton" name="tcp_finack_radio">
+                              <property name="text">
+                               <string>FIN-ACK</string>
+                              </property>
+                             </widget>
+                            </item>
+                            <item row="2" column="1">
+                             <widget class="QRadioButton" name="tcp_rst_radio">
+                              <property name="text">
+                               <string>RST</string>
+                              </property>
+                             </widget>
+                            </item>
+                            <item row="0" column="1">
+                             <widget class="QRadioButton" name="tcp_synack_radio">
+                              <property name="text">
+                               <string>SYN-ACK</string>
+                              </property>
+                             </widget>
+                            </item>
+                            <item row="2" column="0">
+                             <widget class="QRadioButton" name="tcp_psh_radio">
+                              <property name="text">
+                               <string>PSH</string>
+                              </property>
+                             </widget>
+                            </item>
+                            <item row="0" column="4">
+                             <widget class="QRadioButton" name="tcp_ack_radio">
+                              <property name="text">
+                               <string>ACK</string>
+                              </property>
+                             </widget>
+                            </item>
+                            <item row="2" column="4">
+                             <widget class="QRadioButton" name="tcp_urg_radio">
+                              <property name="text">
+                               <string>URG</string>
+                              </property>
+                             </widget>
+                            </item>
+                           </layout>
+                          </item>
+                          <item>
+                           <layout class="QHBoxLayout" name="tcp_source_port">
+                            <property name="spacing">
+                             <number>6</number>
+                            </property>
+                            <item>
+                             <widget class="QLabel" name="tcp_source_port_label">
+                              <property name="minimumSize">
+                               <size>
+                                <width>200</width>
+                                <height>50</height>
+                               </size>
+                              </property>
+                              <property name="maximumSize">
+                               <size>
+                                <width>200</width>
+                                <height>50</height>
+                               </size>
+                              </property>
+                              <property name="font">
+                               <font>
+                                <pointsize>14</pointsize>
+                               </font>
+                              </property>
+                              <property name="text">
+                               <string>Source Port</string>
+                              </property>
+                              <property name="wordWrap">
+                               <bool>true</bool>
+                              </property>
+                             </widget>
+                            </item>
+                            <item>
+                             <widget class="QLineEdit" name="tcp_source_port_input">
+                              <property name="sizePolicy">
+                               <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                                <horstretch>0</horstretch>
+                                <verstretch>0</verstretch>
+                               </sizepolicy>
+                              </property>
+                              <property name="minimumSize">
+                               <size>
+                                <width>0</width>
+                                <height>50</height>
+                               </size>
+                              </property>
+                              <property name="maximumSize">
+                               <size>
+                                <width>250</width>
+                                <height>50</height>
+                               </size>
+                              </property>
+                              <property name="styleSheet">
+                               <string notr="true"/>
+                              </property>
+                             </widget>
+                            </item>
+                           </layout>
+                          </item>
+                          <item>
+                           <layout class="QHBoxLayout" name="tcp_destination_port">
+                            <property name="spacing">
+                             <number>6</number>
+                            </property>
+                            <property name="topMargin">
+                             <number>0</number>
+                            </property>
+                            <item>
+                             <widget class="QLabel" name="tcp_destination_port_label">
+                              <property name="minimumSize">
+                               <size>
+                                <width>200</width>
+                                <height>50</height>
+                               </size>
+                              </property>
+                              <property name="maximumSize">
+                               <size>
+                                <width>200</width>
+                                <height>50</height>
+                               </size>
+                              </property>
+                              <property name="font">
+                               <font>
+                                <pointsize>14</pointsize>
+                               </font>
+                              </property>
+                              <property name="text">
+                               <string>Destination Port</string>
+                              </property>
+                              <property name="wordWrap">
+                               <bool>true</bool>
+                              </property>
+                             </widget>
+                            </item>
+                            <item>
+                             <widget class="QLineEdit" name="tcp_destination_port_input">
+                              <property name="sizePolicy">
+                               <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                                <horstretch>0</horstretch>
+                                <verstretch>0</verstretch>
+                               </sizepolicy>
+                              </property>
+                              <property name="minimumSize">
+                               <size>
+                                <width>0</width>
+                                <height>50</height>
+                               </size>
+                              </property>
+                              <property name="maximumSize">
+                               <size>
+                                <width>250</width>
+                                <height>50</height>
+                               </size>
+                              </property>
+                              <property name="styleSheet">
+                               <string notr="true"/>
+                              </property>
+                             </widget>
+                            </item>
+                           </layout>
+                          </item>
+                         </layout>
+                        </widget>
+                        <widget class="QWidget" name="udp">
+                         <property name="sizePolicy">
+                          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                           <horstretch>0</horstretch>
+                           <verstretch>0</verstretch>
+                          </sizepolicy>
+                         </property>
+                         <property name="minimumSize">
+                          <size>
+                           <width>0</width>
+                           <height>200</height>
+                          </size>
+                         </property>
+                         <property name="maximumSize">
+                          <size>
+                           <width>16777215</width>
+                           <height>400</height>
+                          </size>
+                         </property>
+                         <property name="styleSheet">
+                          <string notr="true">#udp {
+	background-color: rgba(82, 88, 104, 1);
+
+}</string>
+                         </property>
+                         <layout class="QVBoxLayout" name="verticalLayout_10" stretch="0,0">
+                          <property name="spacing">
+                           <number>6</number>
+                          </property>
+                          <property name="leftMargin">
+                           <number>0</number>
+                          </property>
+                          <property name="topMargin">
+                           <number>0</number>
+                          </property>
+                          <property name="rightMargin">
+                           <number>0</number>
+                          </property>
+                          <property name="bottomMargin">
+                           <number>0</number>
+                          </property>
+                          <item>
+                           <layout class="QHBoxLayout" name="udp_destination_port">
+                            <property name="spacing">
+                             <number>6</number>
+                            </property>
+                            <property name="sizeConstraint">
+                             <enum>QLayout::SetDefaultConstraint</enum>
+                            </property>
+                            <item>
+                             <widget class="QLabel" name="udp_destination_port_label">
+                              <property name="minimumSize">
+                               <size>
+                                <width>200</width>
+                                <height>50</height>
+                               </size>
+                              </property>
+                              <property name="maximumSize">
+                               <size>
+                                <width>200</width>
+                                <height>50</height>
+                               </size>
+                              </property>
+                              <property name="font">
+                               <font>
+                                <pointsize>14</pointsize>
+                               </font>
+                              </property>
+                              <property name="text">
+                               <string>Source Port</string>
+                              </property>
+                              <property name="wordWrap">
+                               <bool>true</bool>
+                              </property>
+                             </widget>
+                            </item>
+                            <item>
+                             <widget class="QLineEdit" name="udp_destination_port_input">
+                              <property name="sizePolicy">
+                               <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+                                <horstretch>0</horstretch>
+                                <verstretch>0</verstretch>
+                               </sizepolicy>
+                              </property>
+                              <property name="minimumSize">
+                               <size>
+                                <width>0</width>
+                                <height>50</height>
+                               </size>
+                              </property>
+                              <property name="maximumSize">
+                               <size>
+                                <width>250</width>
+                                <height>50</height>
+                               </size>
+                              </property>
+                              <property name="styleSheet">
+                               <string notr="true"/>
+                              </property>
+                             </widget>
+                            </item>
+                           </layout>
+                          </item>
+                          <item>
+                           <layout class="QHBoxLayout" name="udp_source_port">
+                            <property name="spacing">
+                             <number>6</number>
+                            </property>
+                            <property name="sizeConstraint">
+                             <enum>QLayout::SetDefaultConstraint</enum>
+                            </property>
+                            <item>
+                             <widget class="QLabel" name="udp_source_port_label">
+                              <property name="minimumSize">
+                               <size>
+                                <width>200</width>
+                                <height>50</height>
+                               </size>
+                              </property>
+                              <property name="maximumSize">
+                               <size>
+                                <width>200</width>
+                                <height>50</height>
+                               </size>
+                              </property>
+                              <property name="font">
+                               <font>
+                                <pointsize>14</pointsize>
+                               </font>
+                              </property>
+                              <property name="text">
+                               <string>Destination Port</string>
+                              </property>
+                              <property name="wordWrap">
+                               <bool>true</bool>
+                              </property>
+                             </widget>
+                            </item>
+                            <item>
+                             <widget class="QLineEdit" name="udp_source_port_input">
+                              <property name="sizePolicy">
+                               <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                                <horstretch>0</horstretch>
+                                <verstretch>0</verstretch>
+                               </sizepolicy>
+                              </property>
+                              <property name="minimumSize">
+                               <size>
+                                <width>0</width>
+                                <height>50</height>
+                               </size>
+                              </property>
+                              <property name="maximumSize">
+                               <size>
+                                <width>250</width>
+                                <height>50</height>
+                               </size>
+                              </property>
+                              <property name="styleSheet">
+                               <string notr="true"/>
+                              </property>
+                             </widget>
+                            </item>
+                           </layout>
+                          </item>
+                         </layout>
+                        </widget>
+                        <widget class="QWidget" name="icmp"/>
+                       </widget>
+                      </item>
+                      <item>
+                       <layout class="QHBoxLayout" name="source_ip_address_layout">
+                        <item>
+                         <widget class="QLabel" name="source_ip_address_label">
+                          <property name="minimumSize">
+                           <size>
+                            <width>200</width>
+                            <height>50</height>
+                           </size>
+                          </property>
+                          <property name="maximumSize">
+                           <size>
+                            <width>200</width>
+                            <height>50</height>
+                           </size>
+                          </property>
+                          <property name="font">
+                           <font>
+                            <pointsize>14</pointsize>
+                           </font>
+                          </property>
+                          <property name="text">
+                           <string>Source IP Address</string>
+                          </property>
+                          <property name="wordWrap">
+                           <bool>true</bool>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="IPAddressInput" name="source_ip_address_input">
+                          <property name="sizePolicy">
+                           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                           </sizepolicy>
+                          </property>
+                          <property name="minimumSize">
+                           <size>
+                            <width>0</width>
+                            <height>50</height>
+                           </size>
+                          </property>
+                          <property name="maximumSize">
+                           <size>
+                            <width>250</width>
+                            <height>16777215</height>
+                           </size>
+                          </property>
+                          <property name="styleSheet">
+                           <string notr="true"/>
+                          </property>
+                          <property name="text">
+                           <string/>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </item>
+                      <item>
+                       <layout class="QHBoxLayout" name="destination_ip_address_layout">
+                        <item>
+                         <widget class="QLabel" name="destination_ip_address_label">
+                          <property name="minimumSize">
+                           <size>
+                            <width>200</width>
+                            <height>50</height>
+                           </size>
+                          </property>
+                          <property name="maximumSize">
+                           <size>
+                            <width>200</width>
+                            <height>50</height>
+                           </size>
+                          </property>
+                          <property name="font">
+                           <font>
+                            <pointsize>14</pointsize>
+                           </font>
+                          </property>
+                          <property name="text">
+                           <string>Destination IP Address</string>
+                          </property>
+                          <property name="wordWrap">
+                           <bool>true</bool>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="IPAddressInput" name="destination_ip_address_input">
+                          <property name="sizePolicy">
+                           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                           </sizepolicy>
+                          </property>
+                          <property name="minimumSize">
+                           <size>
+                            <width>0</width>
+                            <height>50</height>
+                           </size>
+                          </property>
+                          <property name="maximumSize">
+                           <size>
+                            <width>250</width>
+                            <height>16777215</height>
+                           </size>
+                          </property>
+                          <property name="styleSheet">
+                           <string notr="true"/>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </item>
+                      <item>
+                       <layout class="QHBoxLayout" name="time_to_live_ip_layout">
+                        <item>
+                         <widget class="QLabel" name="time_to_live_ip_label">
+                          <property name="minimumSize">
+                           <size>
+                            <width>200</width>
+                            <height>50</height>
+                           </size>
+                          </property>
+                          <property name="maximumSize">
+                           <size>
+                            <width>200</width>
+                            <height>50</height>
+                           </size>
+                          </property>
+                          <property name="font">
+                           <font>
+                            <pointsize>14</pointsize>
+                           </font>
+                          </property>
+                          <property name="text">
+                           <string>Time To Live</string>
+                          </property>
+                          <property name="wordWrap">
+                           <bool>true</bool>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="NumberLineEdit" name="time_to_live_ip_input">
+                          <property name="sizePolicy">
+                           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                           </sizepolicy>
+                          </property>
+                          <property name="minimumSize">
+                           <size>
+                            <width>0</width>
+                            <height>50</height>
+                           </size>
+                          </property>
+                          <property name="maximumSize">
+                           <size>
+                            <width>250</width>
+                            <height>16777215</height>
+                           </size>
+                          </property>
+                          <property name="styleSheet">
+                           <string notr="true"/>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </item>
+                      <item>
+                       <layout class="QHBoxLayout" name="ip_payload_layout">
+                        <property name="spacing">
+                         <number>6</number>
+                        </property>
+                        <item>
+                         <widget class="QLabel" name="ip_payload_label">
+                          <property name="minimumSize">
+                           <size>
+                            <width>200</width>
+                            <height>50</height>
+                           </size>
+                          </property>
+                          <property name="maximumSize">
+                           <size>
+                            <width>200</width>
+                            <height>50</height>
+                           </size>
+                          </property>
+                          <property name="font">
+                           <font>
+                            <pointsize>14</pointsize>
+                           </font>
+                          </property>
+                          <property name="text">
+                           <string>Payload</string>
+                          </property>
+                          <property name="wordWrap">
+                           <bool>true</bool>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QLineEdit" name="ip_payload_input">
+                          <property name="sizePolicy">
+                           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                           </sizepolicy>
+                          </property>
+                          <property name="minimumSize">
+                           <size>
+                            <width>0</width>
+                            <height>50</height>
+                           </size>
+                          </property>
+                          <property name="maximumSize">
+                           <size>
+                            <width>250</width>
+                            <height>50</height>
+                           </size>
+                          </property>
+                          <property name="styleSheet">
+                           <string notr="true"/>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </item>
+                      <item>
+                       <layout class="QHBoxLayout" name="number_ip_layout">
+                        <item>
+                         <widget class="QLabel" name="number_ip_label">
+                          <property name="minimumSize">
+                           <size>
+                            <width>200</width>
+                            <height>50</height>
+                           </size>
+                          </property>
+                          <property name="maximumSize">
+                           <size>
+                            <width>200</width>
+                            <height>50</height>
+                           </size>
+                          </property>
+                          <property name="font">
+                           <font>
+                            <pointsize>14</pointsize>
+                           </font>
+                          </property>
+                          <property name="text">
+                           <string>How many of this packet?</string>
+                          </property>
+                          <property name="wordWrap">
+                           <bool>true</bool>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="NumberLineEdit" name="number_ip_input">
+                          <property name="sizePolicy">
+                           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                           </sizepolicy>
+                          </property>
+                          <property name="minimumSize">
+                           <size>
+                            <width>0</width>
+                            <height>50</height>
+                           </size>
+                          </property>
+                          <property name="maximumSize">
+                           <size>
+                            <width>250</width>
+                            <height>16777215</height>
+                           </size>
+                          </property>
+                          <property name="styleSheet">
+                           <string notr="true"/>
+                          </property>
+                          <property name="inputMask">
+                           <string/>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </item>
+                      <item>
+                       <spacer name="verticalSpacer_3">
+                        <property name="orientation">
+                         <enum>Qt::Vertical</enum>
+                        </property>
+                        <property name="sizeHint" stdset="0">
+                         <size>
+                          <width>20</width>
+                          <height>40</height>
+                         </size>
+                        </property>
+                       </spacer>
+                      </item>
+                     </layout>
+                    </widget>
+                   </widget>
+                  </item>
                  </layout>
                 </widget>
-               </widget>
-              </item>
-             </layout>
-            </widget>
-            <widget class="ARPConfigurationWidget" name="arp_page">
-             <layout class="QVBoxLayout" name="verticalLayout_3" stretch="1,12">
-              <property name="spacing">
-               <number>0</number>
-              </property>
-              <property name="leftMargin">
-               <number>0</number>
-              </property>
-              <property name="topMargin">
-               <number>0</number>
-              </property>
-              <property name="rightMargin">
-               <number>0</number>
-              </property>
-              <property name="bottomMargin">
-               <number>0</number>
-              </property>
-              <item>
-               <widget class="QLabel" name="source_mac_address_arp_10">
-                <property name="font">
-                 <font>
-                  <pointsize>14</pointsize>
-                 </font>
-                </property>
-                <property name="text">
-                 <string>ARP Configuration</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <layout class="QHBoxLayout" name="source_mac_address_arp_layout_10">
-                <item>
-                 <widget class="QScrollArea" name="scrollArea">
-                  <property name="styleSheet">
-                   <string notr="true">
+                <widget class="ARPConfigurationWidget" name="arp_page">
+                 <layout class="QVBoxLayout" name="verticalLayout_3" stretch="1,1,1,18">
+                  <property name="spacing">
+                   <number>0</number>
+                  </property>
+                  <property name="leftMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>0</number>
+                  </property>
+                  <item>
+                   <spacer name="verticalSpacer_4">
+                    <property name="orientation">
+                     <enum>Qt::Vertical</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>20</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="source_mac_address_arp_10">
+                    <property name="font">
+                     <font>
+                      <pointsize>14</pointsize>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>ARP Configuration</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <spacer name="verticalSpacer_5">
+                    <property name="orientation">
+                     <enum>Qt::Vertical</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>20</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item>
+                   <layout class="QHBoxLayout" name="source_mac_address_arp_layout_10">
+                    <item>
+                     <widget class="QScrollArea" name="scrollArea">
+                      <property name="maximumSize">
+                       <size>
+                        <width>500</width>
+                        <height>16777215</height>
+                       </size>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">
 
 QScrollArea {
 	background-color: rgb(54, 60, 75);
@@ -1021,240 +1126,299 @@ QScrollArea {
 QHBoxLayout {
 	background-color: rgb(255, 255, 255);
 }</string>
-                  </property>
-                  <property name="widgetResizable">
-                   <bool>true</bool>
-                  </property>
-                  <widget class="QWidget" name="scrollAreaWidgetContents_4">
-                   <property name="geometry">
-                    <rect>
-                     <x>0</x>
-                     <y>0</y>
-                     <width>425</width>
-                     <height>516</height>
-                    </rect>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true"/>
-                   </property>
-                   <layout class="QVBoxLayout" name="verticalLayout_6">
-                    <item>
-                     <layout class="QHBoxLayout" name="arp_type_radios">
-                      <property name="spacing">
-                       <number>0</number>
                       </property>
-                      <property name="topMargin">
-                       <number>0</number>
+                      <property name="horizontalScrollBarPolicy">
+                       <enum>Qt::ScrollBarAsNeeded</enum>
                       </property>
-                      <item>
-                       <widget class="QRadioButton" name="arp_who_has_radio">
-                        <property name="sizePolicy">
-                         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                          <horstretch>0</horstretch>
-                          <verstretch>0</verstretch>
-                         </sizepolicy>
-                        </property>
-                        <property name="maximumSize">
-                         <size>
-                          <width>1000000</width>
-                          <height>50</height>
-                         </size>
-                        </property>
-                        <property name="text">
-                         <string>Who has?</string>
-                        </property>
-                        <property name="checked">
-                         <bool>true</bool>
-                        </property>
-                       </widget>
-                      </item>
-                      <item>
-                       <widget class="QRadioButton" name="arp_is_at_radio">
-                        <property name="maximumSize">
-                         <size>
-                          <width>300</width>
-                          <height>50</height>
-                         </size>
-                        </property>
-                        <property name="text">
-                         <string>Is at?</string>
-                        </property>
-                       </widget>
-                      </item>
-                     </layout>
-                    </item>
-                    <item>
-                     <layout class="QHBoxLayout" name="destination_ip_address_arp_layout_8">
-                      <item>
-                       <widget class="QLabel" name="destination_ip_address_arp_label">
-                        <property name="minimumSize">
-                         <size>
-                          <width>200</width>
-                          <height>50</height>
-                         </size>
-                        </property>
-                        <property name="maximumSize">
-                         <size>
-                          <width>50</width>
-                          <height>16777215</height>
-                         </size>
-                        </property>
-                        <property name="font">
-                         <font>
-                          <pointsize>14</pointsize>
-                         </font>
-                        </property>
-                        <property name="text">
-                         <string>Target's IP Address</string>
-                        </property>
-                        <property name="wordWrap">
-                         <bool>true</bool>
-                        </property>
-                       </widget>
-                      </item>
-                      <item>
-                       <widget class="IPAddressInput" name="destination_ip_address_arp_input">
-                        <property name="sizePolicy">
-                         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                          <horstretch>0</horstretch>
-                          <verstretch>0</verstretch>
-                         </sizepolicy>
-                        </property>
-                        <property name="minimumSize">
-                         <size>
-                          <width>0</width>
-                          <height>50</height>
-                         </size>
-                        </property>
-                        <property name="maximumSize">
-                         <size>
-                          <width>250</width>
-                          <height>16777215</height>
-                         </size>
-                        </property>
-                       </widget>
-                      </item>
-                     </layout>
-                    </item>
-                    <item>
-                     <layout class="QHBoxLayout" name="number_arp_layout">
-                      <item>
-                       <widget class="QLabel" name="number_arp_label">
-                        <property name="minimumSize">
-                         <size>
-                          <width>200</width>
-                          <height>50</height>
-                         </size>
-                        </property>
-                        <property name="maximumSize">
-                         <size>
-                          <width>50</width>
-                          <height>16777215</height>
-                         </size>
-                        </property>
-                        <property name="font">
-                         <font>
-                          <pointsize>14</pointsize>
-                         </font>
-                        </property>
-                        <property name="text">
-                         <string>How many?</string>
-                        </property>
-                        <property name="wordWrap">
-                         <bool>true</bool>
-                        </property>
-                       </widget>
-                      </item>
-                      <item>
-                       <widget class="IPAddressInput" name="number_arp_input">
-                        <property name="sizePolicy">
-                         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                          <horstretch>0</horstretch>
-                          <verstretch>0</verstretch>
-                         </sizepolicy>
-                        </property>
-                        <property name="minimumSize">
-                         <size>
-                          <width>0</width>
-                          <height>50</height>
-                         </size>
-                        </property>
-                        <property name="maximumSize">
-                         <size>
-                          <width>250</width>
-                          <height>50</height>
-                         </size>
-                        </property>
-                       </widget>
-                      </item>
-                     </layout>
-                    </item>
-                    <item>
-                     <spacer name="verticalSpacer_2">
-                      <property name="orientation">
-                       <enum>Qt::Vertical</enum>
+                      <property name="widgetResizable">
+                       <bool>true</bool>
                       </property>
-                      <property name="sizeHint" stdset="0">
-                       <size>
-                        <width>20</width>
-                        <height>40</height>
-                       </size>
-                      </property>
-                     </spacer>
+                      <widget class="QWidget" name="scrollAreaWidgetContents_4">
+                       <property name="geometry">
+                        <rect>
+                         <x>0</x>
+                         <y>0</y>
+                         <width>415</width>
+                         <height>539</height>
+                        </rect>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true"/>
+                       </property>
+                       <layout class="QVBoxLayout" name="verticalLayout_6" stretch="0,1,1,5">
+                        <property name="leftMargin">
+                         <number>6</number>
+                        </property>
+                        <property name="topMargin">
+                         <number>6</number>
+                        </property>
+                        <property name="rightMargin">
+                         <number>6</number>
+                        </property>
+                        <property name="bottomMargin">
+                         <number>6</number>
+                        </property>
+                        <item>
+                         <layout class="QHBoxLayout" name="arp_type_radios" stretch="1,1">
+                          <property name="spacing">
+                           <number>0</number>
+                          </property>
+                          <property name="topMargin">
+                           <number>0</number>
+                          </property>
+                          <item>
+                           <widget class="QRadioButton" name="arp_who_has_radio">
+                            <property name="sizePolicy">
+                             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                              <horstretch>0</horstretch>
+                              <verstretch>0</verstretch>
+                             </sizepolicy>
+                            </property>
+                            <property name="minimumSize">
+                             <size>
+                              <width>0</width>
+                              <height>50</height>
+                             </size>
+                            </property>
+                            <property name="maximumSize">
+                             <size>
+                              <width>11000</width>
+                              <height>50</height>
+                             </size>
+                            </property>
+                            <property name="text">
+                             <string>Who has?</string>
+                            </property>
+                            <property name="checked">
+                             <bool>true</bool>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QRadioButton" name="arp_is_at_radio">
+                            <property name="sizePolicy">
+                             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                              <horstretch>0</horstretch>
+                              <verstretch>0</verstretch>
+                             </sizepolicy>
+                            </property>
+                            <property name="minimumSize">
+                             <size>
+                              <width>0</width>
+                              <height>50</height>
+                             </size>
+                            </property>
+                            <property name="maximumSize">
+                             <size>
+                              <width>10000</width>
+                              <height>50</height>
+                             </size>
+                            </property>
+                            <property name="text">
+                             <string>Is at?</string>
+                            </property>
+                           </widget>
+                          </item>
+                         </layout>
+                        </item>
+                        <item>
+                         <layout class="QHBoxLayout" name="destination_ip_address_arp_layout_8">
+                          <item>
+                           <widget class="QLabel" name="destination_ip_address_arp_label">
+                            <property name="minimumSize">
+                             <size>
+                              <width>200</width>
+                              <height>50</height>
+                             </size>
+                            </property>
+                            <property name="maximumSize">
+                             <size>
+                              <width>50</width>
+                              <height>50</height>
+                             </size>
+                            </property>
+                            <property name="font">
+                             <font>
+                              <pointsize>14</pointsize>
+                             </font>
+                            </property>
+                            <property name="text">
+                             <string>Target's IP Address</string>
+                            </property>
+                            <property name="wordWrap">
+                             <bool>true</bool>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="IPAddressInput" name="destination_ip_address_arp_input">
+                            <property name="sizePolicy">
+                             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                              <horstretch>0</horstretch>
+                              <verstretch>0</verstretch>
+                             </sizepolicy>
+                            </property>
+                            <property name="minimumSize">
+                             <size>
+                              <width>0</width>
+                              <height>50</height>
+                             </size>
+                            </property>
+                            <property name="maximumSize">
+                             <size>
+                              <width>250</width>
+                              <height>50</height>
+                             </size>
+                            </property>
+                           </widget>
+                          </item>
+                         </layout>
+                        </item>
+                        <item>
+                         <layout class="QHBoxLayout" name="number_arp_layout">
+                          <item>
+                           <widget class="QLabel" name="number_arp_label">
+                            <property name="minimumSize">
+                             <size>
+                              <width>200</width>
+                              <height>50</height>
+                             </size>
+                            </property>
+                            <property name="maximumSize">
+                             <size>
+                              <width>50</width>
+                              <height>16777215</height>
+                             </size>
+                            </property>
+                            <property name="font">
+                             <font>
+                              <pointsize>14</pointsize>
+                             </font>
+                            </property>
+                            <property name="text">
+                             <string>How many?</string>
+                            </property>
+                            <property name="wordWrap">
+                             <bool>true</bool>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="IPAddressInput" name="number_arp_input">
+                            <property name="sizePolicy">
+                             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                              <horstretch>0</horstretch>
+                              <verstretch>0</verstretch>
+                             </sizepolicy>
+                            </property>
+                            <property name="minimumSize">
+                             <size>
+                              <width>0</width>
+                              <height>50</height>
+                             </size>
+                            </property>
+                            <property name="maximumSize">
+                             <size>
+                              <width>250</width>
+                              <height>50</height>
+                             </size>
+                            </property>
+                           </widget>
+                          </item>
+                         </layout>
+                        </item>
+                        <item>
+                         <spacer name="verticalSpacer_2">
+                          <property name="orientation">
+                           <enum>Qt::Vertical</enum>
+                          </property>
+                          <property name="sizeHint" stdset="0">
+                           <size>
+                            <width>20</width>
+                            <height>40</height>
+                           </size>
+                          </property>
+                         </spacer>
+                        </item>
+                       </layout>
+                      </widget>
+                     </widget>
                     </item>
                    </layout>
-                  </widget>
-                 </widget>
-                </item>
-               </layout>
-              </item>
-             </layout>
-            </widget>
-            <widget class="DNSConfigurationWidget" name="dns_page">
-             <property name="toolTipDuration">
-              <number>12</number>
-             </property>
-             <property name="autoFillBackground">
-              <bool>false</bool>
-             </property>
-             <property name="styleSheet">
-              <string notr="true"/>
-             </property>
-             <layout class="QVBoxLayout" name="verticalLayout_8" stretch="1,12">
-              <property name="spacing">
-               <number>0</number>
-              </property>
-              <property name="leftMargin">
-               <number>0</number>
-              </property>
-              <property name="topMargin">
-               <number>0</number>
-              </property>
-              <property name="rightMargin">
-               <number>0</number>
-              </property>
-              <property name="bottomMargin">
-               <number>0</number>
-              </property>
-              <item>
-               <widget class="QLabel" name="source_mac_address_arp_13">
-                <property name="font">
-                 <font>
-                  <pointsize>14</pointsize>
-                 </font>
-                </property>
-                <property name="text">
-                 <string>DNS Configuration</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QScrollArea" name="scrollArea_2">
-                <property name="autoFillBackground">
-                 <bool>true</bool>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">
+                  </item>
+                 </layout>
+                </widget>
+                <widget class="DNSConfigurationWidget" name="dns_page">
+                 <property name="toolTipDuration">
+                  <number>12</number>
+                 </property>
+                 <property name="autoFillBackground">
+                  <bool>false</bool>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true"/>
+                 </property>
+                 <layout class="QVBoxLayout" name="verticalLayout_8" stretch="1,1,1,18">
+                  <property name="spacing">
+                   <number>0</number>
+                  </property>
+                  <property name="leftMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>0</number>
+                  </property>
+                  <item>
+                   <spacer name="verticalSpacer_9">
+                    <property name="orientation">
+                     <enum>Qt::Vertical</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>20</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="source_mac_address_arp_13">
+                    <property name="font">
+                     <font>
+                      <pointsize>14</pointsize>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>DNS Configuration</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <spacer name="verticalSpacer_8">
+                    <property name="orientation">
+                     <enum>Qt::Vertical</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>20</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item>
+                   <widget class="QScrollArea" name="scrollArea_2">
+                    <property name="autoFillBackground">
+                     <bool>true</bool>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">
 
 QScrollArea {
 	background-color: rgb(54, 60, 75);
@@ -1267,263 +1431,528 @@ QScrollArea {
 QHBoxLayout {
 	background-color: rgb(255, 255, 255);
 }</string>
-                </property>
-                <property name="widgetResizable">
-                 <bool>true</bool>
-                </property>
-                <widget class="QWidget" name="scrollAreaWidgetContents_5">
-                 <property name="geometry">
-                  <rect>
-                   <x>0</x>
-                   <y>0</y>
-                   <width>427</width>
-                   <height>518</height>
-                  </rect>
-                 </property>
-                 <property name="autoFillBackground">
-                  <bool>false</bool>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">QHBoxLayout {
+                    </property>
+                    <property name="widgetResizable">
+                     <bool>true</bool>
+                    </property>
+                    <widget class="QWidget" name="scrollAreaWidgetContents_5">
+                     <property name="geometry">
+                      <rect>
+                       <x>0</x>
+                       <y>0</y>
+                       <width>418</width>
+                       <height>542</height>
+                      </rect>
+                     </property>
+                     <property name="autoFillBackground">
+                      <bool>false</bool>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">QHBoxLayout {
 background-color: rgb(255,255,255);
 }</string>
-                 </property>
-                 <layout class="QVBoxLayout" name="verticalLayout_4">
-                  <item>
-                   <layout class="QHBoxLayout" name="dns_source_ip_address">
-                    <item>
-                     <widget class="QLabel" name="dns_source_ip_address_label">
-                      <property name="maximumSize">
-                       <size>
-                        <width>200</width>
-                        <height>16777215</height>
-                       </size>
-                      </property>
-                      <property name="font">
-                       <font>
-                        <pointsize>14</pointsize>
-                       </font>
-                      </property>
-                      <property name="text">
-                       <string>Source IP Address</string>
-                      </property>
-                      <property name="wordWrap">
-                       <bool>true</bool>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="IPAddressInput" name="dns_source_ip_address_input">
-                      <property name="sizePolicy">
-                       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                        <horstretch>0</horstretch>
-                        <verstretch>0</verstretch>
-                       </sizepolicy>
-                      </property>
-                      <property name="minimumSize">
-                       <size>
-                        <width>0</width>
-                        <height>50</height>
-                       </size>
-                      </property>
-                      <property name="maximumSize">
-                       <size>
-                        <width>250</width>
-                        <height>16777215</height>
-                       </size>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </item>
-                  <item>
-                   <layout class="QHBoxLayout" name="dns_query_name">
-                    <item>
-                     <widget class="QLabel" name="dns_query_name_label">
-                      <property name="maximumSize">
-                       <size>
-                        <width>200</width>
-                        <height>16777215</height>
-                       </size>
-                      </property>
-                      <property name="font">
-                       <font>
-                        <pointsize>14</pointsize>
-                       </font>
-                      </property>
-                      <property name="text">
-                       <string>Query Name</string>
-                      </property>
-                      <property name="wordWrap">
-                       <bool>true</bool>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="IPAddressInput" name="dns_query_name_input">
-                      <property name="sizePolicy">
-                       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                        <horstretch>0</horstretch>
-                        <verstretch>0</verstretch>
-                       </sizepolicy>
-                      </property>
-                      <property name="minimumSize">
-                       <size>
-                        <width>0</width>
-                        <height>50</height>
-                       </size>
-                      </property>
-                      <property name="maximumSize">
-                       <size>
-                        <width>250</width>
-                        <height>16777215</height>
-                       </size>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </item>
-                  <item>
-                   <layout class="QHBoxLayout" name="dns_packet_number">
-                    <item>
-                     <widget class="QLabel" name="dns_packet_number_label">
-                      <property name="maximumSize">
-                       <size>
-                        <width>200</width>
-                        <height>16777215</height>
-                       </size>
-                      </property>
-                      <property name="font">
-                       <font>
-                        <pointsize>14</pointsize>
-                       </font>
-                      </property>
-                      <property name="text">
-                       <string>Number of Packets?</string>
-                      </property>
-                      <property name="wordWrap">
-                       <bool>true</bool>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="NumberLineEdit" name="dns_packet_number_input">
-                      <property name="sizePolicy">
-                       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                        <horstretch>0</horstretch>
-                        <verstretch>0</verstretch>
-                       </sizepolicy>
-                      </property>
-                      <property name="minimumSize">
-                       <size>
-                        <width>0</width>
-                        <height>50</height>
-                       </size>
-                      </property>
-                      <property name="maximumSize">
-                       <size>
-                        <width>250</width>
-                        <height>16777215</height>
-                       </size>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </item>
-                  <item>
-                   <spacer name="verticalSpacer">
-                    <property name="orientation">
-                     <enum>Qt::Vertical</enum>
-                    </property>
-                    <property name="sizeHint" stdset="0">
-                     <size>
-                      <width>20</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                   </spacer>
+                     </property>
+                     <layout class="QVBoxLayout" name="verticalLayout_4">
+                      <item>
+                       <layout class="QHBoxLayout" name="dns_source_ip_address">
+                        <item>
+                         <widget class="QLabel" name="dns_source_ip_address_label">
+                          <property name="maximumSize">
+                           <size>
+                            <width>200</width>
+                            <height>16777215</height>
+                           </size>
+                          </property>
+                          <property name="font">
+                           <font>
+                            <pointsize>14</pointsize>
+                           </font>
+                          </property>
+                          <property name="text">
+                           <string>Source IP Address</string>
+                          </property>
+                          <property name="wordWrap">
+                           <bool>true</bool>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="IPAddressInput" name="dns_source_ip_address_input">
+                          <property name="sizePolicy">
+                           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                           </sizepolicy>
+                          </property>
+                          <property name="minimumSize">
+                           <size>
+                            <width>0</width>
+                            <height>50</height>
+                           </size>
+                          </property>
+                          <property name="maximumSize">
+                           <size>
+                            <width>250</width>
+                            <height>16777215</height>
+                           </size>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </item>
+                      <item>
+                       <layout class="QHBoxLayout" name="dns_query_name">
+                        <item>
+                         <widget class="QLabel" name="dns_query_name_label">
+                          <property name="maximumSize">
+                           <size>
+                            <width>200</width>
+                            <height>16777215</height>
+                           </size>
+                          </property>
+                          <property name="font">
+                           <font>
+                            <pointsize>14</pointsize>
+                           </font>
+                          </property>
+                          <property name="text">
+                           <string>Query Name</string>
+                          </property>
+                          <property name="wordWrap">
+                           <bool>true</bool>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="IPAddressInput" name="dns_query_name_input">
+                          <property name="sizePolicy">
+                           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                           </sizepolicy>
+                          </property>
+                          <property name="minimumSize">
+                           <size>
+                            <width>0</width>
+                            <height>50</height>
+                           </size>
+                          </property>
+                          <property name="maximumSize">
+                           <size>
+                            <width>250</width>
+                            <height>16777215</height>
+                           </size>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </item>
+                      <item>
+                       <layout class="QHBoxLayout" name="dns_packet_number">
+                        <item>
+                         <widget class="QLabel" name="dns_packet_number_label">
+                          <property name="maximumSize">
+                           <size>
+                            <width>200</width>
+                            <height>16777215</height>
+                           </size>
+                          </property>
+                          <property name="font">
+                           <font>
+                            <pointsize>14</pointsize>
+                           </font>
+                          </property>
+                          <property name="text">
+                           <string>Number of Packets?</string>
+                          </property>
+                          <property name="wordWrap">
+                           <bool>true</bool>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="NumberLineEdit" name="dns_packet_number_input">
+                          <property name="sizePolicy">
+                           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                           </sizepolicy>
+                          </property>
+                          <property name="minimumSize">
+                           <size>
+                            <width>0</width>
+                            <height>50</height>
+                           </size>
+                          </property>
+                          <property name="maximumSize">
+                           <size>
+                            <width>250</width>
+                            <height>16777215</height>
+                           </size>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </item>
+                      <item>
+                       <spacer name="verticalSpacer">
+                        <property name="orientation">
+                         <enum>Qt::Vertical</enum>
+                        </property>
+                        <property name="sizeHint" stdset="0">
+                         <size>
+                          <width>20</width>
+                          <height>40</height>
+                         </size>
+                        </property>
+                       </spacer>
+                      </item>
+                     </layout>
+                    </widget>
+                   </widget>
                   </item>
                  </layout>
                 </widget>
                </widget>
               </item>
              </layout>
-            </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_4">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="right_side" stretch="1,11">
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <item>
+             <widget class="QLabel" name="packets_to_send_title">
+              <property name="font">
+               <font>
+                <pointsize>24</pointsize>
+               </font>
+              </property>
+              <property name="text">
+               <string>Packets To Send</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QScrollArea" name="packets_to_send_scroll_container">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="widgetResizable">
+               <bool>true</bool>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+              </property>
+              <widget class="QWidget" name="scroll_area_contents">
+               <property name="geometry">
+                <rect>
+                 <x>0</x>
+                 <y>0</y>
+                 <width>419</width>
+                 <height>702</height>
+                </rect>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">background-color: rgba(82, 88, 104, 1)</string>
+               </property>
+               <layout class="QVBoxLayout" name="verticalLayout_11">
+                <property name="spacing">
+                 <number>0</number>
+                </property>
+                <property name="leftMargin">
+                 <number>0</number>
+                </property>
+                <property name="topMargin">
+                 <number>0</number>
+                </property>
+                <property name="rightMargin">
+                 <number>0</number>
+                </property>
+                <property name="bottomMargin">
+                 <number>0</number>
+                </property>
+                <item>
+                 <layout class="QVBoxLayout" name="to_send_packets_list">
+                  <property name="spacing">
+                   <number>10</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>0</number>
+                  </property>
+                 </layout>
+                </item>
+               </layout>
+              </widget>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="0,1,0,1,0">
+          <item>
+           <spacer name="horizontalSpacer_5">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="add_packet_button">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>100</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>20</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>Add Packets</string>
+            </property>
            </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_6">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="send_packets_button">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>100</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>20</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>Send packets</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_3">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
           </item>
          </layout>
         </item>
        </layout>
-      </item>
-      <item>
-       <spacer name="horizontalSpacer_4">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item>
-       <layout class="QVBoxLayout" name="right_side" stretch="1,11">
-        <property name="spacing">
-         <number>0</number>
-        </property>
+      </widget>
+      <widget class="QWidget" name="Summary">
+       <property name="styleSheet">
+        <string notr="true">QLabel
+ {
+            position: absolute;
+            padding: 10px;
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 19px;
+            text-align: center;
+            color: #363C4B;
+            background-color: rgba(217, 217, 217, 1);
+}</string>
+       </property>
+       <attribute name="title">
+        <string>Summary</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_13" stretch="3,1,5">
         <item>
-         <widget class="QLabel" name="packets_to_send_title">
-          <property name="font">
-           <font>
-            <pointsize>24</pointsize>
-           </font>
+         <layout class="QGridLayout" name="gridLayout">
+          <property name="bottomMargin">
+           <number>0</number>
           </property>
-          <property name="text">
-           <string>Packets To Send</string>
-          </property>
-         </widget>
+          <item row="1" column="0">
+           <layout class="QHBoxLayout" name="horizontalLayout_7">
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <item>
+             <widget class="QLabel" name="duration_packet_generation_label">
+              <property name="text">
+               <string>Duration of Packet Generation</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="duration_packet_generation_value">
+              <property name="text">
+               <string>300ms</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item row="2" column="0">
+           <layout class="QHBoxLayout" name="horizontalLayout_8">
+            <item>
+             <widget class="QLabel" name="export_label">
+              <property name="text">
+               <string>Export</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="download_pcap_file_button">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="text">
+               <string>Download Pcap File</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="export_to_wireshark_button">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="text">
+               <string>Export To Wireshark</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item row="0" column="0">
+           <layout class="QHBoxLayout" name="horizontalLayout_4">
+            <item>
+             <widget class="QLabel" name="label">
+              <property name="text">
+               <string>Total Number of Packets Sent</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="total_number_of_packets">
+              <property name="text">
+               <string>100</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
         </item>
         <item>
-         <widget class="QScrollArea" name="packets_to_send_scroll_container">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
+         <spacer name="verticalSpacer_10">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
           </property>
-          <property name="minimumSize">
+          <property name="sizeHint" stdset="0">
            <size>
-            <width>0</width>
-            <height>0</height>
+            <width>20</width>
+            <height>40</height>
            </size>
           </property>
-          <property name="maximumSize">
-           <size>
-            <width>16777215</width>
-            <height>16777215</height>
-           </size>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QTabWidget" name="tabWidget_2">
+          <property name="currentIndex">
+           <number>0</number>
           </property>
-          <property name="widgetResizable">
-           <bool>true</bool>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
-          </property>
-          <widget class="QWidget" name="scroll_area_contents">
-           <property name="geometry">
-            <rect>
-             <x>0</x>
-             <y>0</y>
-             <width>429</width>
-             <height>625</height>
-            </rect>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">background-color: rgba(82, 88, 104, 1)</string>
-           </property>
-           <layout class="QVBoxLayout" name="verticalLayout_11">
+          <widget class="QWidget" name="output">
+           <attribute name="title">
+            <string>Output</string>
+           </attribute>
+           <layout class="QVBoxLayout" name="verticalLayout_14">
             <property name="spacing">
              <number>0</number>
             </property>
@@ -1540,163 +1969,226 @@ background-color: rgb(255,255,255);
              <number>0</number>
             </property>
             <item>
-             <layout class="QVBoxLayout" name="to_send_packets_list">
-              <property name="spacing">
-               <number>10</number>
+             <widget class="QScrollArea" name="console_output_container">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
               </property>
-              <property name="bottomMargin">
-               <number>0</number>
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>0</height>
+               </size>
               </property>
-             </layout>
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="widgetResizable">
+               <bool>true</bool>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+              </property>
+              <widget class="QWidget" name="scroll_area_contents_2">
+               <property name="geometry">
+                <rect>
+                 <x>0</x>
+                 <y>0</y>
+                 <width>990</width>
+                 <height>426</height>
+                </rect>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">background-color: rgba(82, 88, 104, 1)</string>
+               </property>
+               <layout class="QVBoxLayout" name="verticalLayout_12">
+                <property name="spacing">
+                 <number>0</number>
+                </property>
+                <property name="leftMargin">
+                 <number>0</number>
+                </property>
+                <property name="topMargin">
+                 <number>0</number>
+                </property>
+                <property name="rightMargin">
+                 <number>0</number>
+                </property>
+                <property name="bottomMargin">
+                 <number>0</number>
+                </property>
+                <item>
+                 <layout class="QVBoxLayout" name="console_output">
+                  <property name="spacing">
+                   <number>10</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>0</number>
+                  </property>
+                  <item>
+                   <widget class="ConsoleOutput" name="console_output_label">
+                    <property name="styleSheet">
+                     <string notr="true">QLabel
+ {
+            position: absolute;
+            padding: 10px;
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 19px;
+            text-align: center;
+            color: #FFFFFF;
+
+}
+</string>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="wordWrap">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <spacer name="verticalSpacer_11">
+                    <property name="orientation">
+                     <enum>Qt::Vertical</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>20</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
+              </widget>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="packets">
+           <attribute name="title">
+            <string>Packets</string>
+           </attribute>
+           <layout class="QVBoxLayout" name="verticalLayout_16">
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <item>
+             <widget class="QScrollArea" name="packets_container">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="widgetResizable">
+               <bool>true</bool>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+              </property>
+              <widget class="QWidget" name="scroll_area_contents_3">
+               <property name="geometry">
+                <rect>
+                 <x>0</x>
+                 <y>0</y>
+                 <width>972</width>
+                 <height>416</height>
+                </rect>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">background-color: rgba(82, 88, 104, 1)</string>
+               </property>
+               <layout class="QVBoxLayout" name="verticalLayout_15">
+                <property name="spacing">
+                 <number>0</number>
+                </property>
+                <property name="leftMargin">
+                 <number>0</number>
+                </property>
+                <property name="topMargin">
+                 <number>0</number>
+                </property>
+                <property name="rightMargin">
+                 <number>0</number>
+                </property>
+                <property name="bottomMargin">
+                 <number>0</number>
+                </property>
+                <item>
+                 <layout class="QVBoxLayout" name="packets_list">
+                  <property name="spacing">
+                   <number>10</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>0</number>
+                  </property>
+                  <item>
+                   <spacer name="verticalSpacer_12">
+                    <property name="orientation">
+                     <enum>Qt::Vertical</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>20</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
+              </widget>
+             </widget>
             </item>
            </layout>
           </widget>
          </widget>
         </item>
        </layout>
-      </item>
-      <item>
-       <spacer name="horizontalSpacer">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-     </layout>
-    </item>
-    <item>
-     <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="0,1,0,1,0">
-      <item>
-       <spacer name="horizontalSpacer_5">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item>
-       <widget class="QPushButton" name="add_packet_button">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>16777215</width>
-          <height>100</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>20</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>Add Packets</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <spacer name="horizontalSpacer_6">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item>
-       <widget class="QPushButton" name="send_packets_button">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>16777215</width>
-          <height>100</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>20</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>Send packets</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <spacer name="horizontalSpacer_3">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-     </layout>
+      </widget>
+     </widget>
     </item>
    </layout>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>1030</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QMenuBar {
-	background-color: rgb(100, 100, 100);
-	font: 75 16pt &quot;MS Shell Dlg 2&quot;;
-	color: rgb(255, 255, 255);
-}
-</string>
-   </property>
-   <widget class="QMenu" name="menuPacket_Generation">
-    <property name="styleSheet">
-     <string notr="true"/>
-    </property>
-    <property name="title">
-     <string>Packet Generation</string>
-    </property>
-   </widget>
-   <widget class="QMenu" name="menuSend_Summary">
-    <property name="title">
-     <string>Send Summary</string>
-    </property>
-   </widget>
-   <addaction name="menuPacket_Generation"/>
-   <addaction name="menuSend_Summary"/>
-  </widget>
  </widget>
  <customwidgets>
   <customwidget>
@@ -1729,8 +2221,13 @@ background-color: rgb(255,255,255);
   <customwidget>
    <class>ARPConfigurationWidget</class>
    <extends>QWidget</extends>
-   <header location="global">widgets.arp_configuration.h</header>
+   <header>widgets.arp_configuration.h</header>
    <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>ConsoleOutput</class>
+   <extends>QLabel</extends>
+   <header location="global">widgets.console_output.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

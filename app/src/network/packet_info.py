@@ -80,7 +80,7 @@ ARP_PACKET_INFO = {
 # DNS packet information dictionary
 DNS_PACKET_INFO = {
     "srcIP": "192.1.168.236",
-    "dstIP": "8.8.8.8",
+    "dstIP": "",
     "type": "DNS",
     "id": 0xAAA,
     "qr": 0,

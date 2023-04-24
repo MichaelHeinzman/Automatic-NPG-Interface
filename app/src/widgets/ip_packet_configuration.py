@@ -115,5 +115,5 @@ class IPConfigurationWidget(QWidget):
     def add_packet_clicked(self, parent):
         # Create a copy of the current packet
         packet_copy = dict(self.packet)
-        item_widget = IPPacketWidget(packet=packet_copy, packet_number=parent.packet_number, add_to_summary=parent.add_to_summary)
+        item_widget = IPPacketWidget(packet=packet_copy, packet_number=parent.packet_number)
         parent.add_packet_to_send_list(item_widget)

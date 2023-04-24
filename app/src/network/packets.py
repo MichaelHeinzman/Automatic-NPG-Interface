@@ -51,7 +51,7 @@ def create_IP(packet_info):
 def create_DNS (packet_info):
     qname = packet_info.get("qname", 'example.com')
 
-    dns_packet = IP(dst='8.8.8.8')/UDP(dport=53)/DNS(rd=1, qd=DNSQR(qname=qname))
+    dns_packet = IP(dst='8.8.8.8')/UDP(sport=RandShort(),dport=53)/DNS(rd=1, qd=DNSQR(qname=qname))
 
     dns_packet.show()
     return dns_packet

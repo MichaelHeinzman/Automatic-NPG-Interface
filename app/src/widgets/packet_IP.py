@@ -1,33 +1,19 @@
 from PyQt6.QtWidgets import QHBoxLayout, QLabel, QSpacerItem, QSizePolicy, QWidget,QVBoxLayout
 from PyQt6.QtCore import Qt, pyqtSignal
 from widgets.packet import PacketWidget
+from scapy.layers.inet import TCP
 
 class IPPacketWidget(PacketWidget):
     # Signals
     send_packet_signal = pyqtSignal()
 
-    def __init__(self, parent=None, packet=None, packet_number=0, add_to_summary=None):
+    def __init__(self, parent=None, packet=None, packet_number=0):
         super().__init__(parent)
-        self.add_to_summary = add_to_summary
         # Initialize variables
         self.protocol = "IP"
-        self.version = 4
         self.packet = packet
         self.packet_number = packet_number
-        self.ihl = 5
-        self.tos = 0
-        self.len = 0
-        self.id = 1
-        self.flags = 0
-        self.frag = 0
-        self.ttl = 64
-        self.proto = 0
-        self.checksum = None
-        self.options = None
-        self.number_of_packet = 5
-        self.source_ip_address = "192.168.1.236"
-        self.destination_ip_address = "192.168.1.236"
-        self.payload = "Hello World!"
+        self.payload = packet.get("payload", "")
 
         # Create Bottom Layout
         self.bottom_layout = QVBoxLayout()
@@ -36,7 +22,7 @@ class IPPacketWidget(PacketWidget):
         
         # Create top-level horizontal layout
         self.top_layout = QHBoxLayout()
-        self.top_layout.setAlignment(Qt.AlignmentFlag.AlignJustify)
+        self.top_layout.setAlignment(Qt.AlignmentFlag.AlignLeft)
         self.top_layout.setSpacing(10)
 
         # Create and add the labels for the source and destination IP addresses
@@ -48,24 +34,56 @@ class IPPacketWidget(PacketWidget):
         self.packet_number_label.setStyleSheet(self.textStyle)
 
         # Add spacing 
-        spacer = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
         self.top_layout.addWidget(self.packet_number_label)
-        self.top_layout.addItem(spacer)
         self.top_layout.addWidget(self.src_label)
-        self.top_layout.addItem(spacer)
         self.top_layout.addWidget(self.dst_label)
-        self.top_layout.addItem(spacer)
         self.layout.addLayout(self.top_layout)
         self.layout.addLayout(self.bottom_layout)
         self.packet_selected.connect(self.on_packet_selected)
         
     # Sends the generated packet
     def send_packet(self):
-        result = self.generate_packet(self.packet)
-        if (result):
-            self.__del__()
-            self.add_to_summary(result)
-        
+        if self.packet["proto"] == 6:
+            if self.packet["tcp_type"] == "S":  # SYN packet
+                syn_result = self.generate_packet(self.packet)
+                syn_ack = syn_result[0]
+                if syn_ack:
+                    seq_num = syn_ack[TCP].ack
+                    ack_num = syn_ack[TCP].seq + 1
+                    self.packet["tcp_seq_num"] = seq_num
+                    self.packet["tcp_ack_num"] = ack_num
+                    
+                    # Create an ACK packet
+                    ack_packet = self.generate_packet(tcp_type="A")
+                    return ack_packet
+                else: return syn_result   
+            elif self.packet["tcp_type"] == "F":  # FIN packet
+                fin_result = self.generate_packet(self.packet)
+                fin_ack = fin_result[0]
+                if fin_ack:
+                    seq_num = fin_ack[TCP].ack
+                    ack_num = fin_ack[TCP].seq + 1
+                    self.packet["tcp_seq_num"] = seq_num
+                    self.packet["tcp_ack_num"] = ack_num
+                    
+                    # Create an ACK packet
+                    ack_packet = self.generate_packet(tcp_type="A")
+                    return ack_packet
+                else: return fin_result
+            elif self.packet["tcp_type"] == "A":  # ACK packet
+                ack_result = self.generate_packet(self.packet)
+                ack_resp = ack_result[0]
+                if ack_resp:
+                    seq_num = ack_resp[TCP].ack
+                    ack_num = ack_resp[TCP].seq + 1
+                    self.packet["tcp_seq_num"] = seq_num
+                    self.packet["tcp_ack_num"] = ack_num
+                else: return ack_result
+            else:  # All other cases (e.g. PSH, RST, etc.)
+                return self.generate_packet(self.packet)
+                
+        else:
+            return self.generate_packet(self.packet)
 
 
     def on_packet_selected(self):
@@ -76,13 +94,13 @@ class IPPacketWidget(PacketWidget):
             self.packet_number_label.setStyleSheet(self.selectedTopLayout)
 
             # show details
-            self.version_label = QLabel("Version: {}".format(self.version))
+            self.version_label = QLabel("Version: {}".format(self.packet["version"]))
             self.version_label.setStyleSheet(self.textStyle)
-            self.protocol_label = QLabel("Protocol: {}".format(self.protocol))
+            self.protocol_label = QLabel("Protocol: {}".format(self.packet["proto"]))
             self.protocol_label.setStyleSheet(self.textStyle)
-            self.payload_label = QLabel("Payload: {}".format(self.payload))
+            self.payload_label = QLabel("Payload: {}".format(self.packet["payload"]))
             self.payload_label.setStyleSheet(self.textStyle)
-            self.number_of_packets = QLabel("Number of Packets: {}".format(self.number_of_packet))
+            self.number_of_packets = QLabel("Number of Packets: {}".format(self.packet["number"]))
             self.number_of_packets.setStyleSheet(self.textStyle)
             self.bottom_layout.addWidget(self.version_label)
             self.bottom_layout.addWidget(self.protocol_label)

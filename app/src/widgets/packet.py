@@ -20,7 +20,8 @@ class PacketWidget(QWidget):
         # Define a style string that will be used to style the widget
         self.textStyle = '''
             position: absolute;
-            width: 122px;
+            width: 100%;
+            min-width: 200px;
             max-height: 32px;
             padding: 10px;
             left: 700px;
@@ -37,7 +38,8 @@ class PacketWidget(QWidget):
 
         self.selectedTopLayout = '''
             position: absolute;
-            width: 122px;
+            width: 100%;
+            min-width: 200px;
             max-height: 32px;
             padding: 10px;
             left: 700px;

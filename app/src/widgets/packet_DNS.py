@@ -6,15 +6,15 @@ class DNSPacketWidget(PacketWidget):
     # Signals
     send_packet_signal = pyqtSignal()
 
-    def __init__(self, parent=None, packet=None, packet_number=0, add_to_summary=None):
+    def __init__(self, parent=None, packet=None, packet_number=0):
         super().__init__(parent)
-        self.add_to_summary = add_to_summary
         # Initialize variables
         self.packet = packet
         self.protocol = "DNS"
-        self.number = 0
-        self.qname = "www.example.com"
+        self.number = packet.get("number", 0)
+        self.qname = packet.get("qname", "www.example.com")
         self.packet_number = packet_number
+
         # Create Bottom Layout
         self.bottom_layout = QVBoxLayout()
         self.bottom_layout.setAlignment(Qt.AlignmentFlag.AlignTop)
@@ -22,7 +22,7 @@ class DNSPacketWidget(PacketWidget):
         
         # Create top-level horizontal layout
         self.top_layout = QHBoxLayout()
-        self.top_layout.setAlignment(Qt.AlignmentFlag.AlignJustify)
+        self.top_layout.setAlignment(Qt.AlignmentFlag.AlignLeft)
         self.top_layout.setSpacing(10)
 
         # Create and add the labels for the source and destination IP addresses
@@ -34,24 +34,17 @@ class DNSPacketWidget(PacketWidget):
         self.packet_number_label.setStyleSheet(self.textStyle)
 
         # Add spacing 
-        spacer = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
         self.top_layout.addWidget(self.packet_number_label)
-        self.top_layout.addItem(spacer)
         self.top_layout.addWidget(self.src_label)
-        self.top_layout.addItem(spacer)
         self.top_layout.addWidget(self.dst_label)
-        self.top_layout.addItem(spacer)
         self.layout.addLayout(self.top_layout)
         self.layout.addLayout(self.bottom_layout)
         self.packet_selected.connect(self.on_packet_selected)
         
     # Sends the generated packet
     def send_packet(self):
-        result = self.generate_packet(self.packet)
-        if (result):
-            self.__del__()
-            self.add_to_summary(result)
-        
+        return self.generate_packet(self.packet)
+
     def on_packet_selected(self):
         if self.selected:
             # Change Style  of top layout

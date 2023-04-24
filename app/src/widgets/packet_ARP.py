@@ -6,13 +6,10 @@ class ARPPacketWidget(PacketWidget):
     # Signals
     send_packet_signal = pyqtSignal()
 
-    def __init__(self, parent=None, packet=None, packet_number=0, add_to_summary=None):
+    def __init__(self, parent=None, packet=None, packet_number=0):
         super().__init__(parent)
-        self.add_to_summary = add_to_summary
         # Initialize variables
         self.packet = packet
-        self.protocol = "ARP"
-        self.number = 0
         self.packet_number = packet_number
 
         # Create Bottom Layout
@@ -22,35 +19,29 @@ class ARPPacketWidget(PacketWidget):
         
         # Create top-level horizontal layout
         self.top_layout = QHBoxLayout()
-        self.top_layout.setAlignment(Qt.AlignmentFlag.AlignJustify)
+        self.top_layout.setAlignment(Qt.AlignmentFlag.AlignLeft)
         self.top_layout.setSpacing(10)
 
         # Create and add the labels for the source and destination IP addresses
         self.packet_number_label = QLabel("No. {}".format(self.packet_number))
-        self.src_label = QLabel("Src: {}".format(packet["hwsrc"]))
-        self.dst_label = QLabel("Dst: {}".format(packet["pdst"]))
+        self.src_label = QLabel("Src: {}".format(self.packet["hwsrc"]))
+        self.dst_label = QLabel("Dst: {}".format(self.packet["pdst"]))
         self.src_label.setStyleSheet(self.textStyle)
         self.dst_label.setStyleSheet(self.textStyle)
         self.packet_number_label.setStyleSheet(self.textStyle)
 
         # Add spacing 
-        spacer = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
         self.top_layout.addWidget(self.packet_number_label)
-        self.top_layout.addItem(spacer)
         self.top_layout.addWidget(self.src_label)
-        self.top_layout.addItem(spacer)
         self.top_layout.addWidget(self.dst_label)
-        self.top_layout.addItem(spacer)
         self.layout.addLayout(self.top_layout)
         self.layout.addLayout(self.bottom_layout)
         self.packet_selected.connect(self.on_packet_selected)
         
     # Sends the generated packet
     def send_packet(self):
-        result = self.generate_packet(self.packet)
-        if (result):
-            self.__del__()
-            self.add_to_summary(result)
+        return self.generate_packet(self.packet)
+    
         
     def on_packet_selected(self):
         if self.selected:
@@ -60,11 +51,8 @@ class ARPPacketWidget(PacketWidget):
             self.packet_number_label.setStyleSheet(self.selectedTopLayout)
 
             # show details
-            self.protocol_label = QLabel("Protocol: {}".format(self.protocol))
-            self.protocol_label.setStyleSheet(self.textStyle)
-            self.number_of_packets = QLabel("Number of Packets: {}".format(self.number_of_packet))
+            self.number_of_packets = QLabel("Number of Packets: {}".format(self.packet["number"]))
             self.number_of_packets.setStyleSheet(self.textStyle)
-            self.bottom_layout.addWidget(self.protocol_label)
             self.bottom_layout.addWidget(self.number_of_packets)
         else:
             # Change Style  of top layout
@@ -73,9 +61,6 @@ class ARPPacketWidget(PacketWidget):
             self.packet_number_label.setStyleSheet(self.textStyle)
 
             # hide details
-            if self.protocol_label is not None:
-                self.protocol_label.deleteLater()
-                self.protocol_label = None
             if self.number_of_packets is not None:
                 self.number_of_packets.deleteLater()
                 self.number_of_packets = None
