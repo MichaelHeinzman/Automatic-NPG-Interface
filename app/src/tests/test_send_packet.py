@@ -1,6 +1,6 @@
 import unittest
 from unittest.mock import patch
-from network.packet_sending import send_packet
+from src.network.packet_sending import send_packet
 
 class TestSendPacket(unittest.TestCase):
     @patch('my_module.sr')
