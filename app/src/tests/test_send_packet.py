@@ -1,10 +1,13 @@
+import sys
+import os
+sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
+
 import unittest
 from unittest.mock import patch
 from network import packet_sending
 
 
 class TestSendPacket(unittest.TestCase):
-    @patch('my_module.sr')
     def test_send_packet(self, mock_sr):
         # Create a fake packet and packet_info to send
         packet = b'fake packet'
