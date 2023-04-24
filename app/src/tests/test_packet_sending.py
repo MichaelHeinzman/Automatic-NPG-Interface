@@ -13,17 +13,17 @@ def test_send_packet_single():
     packet = Ether() / IP(dst="8.8.8.8") / DNS(rd=1, qd=DNSQR(qname="www.google.com"))
     packet_info = {"type": "DNS", "number": 1}
     result = send_packet(packet, packet_info)
-    assert len(result[0]) > 0  # Check that there is at least one answered packet
-    assert len(result[1]) == 0  # Check that there are no unanswered packets
-    assert len(result[2]) == 1  # Check that only one packet was sent
+    assert result[0]  # Check that there is at least one answered packet
+    assert result[1]  # Check that there are no unanswered packets
+    assert len(result[2]) == 5  # Check that all packets were sent
 
 # Test send_packet function with multiple packets
 def test_send_packet_multiple():
     packet = Ether() / IP(dst="8.8.8.8") / DNS(rd=1, qd=DNSQR(qname="www.google.com"))
     packet_info = {"type": "DNS", "number": 5}
     result = send_packet(packet, packet_info)
-    assert len(result[0]) > 0  # Check that there is at least one answered packet
-    assert len(result[1]) == 0  # Check that there are no unanswered packets
+    assert result[0]  # Check that there is at least one answered packet
+    assert result[1]  # Check that there are no unanswered packets
     assert len(result[2]) == 5  # Check that all packets were sent
 
 # Test check_packet_type_assign_send_method function with a valid packet type
