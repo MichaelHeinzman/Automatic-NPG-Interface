@@ -1,6 +1,7 @@
 import unittest
 from unittest.mock import patch
-from ....app.src.network.packet_sending import send_packet
+from network import packet_sending
+
 
 class TestSendPacket(unittest.TestCase):
     @patch('my_module.sr')
@@ -10,7 +11,7 @@ class TestSendPacket(unittest.TestCase):
         packet_info = {'type': 'IP', 'number': 1}
 
         # Call send_packet with the fake packet and packet_info
-        send_packet(packet, packet_info)
+        packet_sending.send_packet(packet, packet_info)
 
         # Assert that sr was called with the correct arguments
         mock_sr.assert_called_with(packet * packet_info['number'], timeout=10, iface=None, filter=None, verbose=0, chainCC=0, retry=0, multi=0)
