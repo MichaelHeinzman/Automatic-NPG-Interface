@@ -12,7 +12,7 @@ def test_create_packet():
         "hwsrc": "00:11:22:33:44:55",
         "hwdst": "ff:ff:ff:ff:ff:ff",
         "srcIP": "192.168.1.100",
-        "dstIP": "192.168.1.1",
+        'pdst': '192.168.1.1',
     }
     packet = create_packet(packet_info)
     assert packet.haslayer(ARP)
