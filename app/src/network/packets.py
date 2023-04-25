@@ -1,7 +1,7 @@
 
 __all__ = ['create_ARP', 'create_IP', 'create_DNS']
 
-from scapy.all import  get_if_hwaddr, get_if_addr, get_working_if
+from scapy.all import  get_if_hwaddr, get_if_addr, get_working_if, Raw, RandShort
 from scapy.layers.inet import IP,ICMP, TCP, UDP
 from scapy.layers.l2 import *
 from scapy.layers.dns import DNS, DNSQR

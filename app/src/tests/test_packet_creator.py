@@ -12,14 +12,14 @@ def test_create_packet():
         "hwsrc": "00:11:22:33:44:55",
         "hwdst": "ff:ff:ff:ff:ff:ff",
         "srcIP": "192.168.1.100",
-        'pdst': '192.168.1.1',
+        'dstIP': '192.168.1.1',  # fixed key name
     }
     packet = create_packet(packet_info)
     assert packet.haslayer(ARP)
     assert packet[Ether].dst == packet_info['hwdst']
     assert packet.haslayer(ARP)
     assert packet[ARP].op == 1
-    assert packet[ARP].pdst == packet_info['pdst']
+    assert packet[ARP].pdst == packet_info['dstIP']  # fixed key name
 
     # Test creating an IP packet
     packet_info = {
