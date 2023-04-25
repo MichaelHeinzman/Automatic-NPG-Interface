@@ -31,11 +31,11 @@ def test_create_packet():
         "payload": b"hello world",
     }
     packet = create_packet(packet_info)
-    assert packet.haslayer("IP")
+    assert packet.haslayer(IP)
     assert packet[IP].src == packet_info["srcIP"]
     assert packet[IP].dst == packet_info["dstIP"]
     assert packet[IP].ttl == packet_info["ttl"]
-    assert packet.haslayer("UDP")
+    assert packet.haslayer(UDP)
     assert packet[UDP].sport == 12345
     assert packet[UDP].dport == 54321
     assert packet.haslayer("Raw")
@@ -47,12 +47,12 @@ def test_create_packet():
         "qname": "example.com",
     }
     packet = create_packet(packet_info)
-    assert packet.haslayer("IP")
+    assert packet.haslayer(IP)
     assert packet[IP].dst == "8.8.8.8"
-    assert packet.haslayer("UDP")
+    assert packet.haslayer(UDP)
     assert packet[UDP].sport > 0
     assert packet[UDP].dport == 53
-    assert packet.haslayer("DNS")
+    assert packet.haslayer(DNS)
     assert packet[DNS].rd == 1
-    assert packet.haslayer("DNSQR")
+    assert packet.haslayer(DNSQR)
     assert packet[DNSQR].qname == packet_info["qname"]
