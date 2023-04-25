@@ -3,9 +3,7 @@ import os
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
 from network.packet_creator import create_packet
-from scapy.layers.inet import IP, UDP
-from scapy.layers.l2 import  Raw
-from scapy.layers.dns import DNS, DNSQR
+from scapy.all import *
 
 def test_create_packet():
     # Test creating an ARP packet
