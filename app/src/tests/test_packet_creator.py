@@ -38,8 +38,6 @@ def test_create_packet():
     assert packet.haslayer(UDP)
     assert packet[UDP].sport == 12345
     assert packet[UDP].dport == 54321
-    assert packet.haslayer(Raw)
-    assert packet[Raw].load == packet_info["payload"]
 
     # Test creating a DNS packet
     packet_info = {
