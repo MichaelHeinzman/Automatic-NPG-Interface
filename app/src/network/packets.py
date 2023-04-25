@@ -1,7 +1,7 @@
 
 __all__ = ['create_ARP', 'create_IP', 'create_DNS']
 
-from scapy.all import *
+from scapy.all import  get_if_hwaddr, get_if_addr, get_working_if
 from scapy.layers.inet import IP,ICMP, TCP, UDP
 from scapy.layers.l2 import *
 from scapy.layers.dns import DNS, DNSQR
@@ -13,8 +13,8 @@ from .error_handling import handle_error
 def create_ARP(packet_info):
     pdst = packet_info.get('pdst', '192.168.1.1')
     hwdst = packet_info.get('hwdst', 'ff:ff:ff:ff:ff:ff')
-    srcIP = packet_info.get('srcIP', get_if_addr(get_if()))
-    hwsrc = packet_info.get('hwsrc', get_if_hwaddr(get_if()))
+    srcIP = packet_info.get('srcIP', get_if_addr(get_working_if()))
+    hwsrc = packet_info.get('hwsrc', get_if_hwaddr(get_working_if()))
 
     arp_packet = Ether(dst=hwdst)/ARP(op=1,pdst=pdst, psrc=srcIP, hwsrc=hwsrc)
     return arp_packet
