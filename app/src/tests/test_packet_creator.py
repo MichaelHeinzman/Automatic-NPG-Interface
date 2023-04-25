@@ -10,7 +10,7 @@ def test_create_packet():
     packet_info = {
         "type": "ARP",
         "hwsrc": "00:11:22:33:44:55",
-        "hwdst": "aa:bb:cc:dd:ee:ff",
+        "hwdst": "ff:ff:ff:ff:ff:ff",
         "srcIP": "192.168.1.100",
         "dstIP": "192.168.1.1",
     }

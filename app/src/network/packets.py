@@ -13,7 +13,10 @@ from .error_handling import handle_error
 def create_ARP(packet_info):
     pdst = packet_info.get('pdst', '192.168.1.1')
     hwdst = packet_info.get('hwdst', 'ff:ff:ff:ff:ff:ff')
-    arp_packet = Ether(dst=hwdst)/ARP(op=1,pdst=pdst)
+    srcIP = packet_info.get('srcIP', get_if_addr(get_if()))
+    hwsrc = packet_info.get('hwsrc', get_if_hwaddr(get_if()))
+
+    arp_packet = Ether(dst=hwdst)/ARP(op=1,pdst=pdst, psrc=srcIP, hwsrc=hwsrc)
     return arp_packet
     
 @handle_error
