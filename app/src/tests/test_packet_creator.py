@@ -53,4 +53,4 @@ def test_create_packet():
     assert packet.haslayer(DNS)
     assert packet[DNS].rd == 1
     assert packet.haslayer(DNSQR)
-    assert packet[DNSQR].qname == packet_info["qname"].encode() + "."
+    assert packet[DNSQR].qname == (packet_info["qname"] + ".").encode()
