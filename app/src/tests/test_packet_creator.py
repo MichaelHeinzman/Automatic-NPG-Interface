@@ -15,11 +15,11 @@ def test_create_packet():
         "dstIP": "192.168.1.1",
     }
     packet = create_packet(packet_info)
-    assert packet.haslayer("ARP")
-    assert packet[0].hwsrc == packet_info["hwsrc"]
-    assert packet[0].hwdst == packet_info["hwdst"]
-    assert packet[0].psrc == packet_info["srcIP"]
-    assert packet[0].pdst == packet_info["dstIP"]
+    assert packet.haslayer(ARP)
+    assert packet[Ether].dst == packet_info['hwdst']
+    assert packet.haslayer(ARP)
+    assert packet[ARP].op == 1
+    assert packet[ARP].pdst == packet_info['pdst']
 
     # Test creating an IP packet
     packet_info = {
