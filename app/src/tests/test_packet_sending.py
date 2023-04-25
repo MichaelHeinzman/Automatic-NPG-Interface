@@ -15,7 +15,7 @@ def test_send_packet_single():
     result = send_packet(packet, packet_info)
     assert result[0] is not None  # Check that there is at least one answered packet
     assert result[1] is not None  # Check that there are no unanswered packets
-    assert len(result[2]) == 5  # Check that all packets were sent
+    assert len(result[2]) == 1  # Check that all packets were sent
 
 # Test send_packet function with multiple packets
 def test_send_packet_multiple():
