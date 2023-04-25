@@ -9,15 +9,15 @@ def test_create_packet():
     # Test creating an ARP packet
     packet_info = {
         "type": "ARP",
-        "srcMAC": "00:11:22:33:44:55",
-        "dstMAC": "aa:bb:cc:dd:ee:ff",
+        "hwsrc": "00:11:22:33:44:55",
+        "hwdst": "aa:bb:cc:dd:ee:ff",
         "srcIP": "192.168.1.100",
         "dstIP": "192.168.1.1",
     }
     packet = create_packet(packet_info)
     assert packet.haslayer("ARP")
-    assert packet[0].hwsrc == packet_info["srcMAC"]
-    assert packet[0].hwdst == packet_info["dstMAC"]
+    assert packet[0].hwsrc == packet_info["hwsrc"]
+    assert packet[0].hwdst == packet_info["hwdst"]
     assert packet[0].psrc == packet_info["srcIP"]
     assert packet[0].pdst == packet_info["dstIP"]
 
