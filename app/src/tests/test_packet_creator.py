@@ -3,7 +3,8 @@ import os
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
 from network.packet_creator import create_packet
-from scapy.all import *
+from scapy.layers.inet import IP, UDP, Raw
+from scapy.layers.dns import DNS, DNSQR
 
 def test_create_packet():
     # Test creating an ARP packet
@@ -38,7 +39,7 @@ def test_create_packet():
     assert packet.haslayer(UDP)
     assert packet[UDP].sport == 12345
     assert packet[UDP].dport == 54321
-    assert packet.haslayer("Raw")
+    assert packet.haslayer(Raw)
     assert packet[Raw].load == packet_info["payload"]
 
     # Test creating a DNS packet
