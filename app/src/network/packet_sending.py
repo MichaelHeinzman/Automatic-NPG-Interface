@@ -16,7 +16,8 @@ def send_packet(packet, packet_info, iface=None):
     if number_of_packets is None:
         return None
 
-    send_method, iface = check_packet_type_assign_send_method(packet, packet_info, iface)
+    send_method = check_packet_type_assign_send_method(packet, packet_info)
+    iface = get_default_interface_name()
     result = send_method(packet * number_of_packets, timeout=10, iface=iface, filter=None, verbose=0, chainCC=0, retry=0, multi=0)
     time.sleep(.1)
 
@@ -53,7 +54,7 @@ def send_packet(packet, packet_info, iface=None):
     return result
 
 @handle_error
-def check_packet_type_assign_send_method(packet, packet_info, iface=None):
+def check_packet_type_assign_send_method(packet, packet_info):
     if packet is None or packet_info is None:
         return None
 
@@ -67,10 +68,7 @@ def check_packet_type_assign_send_method(packet, packet_info, iface=None):
 
     send_method = send_method_dict.get(packet_type, sr)
 
-    if iface is None:
-        iface = get_default_interface_name()
-
-    return send_method, iface
+    return send_method
 
 def get_default_interface_name():
     """

@@ -30,7 +30,7 @@ def test_send_packet_multiple():
 def test_check_packet_type_assign_send_method_valid():
     packet = Ether() / IP(dst="8.8.8.8") / DNS(rd=1, qd=DNSQR(qname="www.google.com"))
     packet_info = {"type": "DNS", "number": 1}
-    send_method, iface = check_packet_type_assign_send_method(packet, packet_info)
+    send_method = check_packet_type_assign_send_method(packet, packet_info)
     assert send_method.__name__ == "sr"  # Check that the correct send method was assigned
 
 # Test check_packet_type_assign_send_method function with an invalid packet type

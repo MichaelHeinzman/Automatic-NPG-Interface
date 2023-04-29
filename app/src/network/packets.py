@@ -11,16 +11,20 @@ from .error_handling import handle_error
 # Creates an ARP response and request packet.
 @handle_error
 def create_ARP(packet_info):
+    # All fields can be added to IP, I removed them since I couldn't test them all.
     pdst = packet_info.get('pdst', '192.168.1.1')
     hwdst = packet_info.get('hwdst', 'ff:ff:ff:ff:ff:ff')
     srcIP = packet_info.get('srcIP', get_if_addr(get_working_if()))
     hwsrc = packet_info.get('hwsrc', get_if_hwaddr(get_working_if()))
 
+    # Wraps the created ARP packet in an Ether packet. 
     arp_packet = Ether(dst=hwdst)/ARP(op=1,pdst=pdst, psrc=srcIP, hwsrc=hwsrc)
     return arp_packet
     
 @handle_error
 def create_IP(packet_info):
+    # Gets the necessary information from packet_info.
+    # All fields can be added to IP, I removed them since I couldn't test them all.
     src_IP = packet_info.get("srcIP", get_if_addr(get_working_if()))
     dst_IP = packet_info.get("dstIP")
     ttl = packet_info.get("ttl", 64)
@@ -51,6 +55,7 @@ def create_IP(packet_info):
 # Create a DNS packet.
 @handle_error
 def create_DNS (packet_info):
+    # All fields can be added to IP, I removed them since I couldn't test them all.
     qname = packet_info.get("qname", 'example.com')
 
     dns_packet = IP(dst='8.8.8.8')/UDP(sport=RandShort(),dport=53)/DNS(rd=1, qd=DNSQR(qname=qname))
