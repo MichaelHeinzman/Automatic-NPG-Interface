@@ -37,5 +37,5 @@ def test_check_packet_type_assign_send_method_valid():
 def test_check_packet_type_assign_send_method_invalid():
     packet = Ether() / IP(dst="8.8.8.8") / DNS(rd=1, qd=DNSQR(qname="www.google.com"))
     packet_info = {"type": "HTTP", "number": 1}
-    send_method, iface = check_packet_type_assign_send_method(packet, packet_info)
+    send_method = check_packet_type_assign_send_method(packet, packet_info)
     assert send_method.__name__ == "sr"  # Check that the default send method was assigned
